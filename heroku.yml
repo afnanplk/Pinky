@@ -1,0 +1,5 @@
+build:
+  docker:
+      worker: /PinkyMwol/Dockerfile
+run:
+   worker: npm start

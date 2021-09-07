@@ -10,7 +10,7 @@ const Config = require('../config')
 const Pinky = require('../pinky')
 const afn = Config.PLKS !== false ? Config.PLKS.split(',') : [];
 const afnp = Pinky.PLKAFN !== false ? Pinky.PLKAFN.split(',') : [];
-const jid = Config.DISBGM !== undefined ? Config.DISBGM.split(',') : [];
+const jid = Config.DISBGM !== false ? Config.DISBGM.split(',') : [];
 const Language = require('../language');
 const Lang = Language.getString('filters');
 

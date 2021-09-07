@@ -302,3 +302,46 @@ let baseURI = '/apps/' + config.HEROKU.APP_NAME;
                 await message.sendMessage(STR_OFF)
         }
     }));
+
+    
+ var W_PUB = ''
+ var W_PRI = ''
+ var W_ADM = ''
+  if (config.LANG == 'EN') {
+    
+    W_ADM = 'ᴡᴏʀᴋ ᴛʏᴘᴇ ɪꜱ ᴀᴅᴍɪɴ ɴᴏᴡ' 
+    W_PUB = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘᴜʙʟɪᴄ'
+    W_PRI = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘʀɪᴠᴀᴛᴇ'
+    }
+
+    if (config.LANG == 'ML') {
+      
+      W_ADM = 'ᴡᴏʀᴋ ᴛʏᴘᴇ ɪꜱ ᴀᴅᴍɪɴ ɴᴏᴡ'
+      W_PUB = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘᴜʙʟɪᴄ'
+      W_PRI = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘʀɪᴠᴀᴛᴇ'
+    }
+
+ Asena.addCommand({pattern: 'work ?(.*)', fromMe: true,dontAddCommandList: true, }, (async (message, match) => {
+        if (match[1] == 'public') {
+                await heroku.patch(baseURI + '/config-vars', { 
+                    body: { 
+                        ['WORK_TYPE']: 'public'
+                    } 
+                });
+                await message.sendMessage(W_PUB)
+        } else if (match[1] == 'private') {
+                await heroku.patch(baseURI + '/config-vars', { 
+                    body: { 
+                        ['WORK_TYPE']: 'private'
+                    } 
+                });
+                await message.sendMessage(W_PRI)
+         } else if (match[1] == 'private') {
+                await heroku.patch(baseURI + '/config-vars', { 
+                    body: { 
+                        ['WORK_TYPE']: 'admin'
+                    } 
+                });
+                await message.sendMessage(W_ADM)
+        }
+    }));

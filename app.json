@@ -86,17 +86,17 @@
             "value": "true"
         },
         "Z_BOT_NAME": {
-            "description": "give a name you disire to give your bot (for auto reply pinkt to identify)",
+            "description": "give a name you disire to give your bot (for auto reply pinky to identify)",
             "required": false,
             "value": "PINKY"
         },
         "Z_DEP_NAME": {
-            "description": "bot deployer name make it short  (for auto reply pinkt to identify)",
+            "description": "bot deployer name make it short  (for auto reply pinky to identify)",
             "required": false,
             "value": "plk"
         },
-        "Z_BOT_REPLY": {
-            "description": "enter the repply message you want when deployer name is typed by users  (for auto reply pinkt to identify)",
+        "Z_DEP_REPLY": {
+            "description": "enter the reply message you want when deployer name is typed by users  (for auto reply pink to identify)",
             "required": false,
             "value": "i know him he is my creator"
         },

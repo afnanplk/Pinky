@@ -2,7 +2,7 @@ const MyPnky = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
 const axios = require('axios');
-const config = require('../config');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('weather');

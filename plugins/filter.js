@@ -1,6 +1,6 @@
 /* Copyright (C) 2020 farhan-dqz.
-re codded by afnanplk
-PINKY V2 
+re codded by afnan plk
+PINKY
 */
 const fs = require('fs')
 const MyPnk = require('../events');

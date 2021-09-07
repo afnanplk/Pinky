@@ -2,7 +2,7 @@ const MyPnky = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
 const axios = require('axios');
-const Config = require('../config');
+const config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('weather');
@@ -151,7 +151,7 @@ if (config.WORKTYPE == 'private') {
             await message.client.sendMessage(message.jid,'ᴘɪɴᴋʏ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀꜰɴᴀɴᴘʟᴋ' , MessageType.text, { quoted: message.data });
         }
         else {
-            await message.client.sendMessage(message.jid,Config.PLK, MessageType.text, { quoted: message.data });
+            await message.client.sendMessage(message.jid,config.PLK, MessageType.text, { quoted: message.data });
         }
     }));
 
@@ -313,7 +313,7 @@ else if (config.WORKTYPE == 'public') {
             await message.client.sendMessage(message.jid,'ᴘɪɴᴋʏ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀꜰɴᴀɴᴘʟᴋ' , MessageType.text, { quoted: message.data });
         }
         else {
-            await message.client.sendMessage(message.jid,Config.PLK, MessageType.text, { quoted: message.data });
+            await message.client.sendMessage(message.jid,config.PLK, MessageType.text, { quoted: message.data });
         }
     }));
 

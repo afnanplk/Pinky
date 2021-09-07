@@ -321,7 +321,7 @@ let baseURI = '/apps/' + config.HEROKU.APP_NAME;
       W_PRI = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘʀɪᴠᴀᴛᴇ'
     }
 
- Asena.addCommand({pattern: 'work ?(.*)', fromMe: true,dontAddCommandList: true, }, (async (message, match) => {
+    MyPnky.addCommand({pattern: 'work ?(.*)', fromMe: true,dontAddCommandList: true, }, (async (message, match) => {
         if (match[1] == 'public') {
                 await heroku.patch(baseURI + '/config-vars', { 
                     body: { 

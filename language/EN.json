@@ -505,7 +505,7 @@
             "HUMI": "Humidity",
             "WIND": "Wind Speed",
             "CLOUD": "Cloud",
-            "NOT_FOUND": "```ingane oru sthalam indo..? enthayallum enit kandethaan ayeela. 😖```",
+            "NOT_FOUND": "```location not found 😖```",
             "QUOTE_DESC": "Gives a random quote.",
             "NEED_LOCATIONA": "*Invalid Request*",
             "QUOTE": "Quote:",

@@ -4,10 +4,10 @@
 <div align="center">
   <img border-radius: 15px src="https://i.imgur.com/f8s4bDO.jpeg" width="170" height="170"/>
   <p align="center">
-<a href="#"><img title="luttappi" src="https://img.shields.io/badge/shahid-devil?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+<a href="#"><img title="luttapi" src="https://img.shields.io/badge/shahid-devil?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
   <p align="center">
-<a href="https://github.com/shahid-devil"><img title="Author" src="https://img.shields.io/badge/Author-shahid-devil/luttappi?color=black&style=for-the-badge&logo=whatsapp"></a>
+<a href="https://github.com/shahid-devil"><img title="Author" src="https://img.shields.io/badge/Author-shahid-devil/luttapi?color=black&style=for-the-badge&logo=whatsapp"></a>
 </p>
 </div>
 <p align="center">
@@ -21,18 +21,18 @@ Project created by <a href="https://github.com/shahid-devil">shahid-devil</a> to
 ----
 
   <p align="center">
-  <a href="https://github.com/shahid-devil/luttappi ">
-    <img src="https://img.shields.io/github/repo-size/shahid-devil/luttappi?color=green&label=Repo%20total%20size&style=plastic">
+  <a href="https://github.com/shahid-devil/luttapi ">
+    <img src="https://img.shields.io/github/repo-size/shahid-devil/luttapi?color=green&label=Repo%20total%20size&style=plastic">
 <p align="center">
 <a href="https://github.com/shahid-devil/followers"><img title="Followers" src="https://img.shields.io/github/followers/shahid-devil?color=red&style=flat-circle"></a>
-<a href="https://github.com/shahid-devil/luttappi/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/shahid-devil/luttappi?color=red&style=flat-square"></a>
-<a href="https://github.com/shahid-devil/luttappi/network/members"><img title="Forks" src="https://img.shields.io/github/forks/shahid-devil/luttappi?color=red&style=flat-square"></a>
-<a href="https://github.com/shahid-devil/luttappi/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/shahid-devil/luttappi?label=Watchers&color=red&style=flat-square"></a>
+<a href="https://github.com/shahid-devil/luttapi/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/shahid-devil/luttapi?color=red&style=flat-square"></a>
+<a href="https://github.com/shahid-devil/luttapi/network/members"><img title="Forks" src="https://img.shields.io/github/forks/shahid-devil/luttapi?color=red&style=flat-square"></a>
+<a href="https://github.com/shahid-devil/luttapi/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/shahid-devil/luttapi?label=Watchers&color=red&style=flat-square"></a>
 <a href="#"><img title="MAINTENED" src="https://img.shields.io/badge/UNMAINTENED-YES-blue.svg"</a>
 
 ```
   
-luttappi - luttappi Userbot is Open Source software open to development. 
+luttapi - luttapi Userbot is Open Source software open to development. 
 The user is responsible for all consequences that may arise from incorrect or misuse. 
 Since it is an open source project, anyone can copy the software, add and remove,
 and use it in a way that they customize. In addition, plug-in support enables users to 
@@ -55,7 +55,7 @@ the user is responsible.
 
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@phaticusthiccy/WhatsAsena-QR)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/shahid-devil/luttappi)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/shahid-devil/luttapi)
      </div>
 <br>
 <br >
@@ -101,4 +101,4 @@ This project is protected by `GNU General Public Licence v3.0` license.
 
   ##Special thanks for
 'Afnanplk'
-'https://github.com/afnanplk/Pinky.git'
+`https://github.com/afnanplk/Pinky.git`

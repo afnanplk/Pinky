@@ -99,7 +99,7 @@ if (Config.WORKTYPE == 'private') {
 
     var respoimage = await axios.get(`${r_text[i]}`, { responseType: 'arraybuffer' })
 
-    await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: 'Made by PLK'})
+    await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: 'Made by SHAHID😈'})
 
     }));
     
@@ -736,11 +736,11 @@ if (Config.WORKTYPE == 'private') {
 
     }));
     
-    MyPnky.addCommand({pattern: 'pink', fromMe: true,dontAddCommandList: true}, (async (message, match) => {
+    MyPnky.addCommand({pattern: 'luttapi', fromMe: true,dontAddCommandList: true}, (async (message, match) => {
         
     var r_text = new Array ();    
 r_text[0] = "\nEda eda, mandankonappi.. Nee enne kooduthal mandan aakkatheda\n";
-r_text[1] = "pinkye tholpikkaan ningalkavilla. Jeevitathil pinkiye tholpichittundu… palarum… palavattom…😥😥 aarellum aaa sed bgm onn iduo...";
+r_text[1] = "luttapiye tholpikkaan ningalkavilla. Jeevitathil pinkiye tholpichittundu… palarum… palavattom…😥😥 aarellum aaa sed bgm onn iduo...";
 r_text[2] = "pinky says i love you 😘";
 r_text[3] = "Pinkyudeyude yudhangal Company Kanan Povunnatheyuloo";
 r_text[4] = "hi, how are you";

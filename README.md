@@ -86,9 +86,9 @@ By establishing the Asena, you are deemed to have accepted these responsibilitie
 ## Developers
   <div align="center">
     
-  [![Farhan-Dqz](https://github.com/farhan-dqz.png?size=100)](https://github.com/farhan-dqz) |  [![TOXIC4L!3N](https://github.com/Alien-alfa.png?size=100)](https://github.com/AI-VIKI) | [![shahid-devil](https://github.com/shahid-devil.png?size=100)](https://github.com/shahid-devil) 
+  [![Farhan-Dqz](https://github.com/farhan-dqz.png?size=100)](https://github.com/farhan-dqz) |  [![afnanplk](https://github.com/afnanplk.png?size=100)](https://github.com/AI-VIKI) | [![shahid-devil](https://github.com/shahid-devil.png?size=100)](https://github.com/shahid-devil) 
 ----|----|----
-[farhan-dqz](https://github.com/farhan-dqz)  | [TOXIC4L!3N](https://github.com/AI-VIKI) | [shahid-devil](https://github.com/shahid-devil)
+[farhan-dqz](https://github.com/farhan-dqz)  | [afnanplk](https://github.com/afnanplk/Pinky) | [shahid-devil](https://github.com/shahid-devil)
 Base, Bug Fixes, Modules | Modifiying  as   public | Bug Fixes, Modules
   </div>
 

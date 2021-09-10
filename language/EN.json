@@ -237,14 +237,14 @@
         },
         "updater": {
             "UPDATER_DESC": "Checks the update for luttapi 🧚.",
-            "UPDATE": "ʏᴏᴜʀ ᴘɪɴᴋʏ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ",
+            "UPDATE": "ʏᴏᴜʀ ʟᴜᴛᴛᴀᴘɪ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ",
             "NEW_UPDATE": "*New update available for luttapi 🧞!*\n\n ```use .list for commands``` \n\n *ask support group before updating or your bot might stop working* \n https://chat.whatsapp.com/ENzZrW0WgMQKnOX6kiOhtZ \n *-if bot stop working you will have to re-deploy* \n\n Updates are:\n\n ",
             "UPDATE_NOW_DESC": "It makes updates.",
-            "UPDATING": "ᴘɪɴᴋʏ ᴜᴘᴅᴀᴛɪɴɢ...",
+            "UPDATING": "ʟᴜᴛᴛᴀᴘɪ ᴜᴘᴅᴀᴛɪɴɢ...🧞",
             "INVALID_HEROKU": "*❌ Your Heroku information is wrong!*",
             "UPDATED": "*✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴜᴘᴅᴀᴛᴇᴅ!*",
             "UPDATED_LOCAL": "*✅ Successfully Updated!*",
-            "AFTER_UPDATE": "*💬 ᴘɪɴᴋʏ ʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ!*",
+            "AFTER_UPDATE": "*💬 ʟᴜᴛᴛᴀᴘɪ ʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ!*",
             "IN_AF": "*Please check* ```HEROKU_APP_NAME``` *and* ```app name``` *They must be same.*\n*If these two values ​​are the same, please restore* ```HEROKU_API_KEY```\n\n_To access these settings, use Heroku >> App >> Settings >> Reavel Config Vars_\n_To renew your API key, follow these steps, Heroku >> Account >> API Key then replace old api key in config vars._"
         },
         "whois": {
@@ -523,7 +523,7 @@
             "CM_DESC": "Get a compliment.",
             "NOT_FOUNDAC": "*Invalid Request*",
             "CM": "Hey,",
-            "BOT_DESC": "Chat with Pinky.\n Use .molu <message>",
+            "BOT_DESC": "Chat with Luttapi.\n Use .molu <message>",
             "BOT": ":",
             "JOKE_DESC": "Get a random joke.",
             "DEVICE": "get the details of given mobile phone",     
@@ -589,7 +589,7 @@
             "M_AUT": "Music Author:"
         },
         "lyrics": {
-            "LY_DESC": "Pinky will find the lyrics of the song.",
+            "LY_DESC": "Luttapi will find the lyrics of the song.",
             "NEED": "\n```You Must Write Any Song!```\n",
             "SLY": "Lyrics:",
             "AUT": "Song Owner:",

@@ -1,4 +1,5 @@
 /* codded by afnanplk
+re coded by Shahid shazz
 */
 
 const { Sequelize } = require('sequelize');
@@ -11,11 +12,11 @@ function convertToBool(text, fault = 'true') {
 }
 
 module.exports = {
- OB_NAME: process.env.Z_BOT_NAME === undefined ? 'Pinky' : process.env.Z_BOT_NAME,
- OA_NAME: process.env.Z_DEP_NAME === undefined ? 'plk' : process.env.Z_DEP_NAME,
+ OB_NAME: process.env.Z_BOT_NAME === undefined ? 'luttapi' : process.env.Z_BOT_NAME,
+ OA_NAME: process.env.Z_DEP_NAME === undefined ? 'shazz' : process.env.Z_DEP_NAME,
  REMOVE2: process.env.THERI_KICK_PM === undefined ? 'false' : process.env.THERI_KICK_PM,
  PLKAFN: process.env.THERI_LIST_PM === undefined ? false : process.env.THERI_LIST_PM,
- OA_REPLY: process.env.Z_DEP_REPLY === undefined ? 'you typed plk , he is my creator' : process.env.Z_DEP_REPLY,
+ OA_REPLY: process.env.Z_DEP_REPLY === undefined ? 'you typed shazz , he is my creator' : process.env.Z_DEP_REPLY,
  PHONE: process.env.NUMBER === undefined ? '+918301985859' : process.env.NUMBER,   
     
 

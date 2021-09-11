@@ -8,7 +8,7 @@ const {MessageType, Mimetype } = require('@adiwajshing/baileys');
 const FilterDb = require('./sql/filters');
 const Config = require('../config')
 const luttapi = require('../luttapi')
-const afn = Config.PLKS !== false ? Config.PLKS.split(',') : [];
+const afn = Config.SHAZZS !== false ? Config.SHAZZS.split(',') : [];
 const afnp = luttapi.PLKAFN !== false ? luttapi.PLKAFN.split(',') : [];
 const jid = Config.DISBGM !== false ? Config.DISBGM.split(',') : [];
 const Language = require('../language');

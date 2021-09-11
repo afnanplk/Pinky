@@ -65,7 +65,7 @@ let wk = conf.WORKTYPE == 'public' ? false : true
 var vtalk_dsc = ''
 var reply_eva = ''
 if (conf.LANG == 'TR') vtalk_dsc = 'Eva sesli sohbetini başlatır.', reply_eva = '*Herhangi Bir Sesli Mesaja Yanıt Verin!*'
-if (conf.LANG == 'EN') vtalk_dsc = 'Starts to pinky voice chat.', reply_eva = '*Reply to Any Voice Message!*'
+if (conf.LANG == 'EN') vtalk_dsc = 'Starts to luttapi voice chat.', reply_eva = '*Reply to Any Voice Message!*'
 if (conf.LANG == 'AZ') vtalk_dsc = 'Eva səsli söhbətinə başlayır.', reply_eva = '*Hər hansı bir səsli mesaja cavab verin!*'
 if (conf.LANG == 'PT') vtalk_dsc = 'Começa o bate-papo por voz de Eva.', reply_eva = '*Responder a qualquer mensagem de voz!*'
 if (conf.LANG == 'RU') vtalk_dsc = 'Запускает голосовой чат Eva.', reply_eva = '*Ответьте на любое голосовое сообщение!*'
@@ -277,11 +277,11 @@ if (conf.LANG == 'TR') {
     succ_off = 'Eva, Yarı Fonksiyonel Olarak Ayarlandı! Lütfen Biraz Bekleyin! ☑️'
 }
 if (conf.LANG == 'EN') {
-    fulleva_dsc = 'Activates full functional Pinky features. Turn your account into a ai chatbot!'
-    already_on = 'Pinky artificial intelligence is already fully functional.'
-    already_off = 'Pinky artificial intelligence is currently running semi-functional.'
-    succ_on = 'Pinky Opened Fully Functionally! Please wait a bit! ✅'
-    succ_off = 'Pinky Set to Semi-Functional! Please wait a bit! ☑️'
+    fulleva_dsc = 'Activates full functional luttapi features. Turn your account into a ai chatbot!'
+    already_on = 'luttapi artificial intelligence is already fully functional.'
+    already_off = 'luttapi artificial intelligence is currently running semi-functional.'
+    succ_on = 'luttapi Opened Fully Functionally! Please wait a bit! ✅'
+    succ_off = 'luttapi Set to Semi-Functional! Please wait a bit! ☑️'
 }
 if (conf.LANG == 'AZ') {
     fulleva_dsc = 'Tam funksional Eva xüsusiyyətlərini aktivləşdirir. Hesabınızı bir chatbot halına gətirin!'

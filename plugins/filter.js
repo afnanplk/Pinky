@@ -1,15 +1,15 @@
 /* Copyright (C) 2020 farhan-dqz.
-re codded by afnan plk
-PINKY
+re codded by Shahid shazz
+LUTTAPI
 */
 const fs = require('fs')
 const MyPnk = require('../events');
 const {MessageType, Mimetype } = require('@adiwajshing/baileys');
 const FilterDb = require('./sql/filters');
 const Config = require('../config')
-const Pinky = require('../pinky')
+const luttapi = require('../luttapi')
 const afn = Config.PLKS !== false ? Config.PLKS.split(',') : [];
-const afnp = Pinky.PLKAFN !== false ? Pinky.PLKAFN.split(',') : [];
+const afnp = luttapi.PLKAFN !== false ? luttapi.PLKAFN.split(',') : [];
 const jid = Config.DISBGM !== false ? Config.DISBGM.split(',') : [];
 const Language = require('../language');
 const Lang = Language.getString('filters');

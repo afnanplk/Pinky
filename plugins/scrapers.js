@@ -6,7 +6,7 @@ const MyPnky = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const translatte = require('translatte');
 const config = require('../config');
-const Pinky = require('../pinky');
+const luttapi = require('../luttapi');
 const LanguageDetect = require('languagedetect');
 const lngDetector = new LanguageDetect();
 const Heroku = require('heroku-client');
@@ -385,11 +385,11 @@ if (config.WORKTYPE == 'private') {
 
             const p_lk = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
-            + 'FN:' + Pinky.OA_NAME + '\n' //created afnanplk, please copy this with credit..
-            + 'ORG:pinky julie fam;\n' 
-            + 'TEL;type=CELL;type=VOICE;waid=' + Pinky.PHONE + ':' + Pinky.PHONE + ' \n'
+            + 'FN:' + luttapi.OA_NAME + '\n' //created afnanplk, please copy this with credit..
+            + 'ORG:luttapi julie fam;\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=' + luttapi.PHONE + ':' + luttapi.PHONE + ' \n'
             + 'END:VCARD'
-await message.client.sendMessage(message.jid, {displayname: "PINKY", vcard: p_lk}, MessageType.contact);
+await message.client.sendMessage(message.jid, {displayname: "LUTTAPI", vcard: p_lk}, MessageType.contact);
 
   }));    
 
@@ -1035,11 +1035,11 @@ else if (config.WORKTYPE == 'public') {
 
             const p_lk = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
-            + 'FN:' + Pinky.OA_NAME + '\n' //created afnanplk, please copy this with credit..
-            + 'ORG:pinky julie fam;\n' 
-            + 'TEL;type=CELL;type=VOICE;waid=' + Pinky.PHONE + ':' + Pinky.PHONE + ' \n'
+            + 'FN:' + luttapi.OA_NAME + '\n' //created afnanplk, please copy this with credit..
+            + 'ORG:luttapi julie fam;\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=' + luttapi.PHONE + ':' + luttapi.PHONE + ' \n'
             + 'END:VCARD'
-await message.client.sendMessage(message.jid, {displayname: "PINKY", vcard: p_lk}, MessageType.contact);
+await message.client.sendMessage(message.jid, {displayname: "LUTTAPI", vcard: p_lk}, MessageType.contact);
 
   }));    
 

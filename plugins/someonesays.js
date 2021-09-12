@@ -9,8 +9,8 @@ const fs = require('fs');
 const axios = require('axios');
 const Config = require('../config');
 const ll ="*Need some Word*"
-const Ln = "*▷🪐നിങ്ങൾ ആഗ്രഹിക്കുന്ന രീതിയിൽ മെമ്മുകൾ ഇച്ഛാനുസൃതമാക്കാൻ മെമ്മെ ലിസ്റ്റ്◁* "
- const code = "*╔═════◉   Zara   ◉═════╗*\n           Zara👧\n*❖═List═❖*\n\n*💠.yasai            ❴your text❵*\n*💠.innocent         ❴your text❵*\n*💠.jagathy         ❴your text❵*\n*💠.amboo            ❴your text❵*\n*💠.yeah             ❴your text❵*\n*💠.cry             ❴your text❵*\n*💠.disaster        ❴your text❵*\n*💠.uddika      ❴your text❵*\n*💠.aah          ❴your text❵*\n*💠.sir            ❴your text❵*\n*💠.my3         ❴your text❵*\n*💠.fuck         ❴your text❵*\n*💠.hii              ❴your text❵*\n*💠.asai          ❴your text❵*\n*💠.hapoi       ❴your text❵*\n*╚═══❖══▣══▣══❖═══╝*\n\n*▷Translate Credit: Saidali*"
+const Ln = "▷🧞𝚂𝙾𝙼𝙴 𝚂𝙾𝙼𝙴𝙾𝙽𝙴𝚂𝙰𝚈 𝙰𝙽𝙳 𝚃𝚁𝙾𝙻𝙻𝙿𝙰𝙲𝙺 𝙻𝙸𝚂𝚃 🤗◁ "
+ const code = "╔════◉ 𝙻𝚄𝚃𝚃𝙰𝙿𝙸 ◉════╗\n\n            ❖═List═❖\n*🔮.miasay       ❴text❵\n🔮.innocent    ❴text❵\n🔮.jagathy          ❴text❵\n🔮.yeah            ❴text❵\n🔮.disaster         ❴text❵\n🔮.cry         ❴text❵\n🔮.amboo             ❴text❵\n🔮.animesay          ❴text❵\n🔮.changesay       ❴text❵\n🔮.trumpsay    ❴text❵\n╚═══❖══▣══▣══❖═══╝\n\n▷Re Moded By: 𝚂𝙷𝙰𝙷𝙸𝙳 𝚂𝙷𝙰𝚉𝚉*\n*▷Specιal Thanks to ιnѕane вoy*"
 
 if (Config.WORKTYPE == 'public') {
     

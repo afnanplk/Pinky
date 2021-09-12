@@ -11,3 +11,10 @@ const Ln = "▷🧞𝚂𝙾𝙼𝙴 𝚂𝙾𝙼𝙴𝙾𝙽𝙴𝚂𝙰𝚈 �
 const code = "╔════◉ 𝙻𝚄𝚃𝚃𝙰𝙿𝙸 ◉════╗\n\n            ❖═List═❖\n*🔮.miasay       ❴text❵\n🔮.innocent    ❴text❵\n🔮.jagathy          ❴text❵\n🔮.yeah            ❴text❵\n🔮.disaster         ❴text❵\n🔮.cry         ❴text❵\n🔮.amboo             ❴text❵\n🔮.animesay          ❴text❵\n🔮.changesay       ❴text❵\n🔮.trumpsay    ❴text❵\n╚═══❖══▣══▣══❖═══╝\n\n▷Re Moded By: 𝚂𝙷𝙰𝙷𝙸𝙳 𝚂𝙷𝙰𝚉𝚉*\n*▷Specιal Thanks to ιnѕane вoy*"
 
 if (Config.WORKTYPE == 'public') {
+      
+      Shazz.addCommand({pattern: 'mmpack', fromMe: false, desc: Ln,}, (async (message, match) => {
+
+    await message.client.sendMessage(
+
+      
+

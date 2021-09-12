@@ -15,6 +15,8 @@ if (Config.WORKTYPE == 'public') {
       Shazz.addCommand({pattern: 'mmpack', fromMe: false, desc: Ln,}, (async (message, match) => {
 
     await message.client.sendMessage(
+      message.jid,code, MessageType.text, {quoted: message.data});
+   
 
-      
+
 

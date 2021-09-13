@@ -1,42 +1,9 @@
 /* Codded by Phaticusthiccy
-Eva, The Phaticusthiccy's Multifunctional Artificial Intelligence
+eva artificial intelligence was codded by Phaticusthiccy
+also 90% of thise code is done by Phaticusthiccy
 
-Eva AI has more than 50 Gigabyte dataset which including neural calculator,
-wikipedia data, sentiment analysis, Instagram workflow with neural cells.
-
-Thanks for Brainshop.ai for a rest connection with non-ethernet interaction
-Eva database. 
- 
-Eva is a multimedia-powered artificial intelligence with its own virtual brain.
-Brainshop.ai allow access to load all external conversation for train Neural cells,
-from every user's historical conversations.
-
-Think twice about your choices about Eva. 
-May react differently in directed situations. This is completely natural and depends on users.
-All message history with Eva is not exported to any 3rd applications.
-Since Eva works entirely with deep learning, all responsibility belongs to the user.
-
-Arvix Articles About Eva's System:
->> https://arxiv.org/abs/2106.09461
->> https://arxiv.org/abs/2102.00287
->>https://arxiv.org/abs/2106.06157
-
-Wikipedia Articles About Eva'a System:
->> https://en.m.wikipedia.org/wiki/Optical_character_recognition
->> https://en.m.wikipedia.org/wiki/Text_mining
->> https://en.m.wikipedia.org/wiki/Natural_language_processing
-
-*/
-// ===================================================
-/*
-Eva has never been connected to the internet previously.
-The Brainshop.ai supports to javascript datasets, so thats way we cloned some datas from Eva to 
-Brainshop.ai. 
-
-Therefore, 100% efficiency cannot be obtained from Eva Artificial Intelligence.
-The voice recognition doesn't work with eva infrastructure.
-We are using wit.ai's voice recognition for voicy conversation.
-The all input datas must be english. We are using google translate before send users inputs.
+re-coded or modified by afnanplk
+to bring new ai
 */
 
 
@@ -71,7 +38,7 @@ if (conf.LANG == 'PT') vtalk_dsc = 'Começa o bate-papo por voz de Eva.', reply_
 if (conf.LANG == 'RU') vtalk_dsc = 'Запускает голосовой чат Eva.', reply_eva = '*Ответьте на любое голосовое сообщение!*'
 if (conf.LANG == 'HI') vtalk_dsc = 'Eva ध्वनि चैट प्रारंभ करता है', reply_eva = '*किसी भी ध्वनि संदेश का उत्तर दें!*'
 if (conf.LANG == 'ES') vtalk_dsc = 'Comienza con el chat de voz de Eva.', reply_eva = '*¡Responde a cualquier mensaje de voz!*'
-if (conf.LANG == 'ML') vtalk_dsc = 'Eva വോയ്‌സ് ചാറ്റിലേക്ക് ആരംഭിക്കുന്നു.', reply_eva = '*ഏത് വോയ്‌സ് സന്ദേശത്തിനും മറുപടി നൽകുക!*'
+if (conf.LANG == 'ML') vtalk_dsc = 'വോയ്‌സ് ചാറ്റിലേക്ക് ആരംഭിക്കുന്നു.', reply_eva = '*ഏത് വോയ്‌സ് സന്ദേശത്തിനും മറുപടി നൽകുക!*'
 if (conf.LANG == 'ID') vtalk_dsc = 'Mulai obrolan suara Eva.', reply_eva = '*Balas Pesan Suara Apapun!*'
 
 const recognizeAudio = () => {
@@ -98,11 +65,11 @@ const convertToWav = file => {
 }
 
 Asena.addCommand({on: 'text', fromMe: wk, dontAddCommandList: true, deleteCommand: false}, (async (message, match) => {
-    if (message.message.startsWith('bot') && conf.FULLEVA !== 'true') {        
+    if (message.message.startsWith('pinky') && conf.TALKING_PINKY !== 'true') {        
         var unique_ident = message.client.user.jid.split('@')[0]      
         let acc = os.userInfo().homedir.split('Whats')[1].split('Duplicated/')[0] == 'Asena' ? '7d57838203msh0c5cf65c90a7231p13b461jsn77c8cfa55871' : '7d57838203msh0c582jak19865261js1229n77c8cfa55871'
         let aitalk_mode = message.message.includes('{normal}') ? 'raw' : 'waifu'
-        var finm = message.message.replace('bot', '').replace(' ', '')   
+        var finm = message.message.replace('pinky', '').replace(' ', '')   
         var ainame = os.userInfo().homedir.split('Whats')[1].split('Duplicated/')[0]
         if (ainame !== 'Asena') return;
         var ldet = lngDetector.detect(finm)
@@ -114,7 +81,7 @@ Asena.addCommand({on: 'text', fromMe: wk, dontAddCommandList: true, deleteComman
             }
         } else { trmsg = finm }
         var uren = encodeURI(trmsg)
-        await axios.get('http://api.brainshop.ai/get?bid=157104&key=VzGieV1tp1IvxPl4&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
+        await axios.get('http://api.brainshop.ai/get?bid=159506&key=4QPRlFg6JPdxT8As&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
             var fins = ''                           
             if (conf.LANG !== 'EN') {
                 ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
@@ -127,7 +94,7 @@ Asena.addCommand({on: 'text', fromMe: wk, dontAddCommandList: true, deleteComman
     }
 }));
 Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-        if (conf.FULLEVA == 'true' && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
+        if (conf.TALKING_PINKY == 'true' && ((!message.jid.includes('-')) || (message.jid.includes('-') && 
             (( message.mention !== false && message.mention.length !== 0 ) || message.reply_message !== false)))) {
             if (message.jid.includes('-') && (message.mention !== false && message.mention.length !== 0)) {
                 message.mention.map(async (jid) => {
@@ -147,7 +114,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
                             }
                         } else { trmsg = finm }
                         var uren = encodeURI(trmsg)
-                        await axios.get('http://api.brainshop.ai/get?bid=157104&key=VzGieV1tp1IvxPl4&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
+                        await axios.get('http://api.brainshop.ai/get?bid=159506&key=4QPRlFg6JPdxT8As&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
                             var fins = ''                           
                             if (conf.LANG !== 'EN') {
                                 ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
@@ -175,7 +142,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
                         }
                     } else { trmsg = finm }
                     var uren = encodeURI(trmsg)
-                    await axios.get('http://api.brainshop.ai/get?bid=157104&key=VzGieV1tp1IvxPl4&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
+                    await axios.get('http://api.brainshop.ai/get?bid=159506&key=4QPRlFg6JPdxT8As&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
                         var fins = ''                           
                         if (conf.LANG !== 'EN') {
                             ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
@@ -201,7 +168,7 @@ Asena.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mess
                     }
                 } else { trmsg = finm }
                 var uren = encodeURI(trmsg)
-                await axios.get('http://api.brainshop.ai/get?bid=157104&key=VzGieV1tp1IvxPl4&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
+                await axios.get('http://api.brainshop.ai/get?bid=159506&key=4QPRlFg6JPdxT8As&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
                     var fins = ''                           
                     if (conf.LANG !== 'EN') {
                         ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
@@ -241,7 +208,7 @@ Asena.addCommand({ pattern: 'vtalk$', desc: vtalk_dsc,dontAddCommandList: true, 
                 if (ainame !== 'Asena') return;
         
                 var son = encodeURI(ssc)
-                await axios.get('http://api.brainshop.ai/get?bid=157104&key=VzGieV1tp1IvxPl4&uid=' + unique_ident + '&msg=' + son).then(async (response) => {
+                await axios.get('http://api.brainshop.ai/get?bid=159506&key=4QPRlFg6JPdxT8As&uid=' + unique_ident + '&msg=' + son).then(async (response) => {
                     var trmsg = ''
                     cevir = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
                     if ('text' in cevir) {
@@ -270,11 +237,11 @@ var already_off = ''
 var succ_on = ''
 var succ_off = ''
 if (conf.LANG == 'TR') {
-    fulleva_dsc = 'Tam fonksiyonel Eva özelliklerini aktif eder. Hesabınızı bir chatbota dönüştürün!'
-    already_on = 'Eva yapay zekası halihazırda tüm fonksiyonları etkin.'
-    already_off = 'Eva yapay zekası halihazırda yarı fonksiyonel çalışıyor.'
-    succ_on = 'Eva, Tam Fonksiyonel Olarak Açıldı! Lütfen Biraz Bekleyin! ✅'
-    succ_off = 'Eva, Yarı Fonksiyonel Olarak Ayarlandı! Lütfen Biraz Bekleyin! ☑️'
+    fulleva_dsc = 'Tam fonksiyonel pinky özelliklerini aktif eder. Hesabınızı bir chatbota dönüştürün!'
+    already_on = 'pinky yapay zekası halihazırda tüm fonksiyonları etkin.'
+    already_off = 'pinky yapay zekası halihazırda yarı fonksiyonel çalışıyor.'
+    succ_on = 'pinky, Tam Fonksiyonel Olarak Açıldı! Lütfen Biraz Bekleyin! ✅'
+    succ_off = 'pinky, Yarı Fonksiyonel Olarak Ayarlandı! Lütfen Biraz Bekleyin! ☑️'
 }
 if (conf.LANG == 'EN') {
     fulleva_dsc = 'Activates full functional Pinky features. Turn your account into a ai chatbot!'
@@ -283,79 +250,37 @@ if (conf.LANG == 'EN') {
     succ_on = 'Pinky Opened Fully Functionally! Please wait a bit! ✅'
     succ_off = 'Pinky Set to Semi-Functional! Please wait a bit! ☑️'
 }
-if (conf.LANG == 'AZ') {
-    fulleva_dsc = 'Tam funksional Eva xüsusiyyətlərini aktivləşdirir. Hesabınızı bir chatbot halına gətirin!'
-    already_on = 'Eva süni intellekt onsuz da tam işlək vəziyyətdədir.'
-    already_off = 'Eva AI hazırda yarı funksionaldır.'
-    succ_on = 'Eva Tamamilə İşlədi! Xahiş edirəm bir az gözləyin! ✅'
-    succ_off = 'Eva Yarı İşləkdir! Xahiş edirəm bir az gözləyin! ☑️'
-}
-if (conf.LANG == 'RU') {
-    fulleva_dsc = 'Активирует полнофункциональные функции Eva. Превратите свой аккаунт в чат-бота!'
-    already_on = 'Искусственный интеллект Eva уже полностью функционален.'
-    already_off = 'Eva AI в настоящее время частично функционирует'
-    succ_on = 'Eva открылась полностью функционально! Подождите немного! ✅'
-    succ_off = 'Eva настроена на полуфункциональность! Подождите немного! ☑️'
-}
-if (conf.LANG == 'ES') {
-    fulleva_dsc = 'Activa todas las funciones funcionales de Eva. ¡Convierta su cuenta en un chatbot!'
-    already_on = 'La inteligencia artificial de Eva ya es completamente funcional.'
-    already_off = 'Eva AI es actualmente semi-funcional.'
-    succ_on = '¡Eva abrió completamente funcionalmente! ¡Por favor espere un poco! ✅'
-    succ_off = '¡Eva se pone semifuncional! ¡Por favor espere un poco! ☑️'
-}
-if (conf.LANG == 'HI') {
-    fulleva_dsc = 'पूरी तरह कार्यात्मक Eva सुविधाओं को सक्रिय करता है। अपने खाते को चैटबॉट में बदलें!'
-    already_on = 'ईवा आर्टिफिशियल इंटेलिजेंस पहले से ही पूरी तरह कार्यात्मक है'
-    already_off = 'ईवा एआई वर्तमान में अर्ध-कार्यात्मक है'
-    succ_on = 'ईवा पूरी तरह कार्यात्मक रूप से खुल गई! कृपया थोड़ी प्रतीक्षा करें! ✅'
-    succ_off = 'अर्ध-कार्यात्मक करने के लिए ईवा सेट! कृपया थोड़ी प्रतीक्षा करें! ☑️'
-}
 if (conf.LANG == 'ML') {
-    fulleva_dsc = 'പൂർണ്ണമായും പ്രവർത്തനക്ഷമമായ Eva സവിശേഷതകൾ സജീവമാക്കുന്നു. നിങ്ങളുടെ അക്കൗണ്ട് ഒരു ചാറ്റ്ബോട്ടാക്കി മാറ്റുക!'
-    already_on = 'ഇവ കൃത്രിമബുദ്ധി ഇതിനകം പൂർണ്ണമായി പ്രവർത്തിക്കുന്നു.'
-    already_off = 'ഇവാ AI നിലവിൽ സെമി-ഫംഗ്ഷണൽ ആണ്.'
-    succ_on = 'ഇവ പൂർണ്ണമായും പ്രവർത്തനക്ഷമമായി തുറന്നു! കുറച്ച് കാത്തിരിക്കൂ! ✅'
-    succ_off = 'സെമി-ഫങ്ഷണൽ ആയി ഇവാ സജ്ജമാക്കുക! കുറച്ച് കാത്തിരിക്കൂ! ☑️'
-}
-if (conf.LANG == 'PT') {
-    fulleva_dsc = 'Ativa recursos Eva totalmente funcionais. Transforme sua conta em um chatbot!'
-    already_on = 'A inteligência artificial Eva já está totalmente funcional.'
-    already_off = 'Eva AI está semi-funcional.'
-    succ_on = 'Eva abriu totalmente funcionalmente! Por favor espere um pouco! ✅'
-    succ_off = 'Eva definida como semi-funcional! Por favor espere um pouco! ☑️'
-}
-if (conf.LANG == 'ID') {
-    fulleva_dsc = 'Mengaktifkan fitur Eva yang berfungsi penuh. Ubah akun Anda menjadi chatbot!'
-    already_on = 'Kecerdasan buatan Eva sudah berfungsi penuh.'
-    already_off = 'Eva AI saat ini semi-fungsional.'
-    succ_on = 'Eva Dibuka Sepenuhnya Secara Fungsional! Harap tunggu sebentar! ✅'
-    succ_off = 'Eva Set ke Semi-Fungsional! Mohon tunggu sebentar! ☑️'
+    fulleva_dsc = 'പൂർണ്ണമായും പ്രവർത്തനക്ഷമമായ pinky സവിശേഷതകൾ സജീവമാക്കുന്നു. നിങ്ങളുടെ അക്കൗണ്ട് ഒരു ചാറ്റ്ബോട്ടാക്കി മാറ്റുക!'
+    already_on = 'pinky കൃത്രിമബുദ്ധി ഇതിനകം പൂർണ്ണമായി പ്രവർത്തിക്കുന്നു.'
+    already_off = 'pinky AI നിലവിൽ സെമി-ഫംഗ്ഷണൽ ആണ്.'
+    succ_on = 'pinky പൂർണ്ണമായും പ്രവർത്തനക്ഷമമായി തുറന്നു! കുറച്ച് കാത്തിരിക്കൂ! ✅'
+    succ_off = 'സെമി-ഫങ്ഷണൽ ആയി pinky സജ്ജമാക്കുക! കുറച്ച് കാത്തിരിക്കൂ! ☑️'
 }
 
-Asena.addCommand({ pattern: 'fulleva ?(.*)', desc: fulleva_dsc, fromMe: true,dontAddCommandList: true, usage: '.fulleva on / off' }, (async (message, match) => {
-    var eva_status = `${conf.FULLEVA}`
+Asena.addCommand({ pattern: 'pinky ?(.*)', desc: fulleva_dsc, fromMe: true,dontAddCommandList: true, usage: '.pinky on / off' }, (async (message, match) => {
+    var pinky_status = `${conf.TALKING_PINKY}`
     if (match[1] == 'on') {
-        if (eva_status == 'true') {
+        if (pinky_status == 'true') {
             return await message.client.sendMessage(message.jid, '*' + already_on + '*', MessageType.text)
         }
         else {
             await heroku.patch(baseURI + '/config-vars', { 
                 body: { 
-                    ['FULL_EVA']: 'true'
+                    ['TALKING_PINKY']: 'true'
                 } 
             });
             await message.client.sendMessage(message.jid, '*' + succ_on + '*', MessageType.text)
         }
     }
     else if (match[1] == 'off') {
-        if (eva_status !== 'true') {
+        if (pinky_status !== 'true') {
             return await message.client.sendMessage(message.jid, '*' + already_off + '*', MessageType.text)
         }
         else {
             await heroku.patch(baseURI + '/config-vars', { 
                 body: { 
-                    ['FULL_EVA']: 'false'
+                    ['TALKING_PINKY']: 'false'
                 } 
             });
             await message.client.sendMessage(message.jid, '*' + succ_off + '*', MessageType.text)

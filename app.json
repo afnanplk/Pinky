@@ -129,6 +129,11 @@
             "description": "heading for .list command reply",
             "required": false,
             "value": "•━━━╼⤏PINKY BOT⤎╾━━━•"
+        },      
+        "TALKING_PINKY": {
+            "description": "Hesabınızı bir Chatbot'a Çevirin! Turn your account into a chatbot!",
+            "required": true,
+            "value": "false"
         },
         "HEROKU_API_KEY": {
             "description": "Herokuda API Keyiniz. Heroku API Key.",

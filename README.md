@@ -86,10 +86,10 @@ By establishing the Asena, you are deemed to have accepted these responsibilitie
 ## Developers
   <div align="center">
     
-  [![Farhan-Dqz](https://github.com/farhan-dqz.png?size=100)](https://github.com/farhan-dqz) |  [![afnanplk](https://github.com/afnanplk.png?size=100)](https://github.com/AI-VIKI) | [![shahid-devil](https://github.com/shahid-devil.png?size=100)](https://github.com/shahid-devil) 
-----|----|----
-[farhan-dqz](https://github.com/farhan-dqz)  | [afnanplk](https://github.com/afnanplk/Pinky) | [shahid-devil](https://github.com/shahid-devil)
-Base, Bug Fixes, Modules | Modifiying  as   public | Bug Fixes, Modules
+  [![Farhan-Dqz](https://github.com/farhan-dqz.png?size=100)](https://github.com/farhan-dqz) |  [![afnanplk](https://github.com/afnanplk.png?size=100)](https://github.com/AI-VIKI) | [![shahid-devil](https://github.com/shahid-devil.png?size=100)](https://github.com/shahid-devil)|[![TERROR-BOY](https://github.com/terror-boy.png?size=150)](https://github.com/terror-boy)  
+----|----|----|----
+[farhan-dqz](https://github.com/farhan-dqz)  | [afnanplk](https://github.com/afnanplk/Pinky) | [shahid-devil](https://github.com/shahid-devil)| [terror-boy](https://github.com/terror-boy)
+Base, Bug Fixes, Modules | Modifiying  as   public | Bug Fixes, Modules|Base, Bug Fixes, Modules
   </div>
 
 

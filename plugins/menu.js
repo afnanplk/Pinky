@@ -10,7 +10,7 @@ Shazz.addCommand({pattern: 'menu', fromMe: false, desc: Lang.WP}, (async (messag
     var r_text = new Array ();
     
     
-r_text[0] = "https://i.imgur.com/6fTLw6U.jpeg";
+r_text[0] = "https://i.imgur.com/DnoqRZ3.jpeg";
     
     
     var i = Math.floor(1*Math.random())
@@ -132,7 +132,7 @@ r_text[0] = "https://i.imgur.com/6fTLw6U.jpeg";
 ║┣❏ https://wa.me/916282185054
 ║┣❏ 
 ║┗━━━━ *《𝙻𝚄𝚃𝚃𝙰𝙿𝙸》*
-╚════════❖══▣══▣══❖════════╝
+╚═══❖══▣══▣══❖═══╝
 
 `}) 
 

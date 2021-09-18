@@ -221,6 +221,17 @@
             "ALIVE_DESC": "Does bot work?",
             "SYSD_DESC": "Shows the system properties."
         },
+        "system_stats2": {
+            "ALIVE_DESC": "Does bot work?",
+            "SYSD_DESC": "Shows the system properties.",
+            "WARN_MSG": "```User   : {}\nWarn   : {}\nRemain : {}\nReason : {}\n\n```",
+            "WARN_DESC": "Warn replied or mentioned user in a group.",
+            "RESET": "```WARN RESET\nUser      : @{}\nRemaining : {}```",
+            "NEED_USER": "*Give me a User*",
+            "IAADMIN": "*I am not admin*",
+            "ISADMIN": "*Given user is a admin*",
+            "WARNING": "```⚠️WARNING⚠️\nUser      : @{}\nReason    : {}\nRemaining : {}```"
+        },
         "media": {
             "ROTATE_DESC": "Rotate replied video.\n.rotate right by replying to a video message.Also you can choose left or flip.",
             "CHOOSE": "*Choose an option from right , left or flip.*",

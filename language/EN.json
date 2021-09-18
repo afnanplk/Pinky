@@ -287,6 +287,20 @@
             "TAGALL_DESC": "Tags everyone in the group.",
             "VOTE_DESC": "To create poll in groups"
         },
+        "tiktok": {
+            "TIKTOK_DESC": "Download tiktok video.\n.tiktok url or reply to a tiktok url.",
+            "MOVIE_DESC": "Shows given movie info\n.movie name",
+            "NEED_REPLY": "",
+            "INVALID": "*Invalid url!*",
+            "NEED_NAME": "*Give me a name*",
+            "NOT_FOUND": "*Not found!*",
+            "FORWARD": "*Reply to a message.*",
+            "FORWARD_DESC": "Forward replied message.",
+            "JID": "*Give me a JID!*",
+            "WALLPAPER_DESC": "Download wallpapers.",
+            "URL_DESC": "Convert replied video or image to url.",
+            "URL_NEED_REPLY": "*Reply to a video or image*"
+        },
         "updater": {
             "UPDATER_DESC": "Checks the update for luttapi 🧚.",
             "UPDATE": "ʏᴏᴜʀ ʟᴜᴛᴛᴀᴘɪ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ",

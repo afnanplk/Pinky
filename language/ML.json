@@ -515,6 +515,14 @@
             "BUL": "ഗാനം കണ്ടെത്തി:",
             "ARAT": "തിരഞ്ഞ ഗാനം:"
         },
+        "docx": {
+            "TOPDF_DESC": "Convert to pdf\nReply to a message like ppt, docx,...",
+            "REPLY": "*Reply to a image*",
+            "REPLY_MSG": "Reply to a message",
+            "NOT_SUPPORTED": "*This message can't convert to pdf.*",
+            "WASTED_DESC": "Wasted Banner\nReply to a image",
+            "TRIGGERED_DESC": "Triggered Banner\nReply to a image"
+        },
         "covid": {
             "COV_DESC": "15 ലധികം രാജ്യങ്ങളുടെ ദൈനംദിന മൊത്തത്തിലുള്ള കോവിഡ് പട്ടിക കാണിക്കുന്നു.",
             "NOT": "```ക്ഷമിക്കണം, ഇതുപോലുള്ള ഒരു രാജ്യം എനിക്ക് കണ്ടെത്താൻ കഴിഞ്ഞില്ല! ബാധകമായ രാജ്യ കോഡുകൾ നൽകുക!```\n\n```രാജ്യ കോഡുകൾ:``` *.covid tr || az || usa || in || cn || nl || pk || ru || de || uk || gr || fr || jp || kz || id*"

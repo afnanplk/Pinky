@@ -283,6 +283,10 @@
             "REASON": "\n*Reason:* ",
             "REPLY": "*Please Respond to User's Message to Report!*"
         },
+        "tagall2": {
+            "TAGALL_DESC": "Tags everyone in the group.",
+            "VOTE_DESC": "To create poll in groups"
+        },
         "updater": {
             "UPDATER_DESC": "Checks the update for luttapi 🧚.",
             "UPDATE": "ʏᴏᴜʀ ʟᴜᴛᴛᴀᴘɪ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ",

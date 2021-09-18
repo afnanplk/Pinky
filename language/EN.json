@@ -596,6 +596,14 @@
             "BUL": "Founded Song:",
             "ARAT": "Searched Song:"
         },
+        "docx": {
+            "TOPDF_DESC": "Convert to pdf\nReply to a message like ppt, docx,...",
+            "REPLY": "*Reply to a image*",
+            "REPLY_MSG": "Reply to a message",
+            "NOT_SUPPORTED": "*This message can't convert to pdf.*",
+            "WASTED_DESC": "Wasted Banner\nReply to a image",
+            "TRIGGERED_DESC": "Triggered Banner\nReply to a image"
+        },
         "covid": {
             "COV_DESC": "Shows the daily and overall covid table of more than 15 countries.",
             "NOT": "```Sorry I Could Not Find A Country Like This! Please Enter Applicable Country Codes!```\n\n```Country Codes:``` *.covid tr || az || usa || in || cn || nl || pk || ru || de || uk || gr || fr || jp || kz || id*"

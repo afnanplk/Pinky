@@ -149,11 +149,6 @@
             "required": false,
             "value": "false"
         },
-        "TAG_HEADER": {
-            "description": "Heading when taging all",
-            "required": false,
-            "value": "hear me friends"
-        },
         "UNMUTE_MESSAGE": {
             "description": "Düzenlenebilir Unmute Mesajı. Customizable Unmute Message! Use => default, to change back.",
             "required": false,

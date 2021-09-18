@@ -559,6 +559,21 @@
             "URL": "Profile URL:",
             "UPDATE": "Last Update:"
         },
+        "updown2": {
+            "ATTP_DESC": "Convert text to animated sticker",
+            "ATTP_NEED_REPLY": "*Give me some words.*",
+            "NOT_FOUND": "*Not found!*",
+            "FIND_NEED_REPLY": "*Reply to a video or audio*",
+            "FIND_MSG": "```Title    : {}\nArtists  : {}\nGenre    : {}\nAlbum    : {}\nReleased : {}```",
+            "FIND_DESC": "Identify song from replied video or audio.",
+            "SS_DESC": "Take web screenshot of given url.",
+            "NEED_URL": "Give me a url.",
+            "EMOJI_DESC": "Convert emoji to sticker.",
+            "NEED_EMOJI": "*Give me a emoji*",
+            "DOWNLOADING": "```Downloading...```",
+            "UPLOAD_DESC": "Download from direct file url.",
+            "SCL_DESC": "Download song from soundCloud."
+        },
               "weather": {
             "WEATHER_DESC": "Shows the weather.",
             "NEED_LOCATION": "* Please write a location!*\n*Example:* ```.weather kozhikode```",

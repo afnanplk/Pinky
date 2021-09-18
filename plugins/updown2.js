@@ -9,7 +9,7 @@ const {
   IdentifySong,
 } = require("../Utilis/download");
 const Language = require("../language");
-const Lang = Language.getString("updown");
+const Lang = Language.getString("updown2");
 const { emoji } = require("../Utilis/Misc");
 const { audioCut } = require("../Utilis/fFmpeg");
 

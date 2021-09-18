@@ -536,6 +536,21 @@
             "HIDDEN": "മറച്ചിരിക്കുന്നു",
             "NOT_FOUND": "*മീഡിയ കണ്ടെത്തിയില്ല*"
         },
+        "updown2": {
+            "ATTP_DESC": "Convert text to animated sticker",
+            "ATTP_NEED_REPLY": "*Give me some words.*",
+            "NOT_FOUND": "*Not found!*",
+            "FIND_NEED_REPLY": "*Reply to a video or audio*",
+            "FIND_MSG": "```Title    : {}\nArtists  : {}\nGenre    : {}\nAlbum    : {}\nReleased : {}```",
+            "FIND_DESC": "Identify song from replied video or audio.",
+            "SS_DESC": "Take web screenshot of given url.",
+            "NEED_URL": "Give me a url.",
+            "EMOJI_DESC": "Convert emoji to sticker.",
+            "NEED_EMOJI": "*Give me a emoji*",
+            "DOWNLOADING": "```Downloading...```",
+            "UPLOAD_DESC": "Download from direct file url.",
+            "SCL_DESC": "Download song from soundCloud."
+        },
         "github": {
             "GİTHUB_DESC": "തന്നിരിക്കുന്ന ഉപയോക്തൃനാമത്തിൽ നിന്ന് ഗിത്തബ് വിവരങ്ങൾ ശേഖരിക്കുന്നു.\n⌨️ സാമ്പിൾ: .github phaticusthiccy",
             "REPLY": "```നിങ്ങൾ ഏതെങ്കിലും ഉപയോക്തൃനാമം നൽകേണ്ടതുണ്ട്!```",

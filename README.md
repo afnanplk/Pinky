@@ -53,7 +53,7 @@ the user is responsible.
 
   ### Simple Method
 
-[![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@shahidshazz/luttapi-QR)
+[![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@shahiddevil/luttapi-QR)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/shahid-devil/luttapi)
      </div>

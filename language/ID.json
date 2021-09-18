@@ -209,6 +209,17 @@
             "ALIVE_DESC": "Apakah bot berfungsi?",
             "SYSD_DESC": "Menunjukkan properti sistem."
         },
+        "system_stats2": {
+            "ALIVE_DESC": "Apakah bot berfungsi?",
+            "SYSD_DESC": "Menunjukkan properti sistem.",
+            "WARN_MSG": "```Pengguna   : {}\nPeringatan   : {}\nSisa : {}\nAlasan : {}\n\n```",
+            "WARN_DESC": "Memperingatkan pengguna yang dibalas atau dimention di grup.",
+            "RESET": "```PERINGATAN DIHAPUS\nPengguna      : @{}\nTersisa : {}```",
+            "NEED_USER": "*Berikan saya pengguna*",
+            "IAADMIN": "*Saya bukan admin*",
+            "ISADMIN": "*Pengguna yang diberikan adalah admin*",
+            "WARNING": "```⚠️PERINGATAN⚠️\nPengguna      : @{}\nAlasan    : {}\nTersisa : {}```"
+        },
         "media": {
             "ROTATE_DESC": "Putar rotasi video yang dibalas.\n.rotate right dengan membalas pesan video. Anda juga dapat memilih left atau flip.",
             "CHOOSE": "*Memilih salah satu opsi dari right, left, atau flip.*",

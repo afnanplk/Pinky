@@ -103,6 +103,7 @@ This project is protected by `GNU General Public Licence v3.0` license.
     `saidalli, amal ser, ichu, karthik, lyf, farhan, ihsan, hyper, muhsin, sahal, cherry 🥰🥰, plk`
 
 ### when forking 
+```
  If you want add bgm (voice auto reply),sticker (auto reply)
 
  create 3 files name them bgmone,bgmtwo,stick
@@ -118,4 +119,4 @@ This project is protected by `GNU General Public Licence v3.0` license.
       for sticker
         change line 193 in filter.js
         `await message.client.sendMessage(message.jid, fs.readFileSync('./stick/' + a + '.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted: message.data, ptt: true})`  //dont forget to add in const array ['sticker name']
-
+```

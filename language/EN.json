@@ -28,6 +28,9 @@
             "DELETED": "*✅ Module successfully deleted!*",
             "WARN": "Get plugins only from t.me/remasterplugin channel."
         },
+        "whatsappstatus": {
+            "WS": "It sends Whatsapp status."
+        },
         "admin": {
             "BAN_DESC": "Ban someone in the group. Reply to message or tag a person to use command.",
             "IM_NOT_ADMIN": "ꜱᴏʀʀʏ ᴀᴍ ɴᴏᴛ ᴀᴅᴍɪɴ",

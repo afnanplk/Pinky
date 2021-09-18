@@ -280,6 +280,16 @@
             "REASON": "\n*കാരണം:* ",
             "REPLY": "*റിപ്പോർട്ടുചെയ്യാനുള്ള ഉപയോക്താവിന്റെ സന്ദേശത്തോട് ദയവായി പ്രതികരിക്കുക!*"
         },
+        "info": {
+            "INFO_DESC": "Show chat details",
+            "GRP_NAME": "*ℹ️ Group name :*",
+            "GRP_JID": "*💬 Group JID :*",
+            "GRP_OWN": "*⚜️ Group owner :*",
+            "GRP_COD": "*🆔 Group invite link :*",
+            "GRP_DES": "*🗨️ Group description :*",
+            "PRO_JID": "*💬 User JID :*",
+            "PRO_DES": "*🗨️ Description :*"
+        },
         "tagall2": {
             "TAGALL_DESC": "Tags everyone in the group.",
             "VOTE_DESC": "To create poll in groups"

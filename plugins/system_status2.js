@@ -14,7 +14,7 @@ const { checkImAdmin } = require("../Utilis/Misc");
 const { warn, getEachWarn } = require("../Utilis/warn");
 const { getBuffer } = require("../Utilis/download");
 const { MessageType } = require("@adiwajshing/baileys");
-const Lang = Language.getString("system_stats");
+const Lang = Language.getString("system_stats2");
 let fm = true;
 
 Asena.addCommand(

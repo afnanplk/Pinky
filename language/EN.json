@@ -60,6 +60,12 @@
             "UNMUTED": "```The group chat has unmuted!```",
             "INVITE_DESC": "Provides the group's invitation link.",
             "INVITE": "```Invitation link: ```"
+        "list": {
+            "COMMAND": "Command",
+            "DESC": "Description",
+            "EXAMPLE": "Example",
+            "NOT_FOUND": "*I couldnt find a command like this*",
+            "WARN": "Warn"
         },
         "docx": {
             "TOPDF_DESC": "Convert to pdf\nReply to a message like ppt, docx,...",

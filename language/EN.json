@@ -60,6 +60,7 @@
             "UNMUTED": "```The group chat has unmuted!```",
             "INVITE_DESC": "Provides the group's invitation link.",
             "INVITE": "```Invitation link: ```"
+        },
         "list": {
             "COMMAND": "Command",
             "DESC": "Description",

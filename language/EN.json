@@ -70,7 +70,8 @@
         },
         "admin3": {
             "WASTED_DESC": "Wasted Banner\nReply to a image",
-            "TRIGGERED_DESC": "Triggered Banner\nReply to a image"
+            "TRIGGERED_DESC": "Triggered Banner\nReply to a image",
+            "LOW_DESC": "Alter replied audio",
         },
         "locate": {
             "L_DESC": "It send your location.",

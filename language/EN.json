@@ -300,7 +300,7 @@
             "PRO_JID": "*💬 User JID :*",
             "PRO_DES": "*🗨️ Description :*"
         },
-        "tiktok": {
+        "admin3": {
             "TIKTOK_DESC": "Download tiktok video.\n.tiktok url or reply to a tiktok url.",
             "MOVIE_DESC": "Shows given movie info\n.movie name",
             "NEED_REPLY": "",

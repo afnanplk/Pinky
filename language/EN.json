@@ -67,11 +67,7 @@
             "NOT_FOUND": "*I couldnt find a command like this*",
             "WARN": "Warn"
         },
-        "docx": {
-            "TOPDF_DESC": "Convert to pdf\nReply to a message like ppt, docx,...",
-            "REPLY": "*Reply to a image*",
-            "REPLY_MSG": "Reply to a message",
-            "NOT_SUPPORTED": "*This message can't convert to pdf.*",
+        "admin3": {
             "WASTED_DESC": "Wasted Banner\nReply to a image",
             "TRIGGERED_DESC": "Triggered Banner\nReply to a image"
         },

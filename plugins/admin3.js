@@ -3,7 +3,7 @@ const { MessageType } = require("@adiwajshing/baileys");
 const { getJson, TiktokDownloader } = require("../Utilis/download");
 const { UploadToImgur, wallpaper, forward } = require("../Utilis/Misc");
 const Language = require("../language");
-const Lang = Language.getString("tiktok");
+const Lang = Language.getString("admin3");
 Asena.addCommand(
   { pattern: "tiktok ?(.*)", fromMe: true, desc: Lang.TIKTOK_DESC },
   async (message, match) => {

@@ -16,11 +16,8 @@ const { DataTypes } = require('sequelize');
 const { GreetingsDB, getMessage } = require("./plugins/sql/greetings");
 const got = require('got');
 const axios = require('axios');
-const {
-    WAConnection,
-    MessageType,
-} = require("@adiwajshing/baileys");
-const { StringSession } = require("./Utilis/whatsasena");
+const { WAConnection, MessageType } = require("@adiwajshing/baileys");
+const { StringSession } = require("./Utilis/PinkyMwol");
 const { getJson } = require("./Utilis/download");
 const { customMessageScheduler } = require("./Utilis/schedule");
 const { prepareGreetingMedia } = require("./Utilis/greetings");

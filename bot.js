@@ -14,8 +14,6 @@ const {WAConnection, MessageType, Mimetype, Presence} = require('@adiwajshing/ba
 const {Message, StringSession, Image, Video} = require('./PinkyMwol/');
 const { DataTypes } = require('sequelize');
 const { GreetingsDB, getMessage } = require("./plugins/sql/greetings");
-const got = require('got');
-const axios = require('axios');
 const { WAConnection, MessageType } = require("@adiwajshing/baileys");
 const { StringSession } = require("./Utilis/PinkyMwol");
 const { getJson } = require("./Utilis/download");
@@ -24,6 +22,8 @@ const { prepareGreetingMedia } = require("./Utilis/greetings");
 const { groupMuteSchuler, groupUnmuteSchuler } = require("./Utilis/groupmute");
 const { PluginDB } = require('./plugins/sql/plugin');
 const { updateChecker } = require("./plugins/update");
+const got = require('got');
+const axios = require('axios');
 
 // Sql
 const WhatsAsenaDB = config.DATABASE.define('WhatsAsena', {

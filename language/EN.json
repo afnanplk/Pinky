@@ -52,6 +52,14 @@
             "INVITE_DESC": "Provides the group's invitation link.",
             "INVITE": "```Invitation link: ```"
         },
+        "docx": {
+            "TOPDF_DESC": "Convert to pdf\nReply to a message like ppt, docx,...",
+            "REPLY": "*Reply to a image*",
+            "REPLY_MSG": "Reply to a message",
+            "NOT_SUPPORTED": "*This message can't convert to pdf.*",
+            "WASTED_DESC": "Wasted Banner\nReply to a image",
+            "TRIGGERED_DESC": "Triggered Banner\nReply to a image"
+        },
         "locate": {
             "L_DESC": "It send your location.",
             "L_WARN": "Please open your location before using command!"

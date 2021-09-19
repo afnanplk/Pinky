@@ -73,7 +73,20 @@
             "TRIGGERED_DESC": "Triggered Banner\nReply to a image",
             "LOW_DESC": "Alter replied audio",
             "PITCH_DESC": "Alter replied audio",
-            "AVEC_DESC": "Convert replied audio to video."
+            "AVEC_DESC": "Convert replied audio to video.",
+            "PP_DESC": "Makes the profile photo what photo you reply.",
+            "NEED_PHOTO": "*Give me a photo!*",
+            "PPING": "```Setting profile photo...```",
+            "BLOCK_DESC": "Block user.",
+            "UNBLOCK_DESC": "Unblock user.",
+            "BLOCKED": "blocked",
+            "UNBLOCKED": "unblocked",
+            "BLOCKED_UPPER": "Blocked!",
+            "UNBLOCKED_UPPER": "Unblocked.",
+            "NEED_USER": "Give me a user!",
+            "JID_DESC": "Giving user's JID.",
+            "JID": "```JID address of``` @{} ```: {}```",
+            "JID_CHAT": "```Chat's JID address: {}```"
         },
         "locate": {
             "L_DESC": "It send your location.",

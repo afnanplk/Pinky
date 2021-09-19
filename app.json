@@ -41,6 +41,11 @@
             "required": true,
             "value": "false"
         },
+        "PM_BLOCK": {
+            "description": "Link Engelleme Sistemi. Link Blocking System.",
+            "required": true,
+            "value": "false"
+        },
          "STICKER_REPLY": {
             "description": "if you need Automatic sticker reply type'true'. Otherwise false",
             "required": false,

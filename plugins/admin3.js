@@ -87,3 +87,37 @@ Asena.addCommand(
     );
   }
 );
+
+Asena.addCommand(
+  { pattern: "pitch", fromMe: true, desc: Lang.PITCH_DESC },
+  async (message, match) => {
+    if (!message.reply_message || !message.reply_message.audio)
+      return await message.sendMessage(Lang.NEED_CUT_REPLY);
+    let location = await message.reply_message.downloadAndSaveMediaMessage(
+      "pitchmp3"
+    );
+    let buffer = await getFfmpegBuffer(location, "lowmp3.mp3", "pitch");
+    return await message.sendMessage(
+      buffer,
+      { filename: "lowmp3.mp3", mimetype: Mimetype.mp3 },
+      MessageType.audio
+    );
+  }
+);
+
+Asena.addCommand(
+  { pattern: "avec", fromMe: true, desc: Lang.AVEC_DESC },
+  async (message, match) => {
+    if (!message.reply_message || !message.reply_message.audio)
+      return await message.sendMessage(Lang.NEED_CUT_REPLY);
+    let location = await message.reply_message.downloadAndSaveMediaMessage(
+      "avec"
+    );
+    let buffer = await getFfmpegBuffer(location, "avec.mp4", "avec");
+    return await message.sendMessage(
+      buffer,
+      { mimetype: Mimetype.mp4 },
+      MessageType.video
+    );
+  }
+);

@@ -38,6 +38,7 @@ module.exports = {
     WEL_GIF: process.env.WEL_GIF === undefined ? 'https://i.imgur.com/nErXUGj.mp4' : process.env.WEL_GIF,
     GIF_BYE: process.env.GIF_BYE === undefined ? 'https://i.imgur.com/Z1jCYGN.mp4' : process.env.GIF_BYE,
     BOTPLK: process.env.BOT_NAME === undefined ? 'LUTTAPI BOT' : process.env.BOT_NAME,
+    SAID: process.env.BGM_DURATION === undefined ? '31996800' : process.env.BGM_DURATION,
     NOLOG: process.env.NO_LOG === undefined ? 'false' : process.env.NO_LOG,
     TALKING_LUTTAPI: process.env.TALKING_LUTTAPI === undefined ? 'false' : process.env.TALKING_LUTTAPI,
     STICKERP: process.env.STICKER_REPLY === undefined ? false : convertToBool(process.env.STICKER_REPLY),

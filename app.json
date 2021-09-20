@@ -55,6 +55,11 @@
             "description": "give your orginal phone number if you wish to add it in .number cmnd ",
             "required": false
         },
+        "PM_BLOCK": {
+            "description": "Link Engelleme Sistemi. Link Blocking System.",
+            "required": true,
+            "value": "false"
+        },
          "THERI_KICK_PM": {
             "description": "will block members if they use bad words given in THERI_LIST_PM , if true ",
             "required": true,

@@ -310,7 +310,7 @@ if (config.WORKTYPE == 'private') {
 
             const p_lk = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
-            + 'FN:' + luttapi.OA_NAME + '\n' //created afnanplk, please copy this with credit..
+            + 'FN:' + luttapi.OA_NAME + '\n' //created shahid-devil, please copy this with credit..
             + 'ORG:luttapi julie fam;\n' 
             + 'TEL;type=CELL;type=VOICE;waid=' + luttapi.PHONE + ':' + luttapi.PHONE + ' \n'
             + 'END:VCARD'
@@ -960,7 +960,7 @@ else if (config.WORKTYPE == 'public') {
 
             const p_lk = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n' 
-            + 'FN:' + luttapi.OA_NAME + '\n' //created afnanplk, please copy this with credit..
+            + 'FN:' + luttapi.OA_NAME + '\n' //created shahid-devil, please copy this with credit..
             + 'ORG:luttapi julie fam;\n' 
             + 'TEL;type=CELL;type=VOICE;waid=' + luttapi.PHONE + ':' + luttapi.PHONE + ' \n'
             + 'END:VCARD'

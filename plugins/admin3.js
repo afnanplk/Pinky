@@ -278,11 +278,4 @@ Asena.addCommand(
   }
 );
 
-Asena.addCommand(
-  { pattern: "setabout ?(.*)", fromMe: true, desc: "set about." },
-  async (message, match) => {
-    if (message.reply_message.txt) {
-      return await message.client.setStatus(message.reply_message.text);
-    } else return await message.sendMessage("*Reply to a text message!*");
-  }
-});
+

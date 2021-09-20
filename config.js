@@ -54,6 +54,7 @@ module.exports = {
     BANMSG: process.env.BAN_MESSAGE === undefined ? 'default' : process.env.BAN_MESSAGE,
     AFKMSG: process.env.AFK_MESSAGE === undefined ? 'default' : process.env.AFK_MESSAGE,
     TAGSHAZZ: process.env.TAG_HEADER === undefined ? 'shazz' : process.env.TAG_HEADER,
+    OWNER: process.env.OWNER_NAME === undefined ? 'default' : process.env.OWNER_NAME,
     SHAZZS: process.env.THERI_LIST_GP === undefined ? false : process.env.THERI_LIST_GP,
     HANDLERS: process.env.HANDLERS === undefined ? '^[.!;]' : process.env.HANDLERS,
     SEND_READ: process.env.SEND_READ === undefined ? false : convertToBool(process.env.SEND_READ),

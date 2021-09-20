@@ -91,7 +91,7 @@ if (config.LANG == 'ID') {
 
 if (config.WORKTYPE == 'public) {
   
-    Asena.addCommand({pattern: "trt ?(.*)",desc: Lang.TRANSLATE_DESC,usage: Lang.TRANSLATE_USAGE,fromMe: true,},async (message, match) => {
+Asena.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: true}, (async (message, match) => {
     if (!message.reply_message.txt)
       return await message.sendMessage(Lang.NEED_REPLY, {
         quoted: message.data,

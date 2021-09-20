@@ -71,14 +71,6 @@ if (config.LANG == 'EN') {
     dlang_other = 'Other Languages'
     dlang_input = 'Processed Text:'
 }
-if (config.LANG == 'AZ') {
-    dlang_dsc = 'Cavablanan mesajın dilini təxmin edin.'
-    closer_res = 'Ən yaxın nəticə:'
-    dlang_lang = 'Dil:'
-    dlang_similarity = 'Bənzərlik:'
-    dlang_other = 'Başqa Dillər'
-    dlang_input = 'İşlənmiş Mətn:'
-}
 if (config.LANG == 'ML') {
     dlang_dsc = 'മറുപടി നൽകിയ സന്ദേശത്തിന്റെ ഭാഷ ess ഹിക്കുക.'
     closer_res = 'ഏറ്റവും അടുത്ത ഫലം:'
@@ -87,30 +79,6 @@ if (config.LANG == 'ML') {
     dlang_other = 'മറ്റ് ഭാഷകൾ'
     dlang_input = 'പ്രോസസ്സ് ചെയ്ത വാചകം:'
 }
-if (config.LANG == 'HI') {
-    dlang_dsc = 'उत्तर दिए गए संदेश की भाषा का अनुमान लगाएं'
-    closer_res = 'निकटतम परिणाम:'
-    dlang_lang = 'जुबान:'
-    dlang_similarity = 'समानता:'
-    dlang_other = 'अन्य भाषाएँ'
-    dlang_input = 'संसाधित पाठ:'
-}
-if (config.LANG == 'ES') {
-    dlang_dsc = 'Adivina el idioma del mensaje respondido.'
-    closer_res = 'Resultado más cercano:'
-    dlang_lang = 'Lengua:'
-    dlang_similarity = 'Semejanza:'
-    dlang_other = 'Otros idiomas:'
-    dlang_input = 'Texto procesado:'
-}
-if (config.LANG == 'PT') {
-    dlang_dsc = 'Adivinhe o idioma da mensagem respondida.'
-    closer_res = 'Resultado mais próximo:'
-    dlang_lang = 'Língua:'
-    dlang_similarity = 'Similaridade:'
-    dlang_other = 'Outras línguas'
-    dlang_input = 'Texto Processado:'
-}
 if (config.LANG == 'ID') {
     dlang_dsc = 'Tebak bahasa pesan yang dibalas.'
     closer_res = 'Hasil Terdekat:'
@@ -118,14 +86,6 @@ if (config.LANG == 'ID') {
     dlang_similarity = 'Kesamaan:'
     dlang_other = 'Bahasa Lainnya'
     dlang_input = 'Teks yang Diproses:'
-}
-if (config.LANG == 'RU') {
-    dlang_dsc = 'Угадай язык ответного сообщения.'
-    closer_res = 'Ближайший результат:'
-    dlang_lang = 'Язык:'
-    dlang_similarity = 'Сходствo:'
-    dlang_other = 'Другие языки'
-    dlang_input = 'Обработанный текст:'
 }
 
 
@@ -165,47 +125,12 @@ if (config.WORKTYPE == 'private') {
         succ_on_bio = 'Autobio Opened Successfully!'
         succ_off_bio = 'Autobio Closed Successfully!'
     }
-    if (config.LANG == 'AZ') {
-        auto_dsc = 'Bio-ya canlı saat əlavə et!'
-        alr_on_bio = 'Autobio hazırda açıqdır!'
-        alr_off_bio = 'Autobio hazırda bağlıdır!'
-        succ_on_bio = 'Autobio Uğurla Açıldı!'
-        succ_off_bio = 'Autobio Uğurla Bağlandı!'
-    }
-    if (config.LANG == 'HI') {
-        auto_dsc = 'अपने बायो में लाइव घड़ी जोड़ें!'
-        alr_on_bio = 'Autobio पहले से ही खुला है!'
-        alr_off_bio = 'Autobio वर्तमान में बंद है!'
-        succ_on_bio = 'Autobio सफलतापूर्वक खोला गया!'
-        succ_off_bio = 'Autobio सफलतापूर्वक बंद!'
-    }
     if (config.LANG == 'ML') {
         auto_dsc = 'നിങ്ങളുടെ ബയോയിലേക്ക് തത്സമയ ക്ലോക്ക് ചേർക്കുക!'
         alr_on_bio = 'Autobio ഇതിനകം തുറന്നു!'
         alr_off_bio = 'Autobio നിലവിൽ അടച്ചിരിക്കുന്നു!'
         succ_on_bio = 'Autobio വിജയകരമായി തുറന്നു!'
         succ_off_bio = 'Autobio വിജയകരമായി അടച്ചു!'
-    }
-    if (config.LANG == 'PT') {
-        auto_dsc = 'Adicione um relógio ao vivo à sua biografia!'
-        alr_on_bio = 'O Autobio já está aberto!'
-        alr_off_bio = 'Autobio está fechado no momento!'
-        succ_on_bio = 'Autobio aberto com sucesso!'
-        succ_off_bio = 'Autobio fechado com sucesso!'
-    }
-    if (config.LANG == 'RU') {
-        auto_dsc = 'Добавьте живые часы в свою биографию!'
-        alr_on_bio = 'Autobio уже открыт!'
-        alr_off_bio = 'Autobio сейчас закрыт!'
-        succ_on_bio = 'Autobio успешно открыт!'
-        succ_off_bio = 'Autobio успешно закрыт!'
-    }
-    if (config.LANG == 'ES') {
-        auto_dsc = '¡Agrega un reloj en vivo a tu biografía!'
-        alr_on_bio = '¡Autobio ya está abierto!'
-        alr_off_bio = '¡Autobio está cerrado actualmente!'
-        succ_on_bio = '¡Autobio se abrió con éxito!'
-        succ_off_bio = 'Autobio cerrado correctamente!'
     }
     if (config.LANG == 'ID') {
         auto_dsc = 'Tambahkan jam langsung ke bio Anda!'

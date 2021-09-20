@@ -1,5 +1,6 @@
 /* 
-plk
+codded by Shahid ser
+LUTTAPI
 */
 
 const Asena = require('../events');
@@ -47,6 +48,7 @@ const Clang = Language.getString('covid');
 
 const wiki = require('wikijs').default;
 var gis = require('g-i-s');
+let fm = true;
 
 var dlang_dsc = ''
 var closer_res = ''

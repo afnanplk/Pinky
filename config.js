@@ -24,6 +24,7 @@ module.exports = {
     REMOVE: process.env.THERI_KICK_GP === undefined ? 'false' : process.env.THERI_KICK_GP,
     AFN: process.env.ALL_CAPTION === undefined ? 'MADE BY LUTTAPI' : process.env.ALL_CAPTION,
     ALL_LINK_BAN: process.env.ALL_LINK_BAN === undefined ? 'false' : process.env.ALL_LINK_BAN,
+    PM_BLOCK: process.env.PM_BLOCK === undefined ? 'false' : process.env.PM_BLOCK,
     Z_LUTTAPI_AI: process.env.Z_LUTTAPI_AI === undefined ? 'false' : process.env.Z_LUTTAPI_AI,
     LUTTAPI: process.env.OWNER_NAME === undefined ? 'default' : process.env.OWNER_NAME,
     GANSTYLE: process.env.GAN_IMAGE === undefined ? 'https://i.hizliresim.com/loUtAb.jpg' : process.env.GAN_IMAGE,

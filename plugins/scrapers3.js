@@ -87,30 +87,6 @@ if (config.LANG == 'ID') {
     dlang_other = 'Bahasa Lainnya'
     dlang_input = 'Teks yang Diproses:'
 }
-Asena.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: true}, (async (message, match) => {
-    if (!message.reply_message.txt)
-      return await message.sendMessage(Lang.NEED_REPLY, {
-        quoted: message.data,
-      });
-    let match2 = match.split(" ")[0];
-    let match1 = match.split(" ")[1];
-    match1 = match1 === "" || match1 === undefined ? "auto" : match1;
-    match2 = match2 === "" || match2 === undefined ? config.LANG : match2;
-    ceviri = await translatte(message.reply_message.text, {
-      from: match1,
-      to: match2,
-    });
-    if ("text" in ceviri) {
-      return await message.sendMessage(Lang.TRT.format(match1, match2, ceviri.text),
-        { quoted: message.quoted }
-      );
-    } else {
-      return await message.sendMessage(Lang.TRANSLATE_ERROR, {
-        quoted: message.data,
-      });
-    }
-  }
-);
 
 Asena.addCommand({ pattern: "tts ?(.*)", fromMe: fm, desc: Lang.TTS_DESC },async (message, match) => {
     if (match == "") return;

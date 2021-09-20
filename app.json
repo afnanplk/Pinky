@@ -35,6 +35,11 @@
             "description": "If you likes bgm you can write 'true'. Otherwise false",
             "required": false,
             "value": "true"
+        },
+         "BGM_DURATION": {
+            "description": "FUNY BGM DURATION   codded by SAIDALI",
+            "required": false,
+            "value": "31996800"
         },   
         "ANTİ_LİNK": {
             "description": "Link Engelleme Sistemi. Link Blocking System.",

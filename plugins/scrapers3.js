@@ -88,19 +88,6 @@ if (config.LANG == 'ID') {
     dlang_input = 'Teks yang Diproses:'
 }
 
-Asena.addCommand({ pattern: "tts ?(.*)", fromMe: fm, desc: Lang.TTS_DESC },async (message, match) => {
-    if (match == "") return;
-    let LANG = config.LANG.toLowerCase(),
-      ttsMessage = match;
-    if ((langMatch = match.match("\\{([a-z]{2})\\}"))) {
-      LANG = langMatch[1];
-      ttsMessage = ttsMessage.replace(langMatch[0], "");
-    }
-    let buffer = await SpeachToText(LANG, ttsMessage);
-    return await message.sendMessage(buffer, { ptt: true }, MessageType.audio);
-  }
-);
-
 Asena.addCommand({ pattern: "song ?(.*)", fromMe: true, desc: Lang.SONG_DESC },async (message, match) => {
     match = !message.reply_message ? match : message.reply_message.text;
     if (match === "")

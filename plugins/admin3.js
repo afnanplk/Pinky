@@ -285,4 +285,4 @@ Asena.addCommand(
       return await message.client.setStatus(message.reply_message.text);
     } else return await message.sendMessage("*Reply to a text message!*");
   }
-);
+});

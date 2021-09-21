@@ -19,7 +19,7 @@ r_text[0] = "https://i.imgur.com/DnoqRZ3.jpeg";
 
     await message.sendMessage(Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: `╔═════════════════❍
 
-╔═════◉𝙻𝚞𝚝𝚝𝚊𝚙𝚒 𝚋𝚢 𝚂𝚑𝚊𝚣𝚣◉═════╗
+╔══◉𝙻𝚞𝚝𝚝𝚊𝚙𝚒 𝚋𝚢 𝚂𝚑𝚊𝚣𝚣◉══╗
 ║
 ║╾ ɴᴜᴍʙᴇʀ : @916282185054
 ║

@@ -249,7 +249,7 @@
             "SEARCHING": "* 🔎 Searching...*",
             "WIKI_DESC": "Searches query on Wikipedia.",
             "IMG_DESC": "Searches for related pics on Google.",
-            "IMG": "Uploading photo ```{}``` number ```{} ```..."
+            "IMG": "Uploading photo..."
         },
         "scrapers3": {
             "TRT": "Translated from {} to {}\n\n{}",
@@ -292,7 +292,7 @@
         },
         "sticker": {
             "STICKER_DESC": "It converts your replied photo or video to sticker.",
-            "NEED_REPLY": "\n*Reply to a photo or video!*\n",
+            "NEED_REPLY": "\n*ʀᴇᴘʟᴀʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ ᴏʀ ᴠɪᴅᴇᴏ🙃!*\n",
             "DOWNLOADING": "ᴄʀᴇᴀᴛɪɴɢ ꜱᴛɪᴄᴋᴇʀ"
         },
         "system_stats": {
@@ -391,14 +391,14 @@
         },
         "updater": {
             "UPDATER_DESC": "Checks the update for luttapi 🧚.",
-            "UPDATE": "ʏᴏᴜʀ ʟᴜᴛᴛᴀᴘɪ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ",
-            "NEW_UPDATE": "*New update available for luttapi 🧞!*\n\n ```use .list for commands``` \n\n *ask the owner before updating or your bot might stop working* \n http://Wa.me/916282185054 \n *-if bot stop working you will have to re-deploy* \n\n Updates are:\n\n ",
+            "UPDATE": "ʏᴏᴜʀ ʟᴜᴛᴛᴀᴘɪ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ 😈",
+            "NEW_UPDATE": "*New update available for luttapi 💘!*\n\n ```use .luttapi for commands``` \n\n *ask the owner before updating or your bot might stop working* ⚠️⚠️ \n http://Wa.me/916282185054 🦦 \n *-if bot stop working you will have to re-deploy* 🔰 \n\n Updates are🙈:\n\n ",
             "UPDATE_NOW_DESC": "It makes updates.",
             "UPDATING": "ʟᴜᴛᴛᴀᴘɪ ᴜᴘᴅᴀᴛɪɴɢ...🧞",
             "INVALID_HEROKU": "*❌ Your Heroku information is wrong!*",
-            "UPDATED": "*✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴜᴘᴅᴀᴛᴇᴅ!*",
-            "UPDATED_LOCAL": "*✅ Successfully Updated!*",
-            "AFTER_UPDATE": "*💬 ʟᴜᴛᴛᴀᴘɪ ʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ!*",
+            "UPDATED": "*🙈 ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴜᴘᴅᴀᴛᴇᴅ!*",
+            "UPDATED_LOCAL": "*🙈 ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴜᴘᴅᴀᴛᴇᴅ!*",
+            "AFTER_UPDATE": "*🤗 ʟᴜᴛᴛᴀᴘɪ ʀᴇꜱᴛᴀʀᴛɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ!*",
             "IN_AF": "*Please check* ```HEROKU_APP_NAME``` *and* ```app name``` *They must be same.*\n*If these two values ​​are the same, please restore* ```HEROKU_API_KEY```\n\n_To access these settings, use Heroku >> App >> Settings >> Reavel Config Vars_\n_To renew your API key, follow these steps, Heroku >> Account >> API Key then replace old api key in config vars._"
         },
         "whois": {

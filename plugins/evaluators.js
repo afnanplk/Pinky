@@ -190,7 +190,7 @@ MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mes
         }
     }
 }));
-var alllink_var = ''
+var AI_var = ''
 async function afn() {
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
         AI_var = vars.Z_PINKY_AI

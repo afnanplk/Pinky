@@ -41,4 +41,7 @@ MyPnky.addCommand({pattern: 'device ?(.*)', fromMe: false, desc: Lang.DEVICE , d
 		return await message.client.sendMessage(message.jid, Lang.NOT_FOUNDMD, MessageType.text);
 	}
 });	
+
 }
+
+

@@ -210,14 +210,7 @@ else if (Config.WORKTYPE == 'public') {
     }
     
      MyPnky.addCommand({pattern: 'doc ?(.*)', fromMe: true, desc: doc_desc , usage : usge}, (async (message, match) => { 
-         
-         var plk = ''
-         var afn = ''
-         if (Config.LANG == 'EN') plk = '```NAMING AND DOCIFYING```'
-         if (Config.LANG == 'ML') plk = '```ഡോക്യുമെന്റിലേക്ക് പരിവർത്തനം ചെയ്യുകയും പേര് നൽകുകയും ചെയ്യുന്നു```'
-         if (Config.LANG == 'EN') afn = '```PLEASE REPLY TO A AUDIO```'
-         if (Config.LANG == 'ML') 
-         
+      
         if (match[1] === '') return await message.client.sendMessage(message.jid,'give me a name',MessageType.text);  
         const mid = message.jid
         if (message.reply_message === false) return await message.client.sendMessage(mid,afn, MessageType.text);

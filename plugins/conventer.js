@@ -195,12 +195,12 @@ else if (Config.WORKTYPE == 'public') {
     var doc_desc = ''
     var plk = ''
     var afn = ''
-    var usage = ''
+    var usge = ''
      if (Config.LANG == 'EN') {
         doc_desc = 'CONVERT TO DOCUMENT AND ADD GIVEN NAME'
         plk = '```NAMING AND DOCIFYING```'
         afn = '```PLEASE REPLY TO A AUDIO```'
-        usage = '```.doc pinky *replace pinky with desired name*```'
+        usge = '```.doc pinky *replace pinky with desired name*```'
     }
     if (Config.LANG == 'ML') {
         doc_desc = 'ഡോക്യുമെന്റിലേക്ക് പരിവർത്തനം ചെയ്യുകയും നൽകിയപേര് ചേർക്കുകയും ചെയ്യുക'

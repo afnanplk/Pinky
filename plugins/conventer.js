@@ -196,13 +196,13 @@ else if (Config.WORKTYPE == 'public') {
     var plk = ''
     var afn = ''
     var usage = ''
-     if (config.LANG == 'EN') {
+     if (Config.LANG == 'EN') {
         doc_desc = 'CONVERT TO DOCUMENT AND ADD GIVEN NAME'
         plk = '```NAMING AND DOCIFYING```'
         afn = '```PLEASE REPLY TO A AUDIO```'
-        usage = '```.doc pinky```'
+        usage = '```.doc pinky *replace pinky with desired name*```'
     }
-    if (config.LANG == 'ML') {
+    if (Config.LANG == 'ML') {
         doc_desc = 'ഡോക്യുമെന്റിലേക്ക് പരിവർത്തനം ചെയ്യുകയും നൽകിയപേര് ചേർക്കുകയും ചെയ്യുക'
         afn = '```ഒരു ഓഡിയോയ്ക്ക് മറുപടി നൽകുക```'
         plk = '```ഡോക്യുമെന്റിലേക്ക് പരിവർത്തനം ചെയ്യുകയും പേര് നൽകുകയും ചെയ്യുന്നു```'

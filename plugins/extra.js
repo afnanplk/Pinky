@@ -309,7 +309,7 @@ else if (config.WORKTYPE == 'public') {
             return;
         }
 
-        if (Config.OWNER == 'default') {
+        if (config.OWNER == 'default') {
             await message.client.sendMessage(message.jid,'ᴘɪɴᴋʏ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀꜰɴᴀɴᴘʟᴋ' , MessageType.text, { quoted: message.data });
         }
         else {

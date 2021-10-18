@@ -115,7 +115,7 @@ if (config.WORKTYPE == 'private') {
 	  await message.client.sendMessage(message.jid, msg, MessageType.text, { quoted: message.data });
   }));
 
-    MyPnky.addCommand({pattern: 'joke ?(.*)', fromMe: false, desc: Lang.JOKE_DESC}, async (message, match) => {
+    MyPnky.addCommand({pattern: 'joke ?(.*)', fromMe: true, desc: Lang.JOKE_DESC}, async (message, match) => {
 	  if (match[1] === 'xx') return await message.reply(Lang.NEED_LOCATIONA);
 	  const url = `https://official-joke-api.appspot.com/random_joke`;
 	  try {
@@ -147,7 +147,7 @@ if (config.WORKTYPE == 'private') {
             return;
         }
 
-        if (Config.OWNER == 'default') {
+        if (config.OWNER == 'default') {
             await message.client.sendMessage(message.jid,'ᴘɪɴᴋʏ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀꜰɴᴀɴᴘʟᴋ' , MessageType.text, { quoted: message.data });
         }
         else {

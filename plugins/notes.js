@@ -24,7 +24,9 @@ const { successfullMessage, errorMessage, infoMessage } = require('../helpers');
 const NotesDB = require('./sql/notes');
 const Language = require('../language')
 const Lang = Language.getString('notes')
+const Config = require('../config');
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({ pattern: 'notes', fromMe: true, desc: Lang.NOTES_USAGE }, async (message, match) => {
 
 
@@ -114,4 +116,4 @@ MyPnky.addCommand({ pattern: 'deleteNotes', fromMe: true, desc: Lang.DELETE_USAG
 
     return await message.sendMessage(successfullMessage(Lang.SUCCESSFULLY_DELETED))
 })
-
+}

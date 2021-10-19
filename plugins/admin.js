@@ -20,7 +20,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     });
     return sonuc.includes(true);
 }
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({pattern: 'ban ?(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.BAN_DESC}, (async (message, match) => {  
     var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
@@ -1566,7 +1566,7 @@ MyPnky.addCommand({pattern: 'rename ?(.*)', onlyGroup: true, fromMe: true,desc: 
     await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
     }
 ));
-
+}
 module.exports = {
     checkImAdmin: checkImAdmin
 };

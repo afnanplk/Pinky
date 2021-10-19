@@ -6,7 +6,7 @@ const config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('weather');
-
+if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
 if (config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'sweather ?(.*)', fromMe: true, desc: "Gives you the weekly interpretations of space weather observations provided by the Space Weather Research Center (SWRC) for a p."}, async (message, match) => {
@@ -330,4 +330,5 @@ else if (config.WORKTYPE == 'public') {
 	  }
   });
 
+}
 }

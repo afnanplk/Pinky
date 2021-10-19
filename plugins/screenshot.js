@@ -12,7 +12,7 @@ const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('webss');
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'ss ?(.*)', fromMe: true, desc: Lang.SS_DESC}, (async (message, match) => {
@@ -37,4 +37,4 @@ else if (Config.WORKTYPE == 'public') {
 
     }));
 }
-
+}

@@ -31,8 +31,8 @@ const spotifyApi = new SpotifyWebApi({
 const Language = require('../language');
 const Lang = Language.getString('scrapers');
 const LOAD_ING = "```Downloading media...```"
-
-Asena.addCommand({pattern: 'get ?(.*)', fromMe: false, desc: Lang.GET_DESC}, (async (message, match) => { 
+if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
+Asena.addCommand({pattern: 'need ?(.*)', fromMe: false, desc: Lang.GET_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_SOME,MessageType.text);    
         if (!match[1].includes('mp3') && match[1].includes('youtu.be') || match[1].includes('youtube.com')) {
@@ -140,3 +140,4 @@ Asena.addCommand({pattern: 'get ?(.*)', fromMe: false, desc: Lang.GET_DESC}, (as
         await message.client.sendMessage(message.jid,'```' + Lang.LINK_TEXT + ' : ```'+ pallikkel +' \n ```' + Lang.NO_SPRT + '```',MessageType.text);
     }
     }));
+}

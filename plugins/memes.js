@@ -18,6 +18,7 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('memes');
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky .addCommand({pattern: 'meme ?(.*)', fromMe: true, desc: Lang.MEMES_DESC}, (async (message, match) => {   
@@ -93,4 +94,5 @@ else if (Config.WORKTYPE == 'public') {
             await info.delete();    
         });
     }));
+}
 }

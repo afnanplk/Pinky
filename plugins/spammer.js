@@ -17,7 +17,7 @@ const heroku = new Heroku({
 
 let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
 
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({pattern: 'killspam', fromMe: true, dontAddCommandList: true, desc: Lang.STOP_SPAMDESC}, (async (message, match) => {
 
     await message.client.sendMessage(message.jid, Lang.STOP_SPAM, MessageType.text);
@@ -2569,3 +2569,4 @@ MyPnky.addCommand({pattern: 'spam ?(.*)', fromMe: true, dontAddCommandList: true
     
     await message.client.sendMessage(message.jid, fin, MessageType.text);
 }));
+}

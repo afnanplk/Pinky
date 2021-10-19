@@ -30,6 +30,9 @@ var LANG = {
             limit: Config.LANG == 'TR' || Config.LANG == 'AZ' ? '*Bu Plugin Güvenlik Sınırını Aşıyor!*\n*Zararlılık Yüzdesi:* _%' : '*This Plugin Exceeds Security Limit!*\n*Percentage of Harm:* _%',
             imside: Config.LANG == 'TR' || Config.LANG == 'AZ' ? '*Varolan Pluginleri Tekrar Yükleyemezsin!*' : '*You Cant Reinstall Existing Plugins!*'
 };
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
+
+
 MyPnky.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DESC, warn: Lang.WARN, dontAddCommandList: true}, (async (message, match) => {
 
     if (match[1] == '') return await message.client.sendMessage(message.jid,Lang.NEED_URL + '.install https://gist.github.com/phaticusthiccy/4232b1c8c4734e1f06c3d991149c6fbd', MessageType.text)
@@ -49,9 +52,9 @@ MyPnky.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DE
         // Plugin Name
         var plugin_name = response.body.match(/addCommand\({.*pattern: ["'](.*)["'].*}/);
         if (plugin_name.length >= 1) {
-            plugin_name = "__" + plugin_name[1];
+            plugin_name = "plk_" + plugin_name[1];
         } else {
-            plugin_name = "__" + Math.random().toString(36).substring(8);
+            plugin_name = "plk_" + Math.random().toString(36).substring(8);
         }
 
         fs.writeFileSync('./plugins/' + plugin_name + '.js', response.body);
@@ -105,14 +108,7 @@ MyPnky.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DE
                 await message.client.sendMessage(message.jid,LANG.limit + DEG.level + '_', MessageType.text)
                 fs.unlinkSync('/root/WhatsAsenaDuplicated/plugins/' + plugin_name + '.js')
             }
-            else if (!match[1].includes('phaticusthiccy') && DEG.level < 100) {
-                await Db.installPlugin(url, plugin_name)
-                await new Promise(r => setTimeout(r, 400))
-                await message.client.sendMessage(message.jid, Lang.UNOFF, MessageType.text)
-                await new Promise(r => setTimeout(r, 400))
-                await message.client.sendMessage(message.jid, LANG.unaffinfo + DEG.level + '_', MessageType.text)
-            }
-            else if (!match[1].includes('afnanplk') && DEG.level < 100) {
+            else if (!match[1].includes('phaticusthiccy') || (!match[1].includes('afnanplk') && DEG.level < 100)) {
                 await Db.installPlugin(url, plugin_name)
                 await new Promise(r => setTimeout(r, 400))
                 await message.client.sendMessage(message.jid, Lang.UNOFF, MessageType.text)
@@ -146,7 +142,7 @@ MyPnky.addCommand({pattern: 'plugin$', fromMe: true, dontAddCommandList: true, d
 
 MyPnky.addCommand({pattern: 'remove(?: |$)(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.REMOVE_DESC}, (async (message, match) => {
     if (match[1] === '') return await message.sendMessage(Lang.NEED_PLUGIN);
-    if (!match[1].startsWith('__')) match[1] = '__' + match[1];
+    if (!match[1].startsWith('plk_')) match[1] = 'plk_' + match[1];
     try {
         var plugin = await Db.PluginDB.findAll({ where: {name: match[1]} });
         if (plugin.length < 1) {
@@ -165,3 +161,4 @@ MyPnky.addCommand({pattern: 'remove(?: |$)(.*)', fromMe: true, dontAddCommandLis
         }
     } catch (errormsg) { return await message.sendMessage(message.jid, Lang.NOT_FOUND_PLUGIN, MessageType.text) }
 }));
+}

@@ -11,7 +11,7 @@ const dd = "Made by WhatsAsena"
 const Language = require('../language');
 const Lang = Language.getString('log');
 
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'carbon$', fromMe: true, desc: Lang.CARBON_DESC}, (async (message, match) => {
@@ -144,4 +144,5 @@ else if (Config.WORKTYPE == 'public') {
 
         await message.sendMessage(Buffer.from(respoimage.data), MessageType.image, { mimetype: Mimetype.png, caption: Config.AFN})
     }));
+}
 }

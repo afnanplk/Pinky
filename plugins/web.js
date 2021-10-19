@@ -363,6 +363,8 @@ Asena.addCommand({pattern: '?(.*)', fromMe: true, deleteCommand: false, dontAddC
 }));
 */
 // https://github.com/ddsol/speedtest.net/blob/master/bin/index.js#L86
+
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 function speedText(speed) {
     let bits = speed * 8;
     const units = ['', 'K', 'M', 'G', 'T'];
@@ -480,4 +482,5 @@ else if (Config.WORKTYPE == 'public') {
             }
         }
     }));
+}
 }

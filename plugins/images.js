@@ -8,7 +8,7 @@ const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('wallpaper');
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'anime', fromMe: true, desc: 'random anime image'}, (async (message, match) => {
@@ -1545,4 +1545,5 @@ await message.sendMessage(r_text[i]);
 }));
     
     
+}
 }

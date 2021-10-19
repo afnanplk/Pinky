@@ -34,7 +34,7 @@ const convertToWav = file => {
         .save('output.wav')
 }
 
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (conf.WORKTYPE == 'private') {
 
     MyPnky.addCommand({ pattern: 'voicy', desc: Lang.USAGE, fromMe: true }, (async (message, match) => {
@@ -112,4 +112,5 @@ if (conf.WORKTYPE == 'public') {
 
 
     }));
+}
 }

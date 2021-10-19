@@ -16,7 +16,7 @@ const axios = require('axios');
 const Language = require('../language');
 const Lang = Language.getString('system_stats');
 
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'alive', fromMe: true, desc: Lang.ALIVE_DESC}, (async (message, match) => {
@@ -116,4 +116,5 @@ var i = Math.floor(31*Math.random())
             '```' + child + '```', MessageType.text
         );
     }));
+}
 }

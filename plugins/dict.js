@@ -8,11 +8,13 @@ const {MessageType} = require('@adiwajshing/baileys');
 /*const got = require('got');
 const fs = require('fs');*/
 const axios = require('axios');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('weather');
 const { errorMessage, infoMessage } = require('../helpers');
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 
 MyPnky.addCommand({pattern: 'lngcode', fromMe: false, dontAddCommandList: true}, (async (message, match) => {    
 
@@ -217,3 +219,4 @@ MyPnky.addCommand({ pattern: 'dict ?(.*)', fromMe: false, desc: "Use it as a dic
       
   },
 )
+}

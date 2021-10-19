@@ -63,7 +63,7 @@ const convertToWav = file => {
         .format('wav')
         .save('output.wav')
 }
-
+if (conf.STANDPLK == 'off' || conf.STANDPLK == 'OFF') {
 MyPnky.addCommand({on: 'text', fromMe: wk, dontAddCommandList: true, deleteCommand: false}, (async (message, match) => {
     if (message.message.startsWith('pinky') && conf.TALKING_PINKY !== 'true') {        
         var unique_ident = message.client.user.jid.split('@')[0]      
@@ -287,3 +287,4 @@ MyPnky.addCommand({ pattern: 'pinky ?(.*)', desc: fulleva_dsc, fromMe: true,dont
         }
     }
 }));
+}

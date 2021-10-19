@@ -63,6 +63,7 @@ function webp2mp4File(path) {
     })
 }
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'mp3$', fromMe: true, desc: Lang.MP4TOAUDİO_DESC}, (async (message, match) => {    
@@ -233,3 +234,4 @@ else if (Config.WORKTYPE == 'public') {
 
 }
     
+}

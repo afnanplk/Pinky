@@ -32,7 +32,7 @@ function secondsToHms(d) {
     var sDisplay = s > 0 ? s + (s == 1 ? " " + Lang.SECOND : " " + Lang.SECOND) : "";
     return hDisplay + mDisplay + sDisplay; 
 }
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (Config.AFKMSG == 'default') {
 
@@ -104,5 +104,6 @@ MyPnky.addCommand({pattern: 'afk ?(.*)', fromMe: true, dontAddCommandList: true,
         await message.client.sendMessage(message.jid,Lang.IM_AFK + (AFK.reason !== false ? ('\n*' + Lang.REASON +':* ```' + AFK.reason + '```') : ''),MessageType.text);
     }
 }));
+}
 
 module.exports = { secondsToHms };

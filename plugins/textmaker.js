@@ -31,7 +31,7 @@ if (Config.LANG == 'HI') desc_msg = 'असीमित एक्सेस क�
 if (Config.LANG == 'ES') desc_msg = 'Muestra herramientas de creación de textos con acceso ilimitado.'
 if (os.userInfo().homedir !== clh.pay) return;
 let wk = Config.WORKTYPE == 'public' ? false : true
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({pattern: 'txtit$', fromMe: wk, desc: desc_msg}, (async (message, match) => {
     var t1 = ''
     var t2 = ''
@@ -758,3 +758,4 @@ MyPnky.addCommand({pattern: 'cup ?(.*)', fromMe: wk, dontAddCommandList: true}, 
           } 
     });
 }));
+}

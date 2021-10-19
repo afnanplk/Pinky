@@ -23,7 +23,7 @@ const heroku = new Heroku({
 
 
 let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({pattern: 'degis ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.DEGİS_DESC}, (async (message, match) => {
 
     if (match[1] == '') {
@@ -700,3 +700,4 @@ MyPnky.addCommand({pattern: 'getvar ?(.*)', fromMe: true, dontAddCommandList: tr
         await message.client.sendMessage(message.jid,error.message, MessageType.text);
     });
 }));
+}

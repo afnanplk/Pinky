@@ -14,6 +14,7 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('conventer');
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'tblend ?(.*)', fromMe: true, desc: Lang.T_DESC}, (async (message, match) => {    
@@ -521,4 +522,5 @@ else if (Config.WORKTYPE == 'public') {
             return await message.client.sendMessage(message.jid,Lang.T_FALSE, MessageType.text);
         }
     }));
+}
 }

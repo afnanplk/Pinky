@@ -7,10 +7,12 @@ WhatsAsenaDuplicated
 const MyPnky = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
 const got = require('got');
+const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('weather');
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({pattern: 'news ?(.*)', fromMe: false, desc: Lang.NEWS_DESC}, async (message, match) => {
 	if (match[1] === '') return await message.reply(Lang.NEED_CATEGORY);
 	const url = `https://inshortsapi.vercel.app/news?category=${match[1]}`;
@@ -55,3 +57,4 @@ MyPnky.addCommand({pattern: 'news ?(.*)', fromMe: false, desc: Lang.NEWS_DESC}, 
 		return await message.client.sendMessage(message.jid, Lang.NOT_FOUNDC, MessageType.text);
 	}
 });
+}

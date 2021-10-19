@@ -9,6 +9,7 @@ const heroku = new Heroku({
 });
 let baseURI = '/apps/' + config.HEROKU.APP_NAME;
 
+if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
    var l_dsc = ''
     var alr_on = ''
     var alr_off = ''
@@ -343,4 +344,38 @@ let baseURI = '/apps/' + config.HEROKU.APP_NAME;
                 });
                 await message.sendMessage(W_ADM)
         }
+    }));
+
+    
+var plk_STN = ''
+var AFN_STN = ''
+ 
+  if (config.LANG == 'EN') {
+    
+    plk_STN = 'make your bot standby'
+    AFN_STN = 'make your bot not standby'  
+    }
+
+    if (config.LANG == 'ML') {
+      
+      plk_STN = 'നിങ്ങളുടെ ബോട്ട് സ്റ്റാൻഡ്ബൈ ആക്കുക'
+      AFN_STN = 'സ്റ്റാൻഡ്ബൈയിൽ നിന്ന് നിങ്ങളുടെ ബോട്ട് മാറ്റുക' 
+    }
+
+ Asena.addCommand({pattern: 'standby ?(.*)', fromMe: true, desc: plk_STN }, (async (message, match) => {
+                await heroku.patch(baseURI + '/config-vars', { 
+                    body: { 
+                        ['STANDBY_MODE']: 'on'
+                    } 
+                });
+     await message.sendMessage('your bot is standby now')
+    }));
+}
+Asena.addCommand({pattern: 'run again ?(.*)', fromMe: true, desc: AFN_STN }, (async (message, match) => {
+                await heroku.patch(baseURI + '/config-vars', { 
+                    body: { 
+                        ['STANDBY_MODE']: 'off'
+                    } 
+                });
+    await message.sendMessage('your bot will start running in 1 to 2 minute')
     }));

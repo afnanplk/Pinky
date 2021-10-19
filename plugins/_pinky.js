@@ -11,6 +11,7 @@ const fs = require("fs")
 const Language = require('../language');
 const Lang = Language.getString('_asena');
 
+if (Config.STANDPLK == 'off') {
 if (Config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'list ?(.*)', fromMe: true, dontAddCommandList: true}, (async (message, match) => {
@@ -353,4 +354,4 @@ async function checkImAdmin(message, user = message.client.user.jid) {
         }
     }));
 }
-
+}

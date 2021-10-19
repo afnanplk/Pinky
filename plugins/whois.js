@@ -26,6 +26,7 @@ if (CON.LANG == 'HI') ADMİN_USER = '*व्यवस्थापक गणन�
 if (CON.LANG == 'ID') ADMİN_USER = '*Jumlah Admin:*', USER_USER = '*Jumlah anggota:*', TR_USER = '*Jumlah Anggota Turki:*', Hİ_USER = '*Jumlah Anggota India:*', AZ_USER = '*Jumlah Anggota Azerbaijan:*', SRİ_USER = '*Jumlah Anggota Sri Lanka:*', RU_USER = '*Jumlah Anggota Rusia:*', USA_USER = '*Jumlah Anggota USA:*', OTHER = '*Jumlah Anggota Lainnya:*'
 if (CON.LANG == 'ML') ADMİN_USER = '*അഡ്‌മിൻ എണ്ണം:*', USER_USER = '*അംഗങ്ങളുടെ എണ്ണം:*', TR_USER = '*ടർക്കിഷ് അംഗങ്ങളുടെ എണ്ണം:*', Hİ_USER = '*ഇന്ത്യൻ അംഗങ്ങളുടെ എണ്ണം:*', AZ_USER = '*അസർബൈജാൻ അംഗങ്ങളുടെ എണ്ണം:*', SRİ_USER = '*ശ്രീലങ്ക അംഗങ്ങളുടെ എണ്ണം:*', RU_USER = '*റഷ്യൻ അംഗങ്ങളുടെ എണ്ണം:*', USA_USER = '*യു‌എസ്‌എ അംഗങ്ങളുടെ എണ്ണം:*', OTHER = '*മറ്റ് അംഗങ്ങളുടെ എണ്ണം:*'
 
+if (CON.STANDPLK == 'off' || CON.STANDPLK == 'OFF') {
 if (CON.WORKTYPE == 'private') {
     MyPnky.addCommand({ pattern: 'whois$', fromMe: true, desc: Lang.PL_DESC }, async (message, match) => { 
         if (message.jid.includes('-')) {
@@ -159,4 +160,5 @@ else if (CON.WORKTYPE == 'public') {
             );
         }
     });
+}
 }

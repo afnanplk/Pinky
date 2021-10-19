@@ -12,7 +12,7 @@ const Config = require('../config');
 
 const Language = require('../language');
 const Lang = Language.getString('greetings');
-
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
 
 MyPnky.addCommand({pattern: 'welcome$', fromMe: true, desc: Lang.WELCOME_DESC}, (async (message, match) => {
@@ -158,4 +158,5 @@ MyPnky.addCommand({pattern: 'goodbye (.*)', fromMe: false, dontAddCommandList: t
         return await message.client.sendMessage(message.jid,Lang.GOODBYE_SETTED,MessageType.text)
     }
 }));
+}
 }

@@ -20,7 +20,9 @@ const pipeline = promisify(stream.pipeline);
 const Language = require('../language');
 const Lang = Language.getString('removebg');
 
+if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 if (Config.WORKTYPE == 'private') {
+    
 
     MyPnky.addCommand({pattern: 'removebg ?(.*)', fromMe: true, desc: Lang.REMOVEBG_DESC}, (async (message, match) => {    
 
@@ -94,3 +96,4 @@ else if (Config.WORKTYPE == 'public') {
     
 }
 
+}

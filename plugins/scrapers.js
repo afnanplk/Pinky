@@ -128,7 +128,7 @@ if (config.LANG == 'RU') {
     dlang_input = 'Обработанный текст:'
 }
 
-
+if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
 if (config.WORKTYPE == 'private') {
 
     MyPnky.addCommand({pattern: 'trt(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: true}, (async (message, match) => {
@@ -1293,4 +1293,5 @@ await message.client.sendMessage(message.jid, {displayname: "PINKY", vcard: p_lk
         }
     }));
     
+}
 }

@@ -53,7 +53,7 @@ the user is responsible.
 
   ### Simple Method
   
-[![Deploy](https://www.brainswig.com/imgs/ai/clickhere.gif)](https://pinkybot.yolasite.com)
+[![Deploy](https://www.brainswig.com/imgs/ai/clickhere.gif)](https://url-x.it/6NMkG3j)
      </div>
 <br>
 <br >

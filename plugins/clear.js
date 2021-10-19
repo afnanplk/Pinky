@@ -29,7 +29,7 @@ MyPnky.addCommand({pattern: 'clear', fromMe: true, desc: END, dontAddCommandList
 }));
 
 
-Asena.addCommand({pattern: 'clean ?(.*)', fromMe: true, desc: END, dontAddCommandList: true}, (async (message, match) => {
+MyPnky.addCommand({pattern: 'clean ?(.*)', fromMe: true, desc: END, dontAddCommandList: true}, (async (message, match) => {
     if (match[1] === '') return await message.client.sendMessage(message.jid,'```enter jid address```',MessageType.text);
     await message.sendMessage('Chat clearing...');   
     await message.client.modifyChat (match[1] == '' ? message.jid : match [1], ChatModification.delete);

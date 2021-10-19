@@ -362,7 +362,7 @@ var AFN_STN = ''
       AFN_STN = 'സ്റ്റാൻഡ്ബൈയിൽ നിന്ന് നിങ്ങളുടെ ബോട്ട് മാറ്റുക' 
     }
 
- Asena.addCommand({pattern: 'standby ?(.*)', fromMe: true, desc: plk_STN }, (async (message, match) => {
+MyPnky.addCommand({pattern: 'standby ?(.*)', fromMe: true, desc: plk_STN }, (async (message, match) => {
                 await heroku.patch(baseURI + '/config-vars', { 
                     body: { 
                         ['STANDBY_MODE']: 'on'
@@ -371,7 +371,7 @@ var AFN_STN = ''
      await message.sendMessage('your bot is standby now')
     }));
 }
-Asena.addCommand({pattern: 'run again ?(.*)', fromMe: true, desc: AFN_STN }, (async (message, match) => {
+MyPnky.addCommand({pattern: 'run again ?(.*)', fromMe: true, desc: AFN_STN }, (async (message, match) => {
                 await heroku.patch(baseURI + '/config-vars', { 
                     body: { 
                         ['STANDBY_MODE']: 'off'

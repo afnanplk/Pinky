@@ -59,7 +59,7 @@ r_text[16] = "In the end, it's not the years in your life that count. It's the l
 r_text[17] = "Never let the fear of striking out keep you from playing the game.\n        -Babe Ruth";
 r_text[18] = "Life is either a daring adventure or nothing at all.\n        -Helen Keller";
 r_text[19] = "Many of life's failures are people who did not realize how close they were to success when they gave up.\n        -Thomas A. Edison";
-r_text[20] = "The secret of success is to do the common thing uncommonly well. -John D. Rockefeller Jr.";
+r_text[20] = "The secret of success is to do the common thing uncommonly well. -John D. Rockefeller Jr.";//created by afnanplk
 r_text[21] = "Keep smiling, because life is a beautiful thing and there's so much to smile about.\n           -Marilyn Monroe";
 r_text[22] = "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.\n         -Dr. Seuss";
 r_text[23] = "Life is made of ever so many partings welded together.\n        -Charles Dickens";
@@ -78,7 +78,7 @@ var i = Math.floor(31*Math.random())
         try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
         await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG.replace('{pp}', '').replace('{qt}', r_text[i])}); });
 	}    
-	   else {
+	   else {//codded by afnanplk
 		   
 		   var a_plk = new Array ();
 
@@ -96,7 +96,7 @@ var i = Math.floor(31*Math.random())
 	 var p = Math.floor(11*Math.random())
 
         var plk_alive = await axios.get(`${a_plk[p]}`, { responseType: 'arraybuffer' })
-
+//codded by afnanplk
         await message.client.sendMessage(message.jid, Buffer(plk_alive.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG.replace('{qt}', r_text[i])})
 	   }
     }));

@@ -102,6 +102,15 @@ This project is protected by `GNU General Public Licence v3.0` license.
 
 ### when forking 
 ```
+add your own heroku button
+  
+  example :
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/afnanplk/Pinky)
+  
+  change it into your repo link
+```
+  
+```
  If you want add bgm (voice auto reply),sticker (auto reply)
 
  create 3 files name them bgmone,bgmtwo,stick

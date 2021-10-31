@@ -51,30 +51,15 @@
             "required": false,
             "value": "true"
         },  
-         "THERI_KICK_GP": {
-            "description": "will remove members from group if they use bad words given in THERI_LIST_GP , if true ",
-            "required": true,
-            "value": "false"
-        },
         "NUMBER": {
             "description": "give your orginal phone number if you wish to add it in .number cmnd ",
             "required": false
         },
-         "THERI_KICK_PM": {
-            "description": "will block members if they use bad words given in THERI_LIST_PM , if true ",
-            "required": true,
-            "value": "false"
-        },
-         "THERI_LIST_GP": {
+         "BAD_WORDS": {
             "description": "enter the word you dont allow in your group ",
             "required": true,
             "value": "false"
-        },
-         "THERI_LIST_PM": {
-            "description": "enter the words you dont allow in your pm ",
-            "required": true,
-            "value": "false"
-        },        
+        },      
         "OWNER_NAME": {
             "description": "reply for .owner ! give your details, Use => default, to change back.",
             "required": false,

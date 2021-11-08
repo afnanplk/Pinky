@@ -54,6 +54,7 @@ the user is responsible.
   ### Simple Method
   
 [![Deploy](https://www.brainswig.com/imgs/ai/clickhere.gif)](https://pinkybot.yolasite.com/)
+  
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@afnanplk/PinkyMwol-QR)
      </div>
 <br>

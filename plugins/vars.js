@@ -48,63 +48,6 @@ if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
         }
     }));
 
-
-   var l_dss = ''
-    var alr_on = ''
-    var alr_off = ''
-    var THERI_on = ''
-    var THERI_off = ''
-    var THERI_onp = ''
-    var THERI_offp = ''
-   
-
-    if (config.LANG == 'ML') {
-        l_dss = 'THERI_LIST ൽ നൽകിയിരിക്കുന്ന നിർദ്ദിഷ്ട മോശം വാക്കുകൾ ഉപയോഗിക്കുകയാണെങ്കിൽ അംഗങ്ങളെ തടയുക/നീക്കം ചെയ്യുക'
-        THERI_on = 'മോശം വാക്കുകൾ ഉപയോഗിച്ചാൽ അംഗങ്ങളെ നീക്കം ചെയ്യും'
-        THERI_off = 'മോശം വാക്കുകൾ ഉപയോഗിച്ചാൽ അംഗങ്ങളെ നീക്കം ചെയ്യില്ല'
-        THERI_onp = 'മോശം വാക്കുകൾ ഉപയോഗിച്ചാൽ ഉപയോക്താക്കളെ തടയും'
-        THERI_offp = 'മോശം വാക്കുകൾ ഉപയോഗിച്ചാൽ ഉപയോക്താക്കളെ തടയില്ല'
-    }
-   else {
-        l_dss = 'to block/remove members if they use specified words given in THERI_LIST'        
-        THERI_on = 'ᴍᴇᴍʙᴇʀꜱ ᴡɪʟʟ ʙᴇ ʀᴇᴍᴏᴠᴇᴅ ɪꜰ ʙᴀᴅ ᴡᴏʀᴅꜱ ᴀʀᴇ ᴜꜱᴇᴅ'
-        THERI_off = 'ᴍᴇᴍʙᴇʀꜱ ᴡɪʟʟ ɴᴏᴛ ʙᴇ ʀᴇᴍᴏᴠᴇᴅ ɪꜰ ʙᴀᴅ ᴡᴏʀᴅꜱ ᴀʀᴇ ᴜꜱᴇᴅ'
-        THERI_onp = 'ᴜꜱᴇʀꜱ ᴡɪʟʟ ʙᴇ ʙʟᴏᴄᴋᴇᴅ ɪꜰ ɢɪᴠᴇɴ ʙᴀᴅ ᴡᴏʀᴅꜱ ᴀʀᴇ ᴜꜱᴇᴅ'
-        THERI_offp = 'ᴜꜱᴇʀꜱ ᴡɪʟʟ ɴᴏᴛ ʙᴇ ʙʟᴏᴄᴋᴇᴅ ɪꜰ ɢɪᴠᴇɴ ʙᴀᴅ ᴡᴏʀᴅꜱ ᴀʀᴇ ᴜꜱᴇᴅ'
-    }
-   
-    MyPnky.addCommand({pattern: 'theri ?(.*)', fromMe: true, desc: l_dss, usage: 'for pm .theri pm no / pm yes \n for group .theri gp no / gp yes' }, (async (message, match) => {
-        if (match[1] == 'pm yes') {
-                await heroku.patch(baseURI + '/config-vars', { 
-                    body: { 
-                        ['THERI_KICK_PM']: 'false'
-                    } 
-                });
-                await message.sendMessage(THERI_offp)
-        } else if (match[1] == 'pm no') {
-                await heroku.patch(baseURI + '/config-vars', { 
-                    body: { 
-                        ['THERI_KICK_PM']: 'true'
-                    } 
-                });
-                await message.sendMessage(THERI_onp)
-        } else if (match[1] == 'gp no') {
-                await heroku.patch(baseURI + '/config-vars', { 
-                    body: { 
-                        ['THERI_KICK_GP']: 'true'
-                    } 
-                });
-                await message.sendMessage(THERI_on)
-         } else if (match[1] == 'gp yes') {
-                await heroku.patch(baseURI + '/config-vars', { 
-                    body: { 
-                        ['THERI_KICK_GP']: 'false'
-                    } 
-                });
-                await message.sendMessage(THERI_on)
-        }
-    }));
-
  var plk_desc = ''
  var BGM_ONE = ''
  var BGM_TWO = ''

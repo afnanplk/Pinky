@@ -102,7 +102,7 @@ This project is protected by `GNU General Public Licence v3.0` license.
 ### thanks for your help and support guys
     `saidalli, amal ser, ichu, karthik, lyf, farhan, ihsan, hyper, muhsin, sahal, cherry 🥰🥰, plk`
 
-### when forking 
+### when forking  
 ```
 add your own heroku button
   

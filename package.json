@@ -1,29 +1,29 @@
 {
-  "name": "Pinky",
-  "version": "7.3.6",
-  "description": "Pinky is the Modified Version of WhatsAsena.",
+  "name": "mokayabot",
+  "version": "1.0",
+  "description": "Mokayabot is the Modified Version of WhatsAsena.",
   "main": "./Pinky_V2/bot.js",
   "scripts": {
     "start": "supervisor -s bot.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afnanplk/Pinky_V.git"
+    "url": "git+https://github.com/Fortunatusmokaya/mokayabot"
   },
   "keywords": [
     "whatsapp",
     "bot",
     "ai",
-    "Pinky",
-    "Afnanplk"
+    "mokayabot"
+    "Fortunatusmokaya"
   ],
-  "author": "Afnanplk",
-  "developer": "@afnanplk",
+  "author": "Fortunatus",
+  "developer": "@mokayafortunatus",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com//afnanplk/Pinky_V/issues"
+    "url": "https://github.com//Fortunatusmokaya/mokayabot/issues"
   },
-  "homepage": "https://github.com//afnanplk/Pinky_V#readme",
+  "homepage": "https://github.com//Fortunatusmokaya/mokayabot#readme",
   "dependencies": {
     "@adiwajshing/baileys": "3.4.1",
     "@lh2020/speedtest-net": "^2.1.1",

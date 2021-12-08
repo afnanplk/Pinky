@@ -77,10 +77,10 @@
             "MUST_TEXT": "```Please reply to any message```"
         },
         "heroku": {
-            "RESTART_DESC": "Restart pinky",
+            "RESTART_DESC": "Restart mokayabot",
             "RESTART_MSG": "ʀᴇꜱᴛᴀʀᴛɪɴɢ ᴘɪɴᴋʏ",
-            "SHUTDOWN_DESC": "Shutdown pinky",
-            "SHUTDOWN_MSG": "```Shutting down ⛔```",
+            "SHUTDOWN_DESC": "Shutdown mokayabot",
+            "SHUTDOWN_MSG": "```Mokayabot off😭```",
             "DYNO_DESC": "Check heroku dyno usage",
             "DYNO_TOTAL": "```Total Quota```",
             "DYNO_USED": "```Quota used```",
@@ -131,14 +131,14 @@
             "GOODBYE_SETTED": "*✅ Goodbye message has been setted successfully!*"
         },
         "lydia": {
-            "ADDLYDIA_DESC": "Activates Lydia (AI) for the user.",
+            "ADDLYDIA_DESC": "Activates Mokayabot AI for the user.",
             "NEED_REPLY": "```Please respond to a user's message!```",
             "COFFEEHOUSE": "```You haven't defined the Coffehouse API Key! ```",
-            "ENABLED_LYDIA": "```Lydia has been activated for this user!```",
-            "RMLYDIA_DESC": "Makes Lydia disabled for the user.",
+            "ENABLED_LYDIA": "```Mokaya has been activated for this user!```",
+            "RMLYDIA_DESC": "Makes Mokayabot AI disabled for the user.",
             "ALREADY_EMPTY": "```Your user list is already empty!```",
             "NOT_ADDED": "```You haven't added this user already!```",
-            "DISABLED": "```Lydia has been disabled for this user!```"
+            "DISABLED": "```Mokaya AI has been disabled for this user!```"
         },
         "memes": {
             "MEMES_DESC": "Photo memes you replied to.",
@@ -240,9 +240,9 @@
             "REPLY": "*Please Respond to User's Message to Report!*"
         },
         "updater": {
-            "UPDATER_DESC": "Checks the update for pinky.",
+            "UPDATER_DESC": "Checks the update for mokayabot",
             "UPDATE": "ʏᴏᴜʀ ᴘɪɴᴋʏ ɪꜱ ᴄᴏᴍᴘʟᴇᴛᴇʟʏ ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ",
-            "NEW_UPDATE": "*New update available for pinky!*\n\n ```use .list for commands``` \n\n *ask support group before updating or your bot might stop working* \n\n https://chat.whatsapp.com/EWLP9VPgYmgGff6NORWSKk \n\n *-if bot stop working you will have to re-deploy* \n\n Updates are:\n\n ",
+            "NEW_UPDATE": "*New update available for mokayabot!*\n\n ```use .list for commands``` \n\n *ask support group before updating or your bot might stop working* \n\n https://chat.whatsapp.com/EWLP9VPgYmgGff6NORWSKk \n\n *-if bot stop working you will have to re-deploy* \n\n Updates are:\n\n ",
             "UPDATE_NOW_DESC": "It makes updates.",
             "UPDATING": "ᴘɪɴᴋʏ ᴜᴘᴅᴀᴛɪɴɢ...",
             "INVALID_HEROKU": "*❌ Your Heroku information is wrong!*",
@@ -291,7 +291,7 @@
             "SUC": "*Calculation Done ✅*\n*Result:* ",
             "UNSUC": "*Calculation Failed ❌*\n*Error:* \n",
             "VALİD": "*Please Use As Applicable!* \n*.calc 1 + 2*\n*.calc 3 x 5*\n*.calc 10 / 5*\n*.calc 5 - 2*",
-            "PING_DESC": "Measures your ping.",
+            "PING_DESC": "Measures the speed of bot.",
             "URL": "Shorten the long link."
         },
         "conventer": {
@@ -477,7 +477,7 @@
         },
         "github": {
             "GİTHUB_DESC": "Collects github information from the given username.\n⌨️ Example: .github afnanplk",
-            "REPLY": "```You Need To Type Any Username!```",
+            "REPLY": "```You Need To Type Any Username dude. Brains!```",
             "NOT": "```User not found!```",
             "FOLLOWERS": "Followers:",
             "NAME": "Name:",
@@ -527,7 +527,7 @@
             "CM_DESC": "Get a compliment.",
             "NOT_FOUNDAC": "*Invalid Request*",
             "CM": "Hey,",
-            "BOT_DESC": "Chat with Pinky.\n Use .molu <message>",
+            "BOT_DESC": "Chat with mokayabot.\n Use .molu <message>",
             "BOT": ":",
             "JOKE_DESC": "Get a random joke.",
             "DEVICE": "get the details of given mobile phone",     
@@ -593,7 +593,7 @@
             "M_AUT": "Music Author:"
         },
         "lyrics": {
-            "LY_DESC": "Pinky will find the lyrics of the song.",
+            "LY_DESC": "mokayabot will find the lyrics of the song.",
             "NEED": "\n```You Must Write Any Song!```\n",
             "SLY": "Lyrics:",
             "AUT": "Song Owner:",

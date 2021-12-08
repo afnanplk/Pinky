@@ -1,4 +1,4 @@
-## Thanks for Everything
+## Thanks for Everything MOKAYA
 ### We will always remember you Mokaya...
 
 <div align="center">
@@ -14,7 +14,7 @@
 Project created by <a href="https://github.com/Fortunatusmokaya">Fortunatusmokaya</a> to make it public
     <br>
        | © |
-        Reserved |
+        Reserved |2021
     <br> 
 </p>
 
@@ -28,7 +28,7 @@ Project created by <a href="https://github.com/Fortunatusmokaya">Fortunatusmokay
 <a href="https://github.com/Fortunatusmokaya/lastpink/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/Fortunatusmokaya/lastpink?color=red&style=flat-square"></a>
 <a href="https://github.com/Fortunatusmokaya/lastpink/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Fortunatusmokaya/lastpink?color=red&style=flat-square"></a>
 <a href="https://github.com/Fortunatusmokaya/lastpink/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Fortunatusmokaya/lastpink?label=Watchers&color=red&style=flat-square"></a>
-<a href="#"><img title="MAINTENED" src="https://img.shields.io/badge/UNMAINTENED-YES-blue.svg"</a>
+<a href="#"><img title="MAINTAINED" src="https://img.shields.io/badge/UNMAINTENED-YES-blue.svg"</a>
 
 ```
   
@@ -69,20 +69,20 @@ bash <(curl -L https://t.ly/tHxh)
 ## F.A.Q
 Answer a few frequently asked questions;
 ### Can you read my messages?
-This project is open source so all the codes are clear. Neither less nor more; you can look what you want. **We absolutely do not have access to your accounts.**
+This project is open source so all the codes are clear to all developers. Neither less nor more; you can look what you want. **Absolutely MOKAYABOT does not have access to your accounts and privacy.**
 
 ### What about our security?
-If you are concerned about security, you can install it on your own computer. If you think someone else has captured your data, simply click on **Whatsapp> Three Dots> Whatsapp Web> Logout** from all sessions button.
+If you are concerned and worried about security, you can install it on your own computer. If you think someone else has captured your data, simply click on **Whatsapp> Three Dots> Whatsapp Web> Logout** from all sessions button.But remember mokayabot will not work if bailleys is logged out!
 
 ### Is it paid?
-**Of course not.** It will never happen. But you can donate to us. You can reach me via [Telegram](https://t.me/fusuf) .
+**Of course not.** It will never happen. But you can donate to us. You can reach me via my WhatsApp number +254787758078
 
 ### ⚠️ Warning! 
 ```
 Due to Userbot; Your WhatsApp account may be banned.
 This is an open source project, you are responsible for everything you do. 
-Absolutely, Asena executives do not accept responsibility.
-By establishing the Asena, you are deemed to have accepted these responsibilities.
+Absolutely, Fortunatus will not accept responsibility and be held liable!.
+By establishing the mokayabot, you are deemed to have accepted these responsibilities and any consequences caused by userbot.
 ```
   
 ## Developers
@@ -101,8 +101,8 @@ This project is protected by `GNU General Public Licence v3.0` license.
 ### Disclaimer
 `WhatsApp` name, its variations and the logo are registered trademarks of Facebook. We have nothing to do with the registered trademark
   
-### thanks for your help and support guys
-    `Chebet Blessed Morgan,Justice`
+### Thanks for your help and support guys
+    `*Chebet Blessed* Morgan,Justice Nyabuto and everyone else😎`
 
 ### when forking  
 ```

@@ -100,7 +100,7 @@
             "required": false,
             "value": "•━━━╼⤏MOKAYABOT⤎╾━━━•"
         },      
-        "TALKING_PINKY": {
+        "TALKING_MOKAYABOT": {
             "description": " Turn your account into a chatbot!",
             "required": true,
             "value": "false"
@@ -159,7 +159,7 @@
         "ALIVE_MESSAGE": {
             "description": "Customizable Alive Message! use {pp} if you want to add profile picture also add {qt} if you want to add qoutes in your welcome message",
             "required": false,
-            "value": "i am alive  \n\n ```coded by afnan pallikkel```\n\n```{qt}```"
+            "value": "i am alive  \n\n ```coded by Mokaya Fortunatus```\n\n```{qt}```"
         },
         "BAN_MESSAGE": {
             "description": "Customizable kick Message! Use => default, to change back.",
@@ -174,7 +174,7 @@
         "KICKME_MESSAGE": {
             "description": "Customizable leave Message! Use => default, to change back.",
             "required": false,
-            "value": "\n ```its time to leave bye bye``` \n"
+            "value": "\n ```Niggas,Mokayabot leaving this place now``` \n"
         },
         "PROMOTE_MESSAGE": {
             "description": "Customizable Promote Message! Use => default, to change back.",

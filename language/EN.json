@@ -8,7 +8,7 @@
             "COMMAND": "Command",
             "DESC": "Description",
             "EXAMPLE": "Example",
-            "NOT_FOUND": "*I couldnt find a command like this*",
+            "NOT_FOUND": "*I couldnt find a command like this. Have you ever seen anybody use it or you are the only fool around 😋*",
             "PLKADMIN": ".report you are not admin \n\n 🇩​🇴​🇳​🇹​ 🇹​🇷​🇾​ 🇦​🇬​🇦​🇮​🇳​, 🇮​🇫​ 🇾​🇴​🇺​ 🇹​🇷​🇾​ 🇾​🇴​🇺​ 🇼​🇮​🇱​🇱​ 🇧​🇪​ 🇷​🇪​🇲​🇴​🇻​🇪​🇩​ 🇧​🇾​ 🇦​🇩​🇲​🇮​🇳​🇸​",
             "WARN": "Warn"
         },
@@ -21,7 +21,7 @@
             "INSTALLED": "*✅ Plugin has been successfully installed!*",
             "PLUGIN_DESC": "Shows the plugins you have installed.",
             "INSTALLED_FROM_REMOTE": "*Plugins you install externally:*\n",
-            "NO_PLUGIN": "*You have not installed any external plugins!*",
+            "NO_PLUGIN": "*You have not installed any external plugins to mokayabot!*",
             "REMOVE_DESC": "Removes the plugin.",
             "NEED_PLUGIN": "```Please enter a Plugin! Example: .plugin __test```",
             "NOT_FOUND_PLUGIN": "```Maybe you have installed such a plugin, or maybe not. But it sure isn't right now.```",
@@ -60,7 +60,7 @@
             "REASON": "Reason",
             "LAST_SEEN": "Last Seen",
             "IM_NOT_AFK": "```I am not AFK anymore!```",
-            "AFK_TEXT": "```Bip bop! This is a bot. My owner is not here at the moment.```",
+            "AFK_TEXT": "```Bip bop! This is a bot. My owner Mokaya is not here at the moment.```",
             "AFK_TEXT_NOMD": "Bip bop! This is a bot.",
             "HOUR": "hour",
             "MINUTE": "minute",
@@ -154,7 +154,7 @@
         },
         "profile": {
             "KICKME_DESC": "It kicks you from the group you are using it in.",
-            "KICKME": "```Bye bye! I am going 🤠```",
+            "KICKME": "```Bye bye! mokayabot going 🤠```",
             "PP_DESC": "Makes the profile photo what photo you reply.",
             "NEED_PHOTO": "*Give me a photo!*",
             "PPING": "```Setting profile photo...```",
@@ -209,12 +209,12 @@
             "UPLOADING_VIDEO": "ʜᴀʜᴀ ꜰᴏᴜɴᴅ ɪᴛ",
             "YT_DESC": "It searchs on YouTube.",
             "NEED_WORDS": "```Please write a few words!```",
-            "GETTING_VIDEOS": "```I'm bringing videos...```",
+            "GETTING_VIDEOS": "```Videos on the way...```",
             "NOT_FOUND": "*I couldn't find anything :(*",
             "SEARCHING": "* 🔎 Searching...*",
             "WIKI_DESC": "Searches query on Wikipedia.",
             "IMG_DESC": "Searches for related pics on Google.",
-            "IMG": "Uploading photo ```{}``` number ```{} ```..."
+            "IMG": "Mokayabot is Uploading photo ```{}``` number ```{} ```..."
         },
         "sticker": {
             "STICKER_DESC": "It converts your replied photo or video to sticker.",
@@ -279,7 +279,7 @@
             "HUMI": "Humidity",
             "WIND": "Wind Speed",
             "CLOUD": "Cloud",
-            "NOT_FOUND": "```I couldn't find a city with this name. 😖```"
+            "NOT_FOUND": "```Does such a place exist in this planet🤔🤨```"
         },
         "web": {
             "SPEEDTEST_DESC": "Measures Download and Upload speed.",

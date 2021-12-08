@@ -2,9 +2,9 @@
 ### We will always remember you..
 
 <div align="center">
-  <img border-radius: 15px src="IMG-20211208-WA0232.jpg" width="200" height="200"/>
+  <img border-radius: 15px src="IMG-20211208-WA0237.jpg" width="200" height="200"/>
   <p align="center">
-<a href="#"><img title="Mokaya" src="https://img.shields.io/badge/Fortunatus?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+<a href="#"><img title="Fortunatusmokaya" src="https://img.shields.io/badge/Fortunatus?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
   <p align="center">
 <a href="https://chat.whatsapp.com/IKZF6W9hb6K25jC1mRheRq"><img title="join support" src="https://img.shields.io/badge/join_support-Fortunatus/mokayabot?color=black&style=for-the-badge&logo=whatsapp"></a>

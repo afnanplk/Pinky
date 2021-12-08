@@ -1,9 +1,9 @@
-/* Copyright (C) 2020 Yusuf Usta.
+/* Copyright (C) 2020 FORTUNATUS 🦄 Mokaya
 Licensed under the  GPL-3.0 License;
 you may not use this file except in compliance with the License.
 WhatsAsena - Yusuf Usta
 Developer & Co-Founder - Phaticusthiccy
-re-edited by afnan plk
+re-edited and coded by Mokaya Fortunatus
 */
 
 const MyPnky = require('../events');
@@ -83,7 +83,7 @@ var i = Math.floor(31*Math.random())
         try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
         await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG.replace('{pp}', '').replace('{time}', afnplk).replace('{qt}', r_text[i])}); });
 	}    
-	   else {//codded by afnanplk
+	   else {//codded by MOKAYA
 		   
 		   var a_plk = new Array ();
 
@@ -101,7 +101,7 @@ var i = Math.floor(31*Math.random())
 	 var p = Math.floor(11*Math.random())
 
         var plk_alive = await axios.get(`${a_plk[p]}`, { responseType: 'arraybuffer' })
-//codded by afnanplk
+//codded by MOKAYA
         await message.client.sendMessage(message.jid, Buffer(plk_alive.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG.replace('{time}', afnplk).replace('{qt}', r_text[i])})
 	   }
     }));

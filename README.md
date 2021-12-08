@@ -1,5 +1,5 @@
 ## Thanks for Everything
-### We will always remember you..
+### We will always remember you Mokaya...
 
 <div align="center">
   <img border-radius: 15px src="IMG-20211208-WA0237.jpg" width="200" height="200"/>

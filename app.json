@@ -9,7 +9,7 @@
     "stack": "container",
     "env": {
         "MOKAYABOT_SESSION": {
-            "description": "Type here yours Asena Session.This is the code sent after Qr code scanning)
+            "description": "Type here yours Asena Session."
             "required": true
         },
         "SUDO": {

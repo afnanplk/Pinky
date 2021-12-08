@@ -1,7 +1,7 @@
 
 {
     "name": "MOKAYABOT BY FORTUNATUS",
-    "description": "pinky bot - re-edited from asena. World’s first UserBot made for WhatsApp.Proudly Kenyan.",
+    "description": "mokayabot - re-edited from asena. World’s first UserBot made for WhatsApp.Proudly Kenyan.",
     "logo": "https://i.imgur.com/3XzWXjM.jpeg",
     "keywords": ["whatsapp", "userbot", "Asena", "WhatsAsena", "bot", "api", "ai"],
     "repository": "https://github.com/Fortunatusmokaya/mokayabot",
@@ -9,7 +9,7 @@
     "success_url": "under maintenance",
     "stack": "container",
     "env": {
-        "PINKY_SESSION": {
+        "MOKAYA_SESSION": {
             "description": "Qr.Js ile oluşturduğunuz özel session kodu. Type here yours Asena Session.",
             "required": true
         },

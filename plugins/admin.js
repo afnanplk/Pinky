@@ -4,7 +4,7 @@ PINKY V2
 */
 
 const {MessageType, GroupSettingChange} = require('@adiwajshing/baileys');
-const MyPnky = require('../events');
+const Nexus = require('../events');
 const Config = require('../config');
 
 const Language = require('../language');
@@ -21,7 +21,8 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     return sonuc.includes(true);
 }
 if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
-MyPnky.addCommand({pattern: 'ban ?(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.BAN_DESC}, (async (message, match) => {  
+Nexus.addCommand({pattern: 'ban ?(.*)', fromMe: true, desc: Lang.BAN_DESC}, (async (message, match) => {  
+    if (message.jid.endsWith('@g.us')) {
     var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
 
@@ -57,10 +58,11 @@ MyPnky.addCommand({pattern: 'ban ?(.*)', fromMe: true, dontAddCommandList: true,
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
         }
     }
-}));
+	}}));
 
-MyPnky.addCommand({pattern: 'add(?: |$)(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.ADD_DESC}, (async (message, match) => {  
-    var im = await checkImAdmin(message);
+Nexus.addCommand({pattern: 'add(?: |$)(.*)', fromMe: true, desc: Lang.ADD_DESC}, (async (message, match) => {  
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
 
     if (Config.ADDMSG == 'default') {
@@ -91,10 +93,11 @@ MyPnky.addCommand({pattern: 'add(?: |$)(.*)', fromMe: true, dontAddCommandList: 
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
         }
     }
-}));
+	}}));
 
-MyPnky.addCommand({pattern: 'promote ?(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.PROMOTE_DESC}, (async (message, match) => {    
-    var im = await checkImAdmin(message);
+Nexus.addCommand({pattern: 'promote ?(.*)', fromMe: true, desc: Lang.PROMOTE_DESC}, (async (message, match) => {    
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
 
     if (Config.PROMOTEMSG == 'default') {
@@ -149,48 +152,78 @@ MyPnky.addCommand({pattern: 'promote ?(.*)', fromMe: true, dontAddCommandList: t
             return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
         }
     }
-}));
+	}}));
 
-MyPnky.addCommand({pattern: 'demote ?(.*)', fromMe: true, onlyGroup: true, desc: Lang.DEMOTE_DESC, dontAddCommandList: true}, (async (message, match) => {    
-    var im = await checkImAdmin(message);
+Nexus.addCommand({pattern: 'demote ?(.*)', fromMe: true, desc: Lang.DEMOTE_DESC}, (async (message, match) => {    
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN);
 
-    if (message.reply_message !== false) {
-        var checkAlready = await checkImAdmin(message, message.reply_message.data.participant.split('@')[0]);
-        if (!checkAlready) {
-            return await message.client.sendMessage(message.jid,Lang.ALREADY_NOT_ADMIN, MessageType.text);
-        }
-
-        await message.client.sendMessage(message.jid,'@' + message.reply_message.data.participant.split('@')[0] + Lang.DEMOTED, MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
-        await message.client.groupDemoteAdmin(message.jid, [message.reply_message.data.participant]);
-    } else if (message.reply_message === false && message.mention !== false) {
-        var etiketler = '';
-        message.mention.map(async (user) => {
-            var checkAlready = await checkImAdmin(message, user);
+    if (Config.DEMOTEMSG == 'default') {
+        if (message.reply_message !== false) {
+            var checkAlready = await checkImAdmin(message, message.reply_message.data.participant.split('@')[0]);
             if (!checkAlready) {
                 return await message.client.sendMessage(message.jid,Lang.ALREADY_NOT_ADMIN, MessageType.text);
             }
+
+            await message.client.sendMessage(message.jid,'@' + message.reply_message.data.participant.split('@')[0] + Lang.DEMOTED, MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.groupDemoteAdmin(message.jid, [message.reply_message.data.participant]);
+        } else if (message.reply_message === false && message.mention !== false) {
+            var etiketler = '';
+            message.mention.map(async (user) => {
+                var checkAlready = await checkImAdmin(message, user);
+                if (!checkAlready) {
+                    return await message.client.sendMessage(message.jid,Lang.ALREADY_NOT_ADMIN, MessageType.text);
+                }
             
-            etiketler += '@' + user.split('@')[0] + ',';
-        });
+                etiketler += '@' + user.split('@')[0] + ',';
+            });
 
-        await message.client.sendMessage(message.jid,etiketler + Lang.DEMOTED, MessageType.text, {contextInfo: {mentionedJid: message.mention}});
-        await message.client.groupDemoteAdmin(message.jid, message.mention);
-    } else {
-        return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
+            await message.client.sendMessage(message.jid,etiketler + Lang.DEMOTED, MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.groupDemoteAdmin(message.jid, message.mention);
+        } else {
+            return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
+        }
     }
-}));
+    else {
+        if (message.reply_message !== false) {
+            var checkAlready = await checkImAdmin(message, message.reply_message.data.participant.split('@')[0]);
+            if (!checkAlready) {
+                return await message.client.sendMessage(message.jid,Lang.ALREADY_NOT_ADMIN, MessageType.text);
+            }
 
-MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.MUTE_DESC}, (async (message, match) => {    
-    var im = await checkImAdmin(message);
+            await message.client.sendMessage(message.jid,'@' + message.reply_message.data.participant.split('@')[0] + Config.DEMOTEMSG, MessageType.text, {contextInfo: {mentionedJid: [message.reply_message.data.participant]}});
+            await message.client.groupDemoteAdmin(message.jid, [message.reply_message.data.participant]);
+        } else if (message.reply_message === false && message.mention !== false) {
+            var etiketler = '';
+            message.mention.map(async (user) => {
+                var checkAlready = await checkImAdmin(message, user);
+                if (!checkAlready) {
+                    return await message.client.sendMessage(message.jid,Lang.ALREADY_NOT_ADMIN, MessageType.text);
+                }
+            
+                etiketler += '@' + user.split('@')[0] + ',';
+            });
+
+            await message.client.sendMessage(message.jid,etiketler + Config.DEMOTEMSG, MessageType.text, {contextInfo: {mentionedJid: message.mention}});
+            await message.client.groupDemoteAdmin(message.jid, message.mention);
+        } else {
+            return await message.client.sendMessage(message.jid,Lang.GIVE_ME_USER,MessageType.text);
+        }
+    }
+	}}));
+
+Nexus.addCommand({pattern: 'mute ?(.*)', fromMe: true, desc: Lang.MUTE_DESC}, (async (message, match) => {    
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
 
     if (Config.MUTEMSG == 'default') {
-        if (match[1] == '') {
+        if (!match[1]) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Lang.MUTED,MessageType.text);
         }
-        else if (match[1] == '1m') {
+        else if (match[1].includes('1')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.BİRMUTE,MessageType.text);
 
@@ -199,7 +232,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '2m') {
+        else if (match[1].includes('2')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.İKİMUTE,MessageType.text);
 
@@ -208,7 +241,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '3m') {
+        else if (match[1].includes('3')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ÜÇMUTE,MessageType.text);
 
@@ -217,7 +250,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '4m') {
+        else if (match[1].includes('4')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.DÖRTMUTE,MessageType.text);
 
@@ -226,7 +259,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '5m') {
+        else if (match[1].includes('5')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.BEŞMUTE,MessageType.text);
 
@@ -235,7 +268,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '6m') {
+        else if (match[1].includes('6')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ALTIMUTE,MessageType.text);
 
@@ -244,7 +277,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '7m') {
+        else if (match[1].includes('7')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YEDİMUTE,MessageType.text);
 
@@ -253,7 +286,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '8m') {
+        else if (match[1].includes('8')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SEKİZMUTE,MessageType.text);
 
@@ -262,7 +295,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '9m') {
+        else if (match[1].includes('9')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.DOKUZMUTE,MessageType.text);
 
@@ -271,7 +304,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '10m') {
+        else if (match[1].includes('10')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONMUTE,MessageType.text);
 
@@ -280,7 +313,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '11m') {
+        else if (match[1].includes('11')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONBİRMUTE,MessageType.text);
 
@@ -289,7 +322,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '12m') {
+        else if (match[1].includes('12')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONİKİMUTE,MessageType.text);
 
@@ -298,7 +331,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '13m') {
+        else if (match[1].includes('13')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONÜÇMUTE,MessageType.text);
 
@@ -307,7 +340,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '14m') {
+        else if (match[1].includes('14')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONDÖRTMUTE,MessageType.text);
 
@@ -316,7 +349,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '15m') {
+        else if (match[1].includes('15')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONBEŞMUTE,MessageType.text);
 
@@ -325,7 +358,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '16m') {
+        else if (match[1].includes('16')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONALTIMUTE,MessageType.text);
 
@@ -334,7 +367,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '17m') {
+        else if (match[1].includes('17')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONYEDİMUTE,MessageType.text);
 
@@ -343,7 +376,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '18m') {
+        else if (match[1].includes('18')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONSEKİZMUTE,MessageType.text);
 
@@ -352,7 +385,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '19m') {
+        else if (match[1].includes('19')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ONDOKUZMUTE,MessageType.text);
 
@@ -361,7 +394,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '20m') {
+        else if (match[1].includes('20')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİMUTE,MessageType.text);
 
@@ -370,7 +403,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '21m') {
+        else if (match[1].includes('21')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİBİRMUTE,MessageType.text);
 
@@ -379,7 +412,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '22m') {
+        else if (match[1].includes('22')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİİKİMUTE,MessageType.text);
 
@@ -388,7 +421,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '23m') {
+        else if (match[1].includes('23')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİÜÇMUTE,MessageType.text);
 
@@ -397,7 +430,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '24m') {
+        else if (match[1].includes('24')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİDÖRTMUTE,MessageType.text);
 
@@ -406,7 +439,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '25m') {
+        else if (match[1].includes('25')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİBEŞMUTE,MessageType.text);
 
@@ -415,7 +448,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '26m') {
+        else if (match[1].includes('26')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİALTIMUTE,MessageType.text);
 
@@ -424,7 +457,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '27m') {
+        else if (match[1].includes('27')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİYEDİMUTE,MessageType.text);
 
@@ -433,7 +466,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '28m') {
+        else if (match[1].includes('28')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİSEKİZMUTE,MessageType.text);
 
@@ -442,7 +475,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '29m') {
+        else if (match[1].includes('29')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.YİRMİDOKUZMUTE,MessageType.text);
 
@@ -451,7 +484,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '30m') {
+        else if (match[1].includes('30')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZMUTE,MessageType.text);
 
@@ -460,7 +493,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '31m') {
+        else if (match[1].includes('31')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZBİRMUTE,MessageType.text);
 
@@ -469,7 +502,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '32m') {
+        else if (match[1].includes('32')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZİKİMUTE,MessageType.text);
 
@@ -478,7 +511,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '33m') {
+        else if (match[1].includes('33')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZÜÇMUTE,MessageType.text);
 
@@ -487,7 +520,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '34m') {
+        else if (match[1].includes('34')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZDÖRTMUTE,MessageType.text);
 
@@ -496,7 +529,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '35m') {
+        else if (match[1].includes('35')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZBEŞMUTE,MessageType.text);
 
@@ -505,7 +538,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '36m') {
+        else if (match[1].includes('36')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZALTIMUTE,MessageType.text);
 
@@ -514,7 +547,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '37m') {
+        else if (match[1].includes('37')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZYEDİMUTE,MessageType.text);
 
@@ -523,7 +556,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '38m') {
+        else if (match[1].includes('38')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZSEKİZMUTE,MessageType.text);
 
@@ -532,7 +565,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '39m') {
+        else if (match[1].includes('39')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.OTUZDOKUZMUTE,MessageType.text);
 
@@ -541,7 +574,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '40m') {
+        else if (match[1].includes('40')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKMUTE,MessageType.text);
 
@@ -550,7 +583,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '41m') {
+        else if (match[1].includes('41')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKBİRMUTE,MessageType.text);
 
@@ -559,7 +592,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '42m') {
+        else if (match[1].includes('42')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKİKİMUTE,MessageType.text);
 
@@ -568,7 +601,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '43m') {
+        else if (match[1].includes('43')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKÜÇMUTE,MessageType.text);
 
@@ -577,7 +610,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '44m') {
+        else if (match[1].includes('44')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKDÖRTMUTE,MessageType.text);
 
@@ -586,7 +619,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '45m') {
+        else if (match[1].includes('45')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKBEŞMUTE,MessageType.text);
 
@@ -595,7 +628,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '46m') {
+        else if (match[1].includes('46')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKALTIMUTE,MessageType.text);
 
@@ -604,7 +637,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '47m') {
+        else if (match[1].includes('47')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKYEDİMUTE,MessageType.text);
 
@@ -613,7 +646,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '48m') {
+        else if (match[1].includes('48')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKSEKİZMUTE,MessageType.text);
 
@@ -622,7 +655,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '49m') {
+        else if (match[1].includes('49')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.KIRKDOKUZMUTE,MessageType.text);
 
@@ -631,7 +664,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '50m') {
+        else if (match[1].includes('50')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİMUTE,MessageType.text);
 
@@ -640,7 +673,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '51m') {
+        else if (match[1].includes('51')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİBİRMUTE,MessageType.text);
 
@@ -649,7 +682,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '52m') {
+        else if (match[1].includes('52')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİİKİMUTE,MessageType.text);
 
@@ -658,7 +691,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '53m') {
+        else if (match[1].includes('53')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİÜÇMUTE,MessageType.text);
 
@@ -667,7 +700,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '54m') {
+        else if (match[1].includes('54')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİDÖRTMUTE,MessageType.text);
 
@@ -676,7 +709,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '55m') {
+        else if (match[1].includes('55')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİBEŞMUTE,MessageType.text);
 
@@ -685,7 +718,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '56m') {
+        else if (match[1].includes('56')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİALTIMUTE,MessageType.text);
 
@@ -694,7 +727,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '57m') {
+        else if (match[1].includes('57')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİYEDİMUTE,MessageType.text);
 
@@ -703,7 +736,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '58m') {
+        else if (match[1].includes('58')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİSEKİZMUTE,MessageType.text);
 
@@ -712,7 +745,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '59m') {
+        else if (match[1].includes('59')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.ELLİDOKUZMUTE,MessageType.text);
 
@@ -721,7 +754,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '1h') {
+        else if (match[1].includes('1h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATBİRMUTE,MessageType.text);
 
@@ -730,7 +763,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '2h') {
+        else if (match[1].includes('2h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATİKİMUTE,MessageType.text);
 
@@ -739,7 +772,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '3h') {
+        else if (match[1].includes('3h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATÜÇMUTE,MessageType.text);
 
@@ -748,7 +781,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '4h') {
+        else if (match[1].includes('4h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATDÖRTMUTE,MessageType.text);
 
@@ -757,7 +790,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '5h') {
+        else if (match[1].includes('5h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATBEŞMUTE,MessageType.text);
 
@@ -766,7 +799,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '6h') {
+        else if (match[1].includes('6h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATALTIMUTE,MessageType.text);
 
@@ -775,7 +808,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '7h') {
+        else if (match[1].includes('7h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATYEDİMUTE,MessageType.text);
 
@@ -784,7 +817,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '8h') {
+        else if (match[1].includes('8h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATSEKİZMUTE,MessageType.text);
 
@@ -793,7 +826,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '9h') {
+        else if (match[1].includes('9h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATDOKUZMUTE,MessageType.text);
 
@@ -802,7 +835,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '10h') {
+        else if (match[1].includes('10h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATONMUTE,MessageType.text);
 
@@ -811,7 +844,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '11h') {
+        else if (match[1].includes('11h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATONBİRMUTE,MessageType.text);
 
@@ -820,7 +853,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '12h') {
+        else if (match[1].includes('12h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.SAATONİKİMUTE,MessageType.text);
 
@@ -829,7 +862,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '1d') {
+        else if (match[1].includes('1d')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.GÜNBİRMUTE,MessageType.text);
 
@@ -838,7 +871,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '2d') {
+        else if (match[1].includes('2d')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.GÜNİKİMUTE,MessageType.text);
 
@@ -847,7 +880,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] == '3d') {
+        else if (match[1].includes('3d')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,mut.GÜNÜÇMUTE,MessageType.text);
 
@@ -856,16 +889,16 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Lang.UNMUTED,MessageType.text);
         }
-        else if (match[1] !== '1m' || match[1] !== '2m' || match[1] !== '3m' || match[1] !== '4m' || match[1] !== '5m' || match[1] !== '6m' || match[1] !== '7m' || match[1] !== '8m' || match[1] !== '9m' || match[1] !== '10m' || match[1] !== '11m' || match[1] !== '12m' || match[1] !== '13m' || match[1] !== '14m' || match[1] !== '15m' || match[1] !== '16m' || match[1] !== '17m' || match[1] !== '18m' || match[1] !== '19m' || match[1] !== '20m' || match[1] !== '21m' || match[1] !== '22m' || match[1] !== '23m' || match[1] !== '24m' || match[1] !== '25m' || match[1] !== '26m' || match[1] !== '27m' || match[1] !== '28m' || match[1] !== '29m' || match[1] !== '30m' || match[1] !== '31m' || match[1] !== '32m' || match[1] !== '33m' || match[1] !== '34m' || match[1] !== '35m' || match[1] !== '36m' || match[1] !== '37m' || match[1] !== '38m' || match[1] !== '39m' || match[1] !== '40m' || match[1] !== '41m' || match[1] !== '42m' || match[1] !== '43m' || match[1] !== '44m' || match[1] !== '45m' || match[1] !== '46m' || match[1] !== '47m' || match[1] !== '48m' || match[1] !== '49m' || match[1] !== '50m' || match[1] !== '51m' || match[1] !== '52m' || match[1] !== '53m' || match[1] !== '54m' || match[1] !== '55m' || match[1] !== '56m' || match[1] !== '57m' || match[1] !== '58m' || match[1] !== '59m' || match[1] !== '1h' || match[1] !== '2h' || match[1] !== '3h' || match[1] !== '4h' || match[1] !== '5h' || match[1] !== '6h' || match[1] !== '7h' || match[1] !== '8h' || match[1] !== '9h' || match[1] !== '10h' || match[1] !== '11h' || match[1] !== '12h' || match[1] !== '1d' || match[1] !== '2d' || match[1] !== '3d') {
+        else {
             return await message.client.sendMessage(message.jid, mut.TÜR, MessageType.text);
         }
     }
     else {
-        if (match[1] == '') {
+        if (match[1].includes('')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid, Config.MUTEMSG,MessageType.text);
         }
-        else if (match[1] == '1m') {
+        else if (match[1].includes('1')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -874,7 +907,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '2m') {
+        else if (match[1].includes('2')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -883,7 +916,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '3m') {
+        else if (match[1].includes('3')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -892,7 +925,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '4m') {
+        else if (match[1].includes('4')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -901,7 +934,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '5m') {
+        else if (match[1].includes('5')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -910,7 +943,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '6m') {
+        else if (match[1].includes('6')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -919,7 +952,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '7m') {
+        else if (match[1].includes('7')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -928,7 +961,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '8m') {
+        else if (match[1].includes('8')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -937,7 +970,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '9m') {
+        else if (match[1].includes('9')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -946,7 +979,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '10m') {
+        else if (match[1].includes('10')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -955,7 +988,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '11m') {
+        else if (match[1].includes('11')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -964,7 +997,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '12m') {
+        else if (match[1].includes('12')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -973,7 +1006,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '13m') {
+        else if (match[1].includes('13')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -982,7 +1015,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '14m') {
+        else if (match[1].includes('14')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -991,7 +1024,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '15m') {
+        else if (match[1].includes('15')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1000,7 +1033,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '16m') {
+        else if (match[1].includes('16')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1009,7 +1042,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '17m') {
+        else if (match[1].includes('17')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1018,7 +1051,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '18m') {
+        else if (match[1].includes('18')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1027,7 +1060,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '19m') {
+        else if (match[1].includes('19')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1036,7 +1069,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '20m') {
+        else if (match[1].includes('20')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1045,7 +1078,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '21m') {
+        else if (match[1].includes('21')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1054,7 +1087,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '22m') {
+        else if (match[1].includes('22')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1063,7 +1096,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '23m') {
+        else if (match[1].includes('23')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1072,7 +1105,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '24m') {
+        else if (match[1].includes('24')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1081,7 +1114,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '25m') {
+        else if (match[1].includes('25')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1090,7 +1123,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '26m') {
+        else if (match[1].includes('26')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1099,7 +1132,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '27m') {
+        else if (match[1].includes('27')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1108,7 +1141,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '28m') {
+        else if (match[1].includes('28')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1117,7 +1150,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '29m') {
+        else if (match[1].includes('29')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1126,7 +1159,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '30m') {
+        else if (match[1].includes('30')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1135,7 +1168,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '31m') {
+        else if (match[1].includes('31')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1144,7 +1177,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '32m') {
+        else if (match[1].includes('32')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1153,7 +1186,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '33m') {
+        else if (match[1].includes('33')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1162,7 +1195,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '34m') {
+        else if (match[1].includes('34')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1171,7 +1204,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '35m') {
+        else if (match[1].includes('35')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1180,7 +1213,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '36m') {
+        else if (match[1].includes('36')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1189,7 +1222,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '37m') {
+        else if (match[1].includes('37')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1198,7 +1231,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '38m') {
+        else if (match[1].includes('38')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1207,7 +1240,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '39m') {
+        else if (match[1].includes('39')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1216,7 +1249,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '40m') {
+        else if (match[1].includes('40')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1225,7 +1258,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '41m') {
+        else if (match[1].includes('41')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1234,7 +1267,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '42m') {
+        else if (match[1].includes('42')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1243,7 +1276,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '43m') {
+        else if (match[1].includes('43')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1252,7 +1285,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '44m') {
+        else if (match[1].includes('44')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1261,7 +1294,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '45m') {
+        else if (match[1].includes('45')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1270,7 +1303,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '46m') {
+        else if (match[1].includes('46')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1279,7 +1312,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '47m') {
+        else if (match[1].includes('47')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1288,7 +1321,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '48m') {
+        else if (match[1].includes('48')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1297,7 +1330,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '49m') {
+        else if (match[1].includes('49')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1306,7 +1339,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '50m') {
+        else if (match[1].includes('50')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1315,7 +1348,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '51m') {
+        else if (match[1].includes('51')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1324,7 +1357,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '52m') {
+        else if (match[1].includes('52')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1333,7 +1366,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '53m') {
+        else if (match[1].includes('53')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1342,7 +1375,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '54m') {
+        else if (match[1].includes('54')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1351,7 +1384,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '55m') {
+        else if (match[1].includes('55')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1360,7 +1393,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '56m') {
+        else if (match[1].includes('56')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1369,7 +1402,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '57m') {
+        else if (match[1].includes('57')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1378,7 +1411,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '58m') {
+        else if (match[1].includes('58')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1387,7 +1420,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '59m') {
+        else if (match[1].includes('59')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1396,7 +1429,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '1h') {
+        else if (match[1].includes('1h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1405,7 +1438,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '2h') {
+        else if (match[1].includes('2h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1414,7 +1447,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '3h') {
+        else if (match[1].includes('3h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1423,7 +1456,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '4h') {
+        else if (match[1].includes('4h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1432,7 +1465,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '5h') {
+        else if (match[1].includes('5h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1441,7 +1474,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '6h') {
+        else if (match[1].includes('6h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1450,7 +1483,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '7h') {
+        else if (match[1].includes('7h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1459,7 +1492,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '8h') {
+        else if (match[1].includes('8h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1468,7 +1501,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '9h') {
+        else if (match[1].includes('9h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1477,7 +1510,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '10h') {
+        else if (match[1].includes('10h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1486,7 +1519,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '11h') {
+        else if (match[1].includes('11h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1495,7 +1528,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '12h') {
+        else if (match[1].includes('12h')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1504,7 +1537,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '1d') {
+        else if (match[1].includes('1d')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1513,7 +1546,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '2d') {
+        else if (match[1].includes('2d')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1522,7 +1555,7 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] == '3d') {
+        else if (match[1].includes('3d')) {
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, true);
             await message.client.sendMessage(message.jid,Config.MUTEMSG,MessageType.text);
 
@@ -1531,14 +1564,15 @@ MyPnky.addCommand({pattern: 'mute ?(.*)', fromMe: true, dontAddCommandList: true
             await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
             await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
         }
-        else if (match[1] !== '1m' || match[1] !== '2m' || match[1] !== '3m' || match[1] !== '4m' || match[1] !== '5m' || match[1] !== '6m' || match[1] !== '7m' || match[1] !== '8m' || match[1] !== '9m' || match[1] !== '10m' || match[1] !== '11m' || match[1] !== '12m' || match[1] !== '13m' || match[1] !== '14m' || match[1] !== '15m' || match[1] !== '16m' || match[1] !== '17m' || match[1] !== '18m' || match[1] !== '19m' || match[1] !== '20m' || match[1] !== '21m' || match[1] !== '22m' || match[1] !== '23m' || match[1] !== '24m' || match[1] !== '25m' || match[1] !== '26m' || match[1] !== '27m' || match[1] !== '28m' || match[1] !== '29m' || match[1] !== '30m' || match[1] !== '31m' || match[1] !== '32m' || match[1] !== '33m' || match[1] !== '34m' || match[1] !== '35m' || match[1] !== '36m' || match[1] !== '37m' || match[1] !== '38m' || match[1] !== '39m' || match[1] !== '40m' || match[1] !== '41m' || match[1] !== '42m' || match[1] !== '43m' || match[1] !== '44m' || match[1] !== '45m' || match[1] !== '46m' || match[1] !== '47m' || match[1] !== '48m' || match[1] !== '49m' || match[1] !== '50m' || match[1] !== '51m' || match[1] !== '52m' || match[1] !== '53m' || match[1] !== '54m' || match[1] !== '55m' || match[1] !== '56m' || match[1] !== '57m' || match[1] !== '58m' || match[1] !== '59m' || match[1] !== '1h' || match[1] !== '2h' || match[1] !== '3h' || match[1] !== '4h' || match[1] !== '5h' || match[1] !== '6h' || match[1] !== '7h' || match[1] !== '8h' || match[1] !== '9h' || match[1] !== '10h' || match[1] !== '11h' || match[1] !== '12h' || match[1] !== '1d' || match[1] !== '2d' || match[1] !== '3d') {
+        else {
             return await message.client.sendMessage(message.jid, mut.TÜR, MessageType.text);
         }
     }
-}));
+	}}));
 
-MyPnky.addCommand({pattern: 'unmute ?(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.UNMUTE_DESC}, (async (message, match) => {    
-    var im = await checkImAdmin(message);
+Nexus.addCommand({pattern: 'unmute ?(.*)', fromMe: true, desc: Lang.UNMUTE_DESC}, (async (message, match) => {    
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN,MessageType.text);
 
     if (Config.UNMUTEMSG == 'default') {
@@ -1549,19 +1583,28 @@ MyPnky.addCommand({pattern: 'unmute ?(.*)', fromMe: true, dontAddCommandList: tr
         await message.client.groupSettingChange(message.jid, GroupSettingChange.messageSend, false);
         await message.client.sendMessage(message.jid,Config.UNMUTEMSG,MessageType.text);
     }
-}));
+}}));
 
-MyPnky.addCommand({pattern: 'invite ?(.*)', fromMe: true, dontAddCommandList: true, onlyGroup: true, desc: Lang.INVITE_DESC}, (async (message, match) => {    
-    var im = await checkImAdmin(message);
+Nexus.addCommand({pattern: 'invite ?(.*)', fromMe: true, desc: Lang.INVITE_DESC}, (async (message, match) => {    
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,Lang.IM_NOT_ADMIN, MessageType.text);
     var invite = await message.client.groupInviteCode(message.jid);
     await message.client.sendMessage(message.jid,Lang.INVITE + ' https://chat.whatsapp.com/' + invite, MessageType.text);
-}));
+}}));
 
-MyPnky.addCommand({pattern: 'rename ?(.*)', onlyGroup: true, fromMe: true,desc: 'change group name'}, (async (message, match) => {
+Nexus.addCommand({pattern: 'revoke', fromMe: true, desc: "Revokes/resets group's invite link"}, (async (message, match) => {    
+    if (message.jid.endsWith('@g.us')) {
+	var im = await checkImAdmin(message);
+    if (!im) return await message.client.sendMessage(message.jid, "```Promote bot as an Admin to use super commands```", MessageType.text);
+    await message.client.revokeInvite(message.jid)
+    await message.client.sendMessage(message.jid, "```Group link reset successfully ✅```", MessageType.text);
+	}}));
+
+Nexus.addCommand({pattern: 'rename ?(.*)', onlyGroup: true, fromMe: true,desc: 'change group name ,works only in old grps'}, (async (message, match) => {
     var im = await checkImAdmin(message);
     if (!im) return await message.client.sendMessage(message.jid,'i am not admin',MessageType.text);
-    if (match[1] === '') return await message.client.sendMessage(message.jid,'give a name for you group \n exampple- .rename pinky',MessageType.text);
+    if (match[1] === '') return await message.client.sendMessage(message.jid,'give a name for you group \n exampple- .rename Nexusgregory fans',MessageType.text);
     await message.client.groupUpdateSubject(message.jid, match[1]);
     await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
     }

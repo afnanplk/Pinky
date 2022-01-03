@@ -60,7 +60,7 @@ the user is responsible.
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/afnanplk/Pinky)
   
 ```if the 1st deploy button doesnt deploy use this (recomanded to use this 1st)```
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://gist.github.com/afnanplk/f34ed6b03429ba67d46c709f841f69f4)    
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://gist.github.com/afnanplk/f34ed6b03429ba67d46c709f841f69f4)    
      </div>
 <br>
 <br >

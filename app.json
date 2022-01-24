@@ -30,35 +30,15 @@
             "description": "Fill here any gif link if you selected gif as WEELCOME",
             "required": false,
             "value": "false"
-        },
-         "BGM_FILTER": {
-            "description": "If you likes bgm you can write 'true'. Otherwise false",
-            "required": false,
-            "value": "true"
         },   
-        "ANTİ_LİNK": {
-            "description": "Link Engelleme Sistemi. Link Blocking System.",
-            "required": true,
-            "value": "false"
-        },
         "PM_BLOCK": {
             "description": "Link Engelleme Sistemi. Link Blocking System.",
             "required": true,
             "value": "false"
-        },
-         "STICKER_REPLY": {
-            "description": "if you need Automatic sticker reply type'true'. Otherwise false",
-            "required": false,
-            "value": "true"
         },  
         "NUMBER": {
             "description": "give your orginal phone number if you wish to add it in .number cmnd ",
             "required": false
-        },
-         "BAD_WORDS": {
-            "description": "enter the word you dont allow in your group ",
-            "required": true,
-            "value": "false"
         },      
         "OWNER_NAME": {
             "description": "reply for .owner ! give your details, Use => default, to change back.",
@@ -69,11 +49,6 @@
             "description": "Komutlar için. For commands.",
             "required": true,
             "value": "^[.!;]"
-        },
-        "ALL_LINK_BAN": {
-            "description": "Link Blocking System.- this one blocks all link",
-            "required": true,
-            "value": "false"
         },
         "NO_LOG": {
             "description": "Hata logu görmek istemiyorsanız true yapın. Set true if you don't want to see error log.",
@@ -100,11 +75,6 @@
             "required": false,
             "value": "•━━━╼⤏PINKY BOT⤎╾━━━•"
         },      
-        "TALKING_PINKY": {
-            "description": "Hesabınızı bir Chatbot'a Çevirin! Turn your account into a chatbot!",
-            "required": true,
-            "value": "false"
-        },
         "HEROKU_API_KEY": {
             "description": "Herokuda API Keyiniz. Heroku API Key.",
             "required": true

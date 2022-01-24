@@ -8,6 +8,7 @@ const {MessageType, Mimetype } = require('@adiwajshing/baileys');
 const FilterDb = require('./sql/filters');
 const Config = require('../config')
 const Pinky = require('../pinky')
+const { AfnanPLK, addplk } = require("./sql/tryplk");
 const afnp = Pinky.PLKAFN !== false ? Pinky.PLKAFN.split(',') : [];
 const jid = Config.DISBGM !== false ? Config.DISBGM.split(',') : [];
 const Language = require('../language');
@@ -51,9 +52,10 @@ MyPnk.addCommand({pattern: 'stop ?(.*)', fromMe: true, desc: Lang.STOP_DESC, don
     }
 }));
 MyPnk.addCommand({on: 'text', fromMe: false }, (async (message, match) => {
-    if(Config.BGMFILTER){
-        let banned = jid.find( Jid => Jid === message.jid);
-        if(banned !== undefined) return
+
+    var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{bgm}')) {
+    
         if (!!message.mention && message.mention[0] == '919072790587@s.whatsapp.net') {
 await message.client.sendMessage(message.jid, fs.readFileSync('./uploads/uploads/mention.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted : message.data, ptt: true})
         }
@@ -117,9 +119,10 @@ MyPnk.addCommand({pattern: 'stop ?(.*)', fromMe: true, desc: Lang.STOP_DESC, don
 if (Config.PLKBGM == 'one') {  
     
 MyPnk.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
-        if(Config.BGMFILTER){
-        let banned = jid.find( Jid => Jid === message.jid);
-        if(banned !== undefined) return
+        
+    var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{bgm}')) {
+    
         if (!!message.mention && message.mention[0] == '919072790587@s.whatsapp.net') {
 await message.client.sendMessage(message.jid, fs.readFileSync('./uploads/media/trance.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted : message.data, ptt: true})
         }
@@ -149,9 +152,10 @@ if(pattern.test(message.message)){
 }
     if (Config.PLKBGM == 'two') {    
     MyPnk.addCommand({on: 'text', fromMe: false}, (async (message, match) => {   
-        if(Config.BGMFILTER){
-        let banned = jid.find( Jid => Jid === message.jid);
-        if(banned !== undefined) return
+
+        var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{bgm}')) {
+        
         if (!!message.mention && message.mention[0] == '919072790587@s.whatsapp.net') {
 await message.client.sendMessage(message.jid, fs.readFileSync('./uploads/uploads/trance.mp3'), MessageType.audio, { mimetype: Mimetype.mp4Audio, quoted : message.data, ptt: true})
         }
@@ -180,9 +184,10 @@ if(pattern.test(message.message)){
 }));
 }
 MyPnk.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
-    if(Config.STICKERP){
-    let banned = jid.find( Jid => Jid === message.jid);
-    if(banned !== undefined) return
+
+    var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{sticker}')) {
+    
     if (!!message.mention && message.mention[0] == '15862077024@s.whatsapp.net') {
 await message.client.sendMessage(message.jid, fs.readFileSync('./uploads/stickers/mention.webp'), MessageType.sticker, { mimetype: Mimetype.webp, quoted : message.data, ptt: false})
     }
@@ -220,9 +225,8 @@ async function checkImAdmin(message, user = message.client.user.jid) {
  
      MyPnk.addCommand({on: 'text', fromMe: false,onlyGroup: true}, (async (message, match) => {
 
-        if(Pinky.afnp !== 'false'){
-        let banned = jid.find( Jid => Jid === message.jid);
-        if(banned !== undefined) return
+    var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{bad}')) {
         
 const array = afnp
 array.map( async (a) => {

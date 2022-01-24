@@ -10,7 +10,6 @@ const Config = require('../config')
 const Pinky = require('../pinky')
 const { AfnanPLK, addplk } = require("./sql/tryplk");
 const afnp = Pinky.PLKAFN !== false ? Pinky.PLKAFN.split(',') : [];
-const jid = Config.DISBGM !== false ? Config.DISBGM.split(',') : [];
 const Language = require('../language');
 const Lang = Language.getString('filters');
 

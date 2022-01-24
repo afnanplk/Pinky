@@ -57,8 +57,13 @@ the user is responsible.
   
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@afnanplk/PinkyMwol-QR)
  
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://gist.github.com/afnanplk/f34ed6b03429ba67d46c709f841f69f4)    
-     </div>
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://gist.github.com/afnanplk/f34ed6b03429ba67d46c709f841f69f4)   
+ 
+  </div>
+  ```
+  for easy deploy fork this repo & add the given link in your readme by changing repository link - [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=your repository link here)
+
+  
 <br>
 <br >
 If Repl.it not working Try Termux for Qr scanning.Just Copy the Link Below in Termux

@@ -26,6 +26,11 @@
             "required": false,
             "value": "false"
         },
+        "BAD_WORDS": {
+            "description": "enter the word you dont allow in your group ",
+            "required": true,
+            "value": "false"
+        },
         "BYE_GIF": {
             "description": "Fill here any gif link if you selected gif as WEELCOME",
             "required": false,

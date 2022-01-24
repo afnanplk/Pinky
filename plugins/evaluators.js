@@ -6,6 +6,7 @@ WhatsAsena - Yusuf Usta
 
 const MyPnky = require('../events');
 const {MessageType} = require('@adiwajshing/baileys');
+const { AfnanPLK, addplk } = require("./sql/tryplk");
 const exec = require('child_process').exec;
 const os = require("os");
 const fs = require('fs');
@@ -37,13 +38,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     });
     return sonuc.includes(true);
 }
-var antilink_var = ''
-async function antlch() {
-    await heroku.get(baseURI + '/config-vars').then(async (vars) => {
-        antilink_var = vars.ANTİ_LİNK
-    });
-}
-antlch()
+
 var ldc = ''
 if (Config.LANG == 'AZ') ldc = '*Bağlantı Aşkarlandı!*'
 if (Config.LANG == 'TR') ldc = '*‎Link Tespit Edildi!*'
@@ -56,7 +51,8 @@ if (Config.LANG == 'HI') ldc = '*लिंक का पता चला!*'
 if (Config.LANG == 'ES') ldc = '*Enlace Detectado!*'
 if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
 MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
+     var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{antilink}')) {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://chat')
         let regex3 = new RegExp('https://meet')
@@ -144,13 +140,6 @@ MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mes
         }
     }
 }));
-var alllink_var = ''
-async function megalink() {
-    await heroku.get(baseURI + '/config-vars').then(async (vars) => {
-        alllink_var = vars.ALL_LINK_BAN
-    });
-}
-megalink()
 var ldc = ''
 if (Config.LANG == 'AZ') ldc = '*Bağlantı Aşkarlandı!*'
 if (Config.LANG == 'TR') ldc = '*‎Link Tespit Edildi!*'
@@ -162,7 +151,8 @@ if (Config.LANG == 'RU') ldc = '*Ссылка обнаружена!*'
 if (Config.LANG == 'HI') ldc = '*लिंक का पता चला!*'
 if (Config.LANG == 'ES') ldc = '*Enlace Detectado!*'
 MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (alllink_var == 'true' && message.jid !== '9082891698-1616356915@g.us') {
+ var plkser = await addplk(message.jid);
+if (plkser.message !== false && plkser.message.includes('{anylink}')) {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://')
         if (regex1.test(message.message)) {

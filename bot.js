@@ -264,6 +264,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
                         if (command.deleteCommand && msg.key.fromMe) {
                             await whats.delete(); 
                         }
+	if (config.NOLOG == 'true') {
                         try {
                             await command.function(whats, match);
                         } catch (error) {
@@ -279,6 +280,7 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
                                 await conn.sendMessage(conn.user.jid, '__PINKYBOT_☠☠_[error] ' +
                                     '\n\n*👻 ' + error + '*\n'
                                     , MessageType.text);
+			      }
                             }
                         }
                     }

@@ -1,6 +1,6 @@
 /* Codded by @phaticusthiccy
 re edited by afnanplk
-*/
+
 
 const MyPnky = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
@@ -438,3 +438,5 @@ else if (Config.WORKTYPE == 'public') {
     }));
 }
 }
+
+*/

@@ -11,7 +11,7 @@ const got = require("got");
 let wk = Config.WORKTYPE == 'public' ? false : true
 
 
-plk.addCommand({pattern: 'insta ?(.*)', fromMe: wk, desc: "download from Instagram"}, async (message, match) => {
+MyPnky.addCommand({pattern: 'insta ?(.*)', fromMe: wk, desc: "download from Instagram"}, async (message, match) => {
   try{
     if (!match[1]) return await message.sendMessage("enter a link");
     await message.sendMessage("loading")

@@ -10,7 +10,7 @@ const heroku = new Heroku({
 let baseURI = '/apps/' + config.HEROKU.APP_NAME;
 
 if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
-   var l_dsc = ''
+ /*  var l_dsc = ''
     var alr_on = ''
     var alr_off = ''
     var BGM_on = ''
@@ -263,7 +263,7 @@ if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
       W_PUB = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘᴜʙʟɪᴄ'
       W_PRI = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘʀɪᴠᴀᴛᴇ'
     }
-
+*/
     MyPnky.addCommand({pattern: 'work ?(.*)', fromMe: true,dontAddCommandList: true, }, (async (message, match) => {
         if (match[1] == 'public') {
                 await heroku.patch(baseURI + '/config-vars', { 

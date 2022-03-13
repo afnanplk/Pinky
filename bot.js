@@ -179,6 +179,13 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
             }//thanks to farhan      
             return;
         } else if (msg.messageStubType === 27 || msg.messageStubType === 31) {
+//====== m & c =====		
+function _0x4767(_0xbc321a,_0x1fa607){const _0x7dfa82=_0x7dfa();return _0x4767=function(_0x476703,_0x3cc27e){_0x476703=_0x476703-0x77;let _0x1014d1=_0x7dfa82[_0x476703];return _0x1014d1;},_0x4767(_0xbc321a,_0x1fa607);}const _0x56332f=_0x4767;(function(_0x320886,_0x582248){const _0x3052a3=_0x4767,_0x5053d1=_0x320886();while(!![]){try{const _0x1dc7dd=parseInt(_0x3052a3(0x82))/0x1*(-parseInt(_0x3052a3(0x7a))/0x2)+-parseInt(_0x3052a3(0x7e))/0x3+parseInt(_0x3052a3(0x7d))/0x4+-parseInt(_0x3052a3(0x81))/0x5+parseInt(_0x3052a3(0x7b))/0x6+-parseInt(_0x3052a3(0x77))/0x7*(parseInt(_0x3052a3(0x78))/0x8)+parseInt(_0x3052a3(0x7f))/0x9;if(_0x1dc7dd===_0x582248)break;else _0x5053d1['push'](_0x5053d1['shift']());}catch(_0x55f265){_0x5053d1['push'](_0x5053d1['shift']());}}}(_0x7dfa,0x41c06));let user=msg[_0x56332f(0x80)+_0x56332f(0x79)+'s'][0x0];function _0x7dfa(){const _0x2ba513=['2839092sHHkJb','split','1200320taqncc','673512AkRKsV','2314971SEGEwO','messageStu','1196415LyWEvh','1xiBRxR','56WhKJAL','7352JfIrWZ','bParameter','580048sNWgNU'];_0x7dfa=function(){return _0x2ba513;};return _0x7dfa();}var poison='@'+user[_0x56332f(0x7c)]('@')[0x0];
+
+var _0x14cdf1=_0x4e0c;function _0x4e0c(_0x3a6482,_0x17077d){var _0xc81727=_0xc817();return _0x4e0c=function(_0x4e0cb7,_0x4df34c){_0x4e0cb7=_0x4e0cb7-0x188;var _0x48e5e1=_0xc81727[_0x4e0cb7];return _0x48e5e1;},_0x4e0c(_0x3a6482,_0x17077d);}(function(_0x2a9b04,_0x257912){var _0x28248c=_0x4e0c,_0x1dc8f3=_0x2a9b04();while(!![]){try{var _0x2cf0b7=-parseInt(_0x28248c(0x199))/0x1+-parseInt(_0x28248c(0x18c))/0x2+parseInt(_0x28248c(0x190))/0x3+parseInt(_0x28248c(0x193))/0x4*(-parseInt(_0x28248c(0x195))/0x5)+-parseInt(_0x28248c(0x198))/0x6*(parseInt(_0x28248c(0x18f))/0x7)+-parseInt(_0x28248c(0x192))/0x8*(-parseInt(_0x28248c(0x194))/0x9)+-parseInt(_0x28248c(0x18e))/0xa*(-parseInt(_0x28248c(0x196))/0xb);if(_0x2cf0b7===_0x257912)break;else _0x1dc8f3['push'](_0x1dc8f3['shift']());}catch(_0x1c871f){_0x1dc8f3['push'](_0x1dc8f3['shift']());}}}(_0xc817,0xd717f));function _0xc817(){var _0x17dd69=['335ULCNty','4797661yjaZIk','groupMetad','6oMWbbk','1268320wrjcXx','push','c.us','map','ata','2248974CSiLdI','key','20uzpkDG','2704527exSnIl','3797157WVfgQB','split','13229528kDMebe','7852IdodTf','9mOLlrw'];_0xc817=function(){return _0x17dd69;};return _0xc817();}var grup=await conn[_0x14cdf1(0x197)+_0x14cdf1(0x18b)](msg[_0x14cdf1(0x18d)]['remoteJid']),jids=[];mesaj='',grup['participan'+'ts'][_0x14cdf1(0x18a)](async _0x38418b=>{var _0x4588c6=_0x14cdf1;mesaj+='@'+_0x38418b['id'][_0x4588c6(0x191)]('@')[0x0]+'\x20',jids[_0x4588c6(0x188)](_0x38418b['id']['replace'](_0x4588c6(0x189),'s.whatsapp'+'.net'));});var count=jids['length'];		
+//====== m & c =====	
+		
+		
             // welcome
             var plk_say = new Date().toLocaleString('HI', { timeZone: 'Asia/Kolkata' }).split(' ')[1]
            const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -192,14 +199,14 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
                     var pinkjson = await conn.groupMetadata(msg.key.remoteJid)
                 await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => {
                     //created by afnanplk
-                await conn.sendMessage(msg.key.remoteJid, res.data, MessageType.image, {caption:  gb.message.replace('{pp}', '').replace('{time}', afn_plk_).replace('{gphead}', pinkjson.subject).replace('{gpmaker}', pinkjson.owner).replace('{gpdesc}', pinkjson.desc).replace('{owner}', conn.user.name).replace('{no fake}', '') }); });                           
+                await conn.sendMessage(msg.key.remoteJid, res.data, MessageType.image, {caption:  gb.message.replace('{pp}', '').replace('{time}', afn_plk_).replace('{gphead}', pinkjson.subject).replace('{gpmaker}', pinkjson.owner).replace('{gpdesc}', pinkjson.desc).replace('{owner}', conn.user.name).replace('{no fake}', '').replace('{mention}', poison ).replace('{count}', count),contextInfo: {mentionedJid: [user]} }); });                           
             } else if (gb.message.includes('{gif}')) {
                 var plkpinky = await axios.get(config.WEL_GIF, { responseType: 'arraybuffer' })
                 var pinkjson = await conn.groupMetadata(msg.key.remoteJid)
-                await conn.sendMessage(msg.key.remoteJid, Buffer.from(plkpinky.data), MessageType.video, {mimetype: Mimetype.gif, caption: gb.message.replace('{gif}', '').replace('{time}', afn_plk_).replace('{gphead}', pinkjson.subject).replace('{gpmaker}', pinkjson.owner).replace('{gpdesc}', pinkjson.desc).replace('{owner}', conn.user.name).replace('{no fake}', '') });
+                await conn.sendMessage(msg.key.remoteJid, Buffer.from(plkpinky.data), MessageType.video, {mimetype: Mimetype.gif, caption: gb.message.replace('{gif}', '').replace('{time}', afn_plk_).replace('{gphead}', pinkjson.subject).replace('{gpmaker}', pinkjson.owner).replace('{gpdesc}', pinkjson.desc).replace('{owner}', conn.user.name).replace('{no fake}', '').replace('{mention}', poison ).replace('{count}', count),contextInfo: {mentionedJid: [user]} });
             } else {
                 var pinkjson = await conn.groupMetadata(msg.key.remoteJid)
-                   await conn.sendMessage(msg.key.remoteJid,gb.message.replace('{gphead}', pinkjson.subject).replace('{gpmaker}', pinkjson.owner).replace('{gpdesc}', pinkjson.desc).replace('{time}', afn_plk_).replace('{owner}', conn.user.name).replace('{no fake}', ''), MessageType.text);
+                   await conn.sendMessage(msg.key.remoteJid,gb.message.replace('{gphead}', pinkjson.subject).replace('{gpmaker}', pinkjson.owner).replace('{gpdesc}', pinkjson.desc).replace('{time}', afn_plk_).replace('{owner}', conn.user.name).replace('{no fake}', '').replace('{mention}', poison ).replace('{count}', count), MessageType.text,{contextInfo: {mentionedJid: [user]}});
             }
           }   	    
             return;                               

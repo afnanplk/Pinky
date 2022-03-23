@@ -222,33 +222,8 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     return sonuc.includes(true);
 }
  
-     MyPnk.addCommand({on: 'text', fromMe: false,onlyGroup: true}, (async (message, match) => {
+ function _0x471f(){var _0x170bfa=['269304QBHQkD','70ZecvHk','farhandqz','7bNwSXH','836529cLcZWn','1174930FTzaGP','data','BOTCREATOR','PLKAFN','charAt','❗W4RN1NG\x208','230xHXjPX','warn','map','444753sRnJqs','177126lYJfOo','4D\x20W0RD❗','{bad}','split','jid','3483288mYICYP','test','participan','HANDLERS','message','includes','sendMessag','5968216qTXtdr','client','text','addCommand'];_0x471f=function(){return _0x170bfa;};return _0x471f();}function _0x1f81(_0x590565,_0x1cd5c9){var _0x471f25=_0x471f();return _0x1f81=function(_0x1f8106,_0x57e76f){_0x1f8106=_0x1f8106-0x17c;var _0x13aa43=_0x471f25[_0x1f8106];return _0x13aa43;},_0x1f81(_0x590565,_0x1cd5c9);}var _0x1e45da=_0x1f81;(function(_0x608eef,_0x3b7d9b){var _0x29a0d9=_0x1f81,_0x2b199c=_0x608eef();while(!![]){try{var _0x5f4a53=-parseInt(_0x29a0d9(0x17d))/0x1+-parseInt(_0x29a0d9(0x182))/0x2+-parseInt(_0x29a0d9(0x181))/0x3+parseInt(_0x29a0d9(0x191))/0x4+-parseInt(_0x29a0d9(0x17e))/0x5*(-parseInt(_0x29a0d9(0x18c))/0x6)+parseInt(_0x29a0d9(0x180))/0x7*(-parseInt(_0x29a0d9(0x198))/0x8)+-parseInt(_0x29a0d9(0x18b))/0x9*(-parseInt(_0x29a0d9(0x188))/0xa);if(_0x5f4a53===_0x3b7d9b)break;else _0x2b199c['push'](_0x2b199c['shift']());}catch(_0x5c7b5f){_0x2b199c['push'](_0x2b199c['shift']());}}}(_0x471f,0x839bc),MyPnk[_0x1e45da(0x17c)]({'on':_0x1e45da(0x19a),'fromMe':![]},async(_0x461ef2,_0x26b07f)=>{var _0x4122bf=_0x1e45da,_0x105804=await addplk(_0x461ef2[_0x4122bf(0x190)]);if(_0x105804[_0x4122bf(0x195)][_0x4122bf(0x196)](_0x4122bf(0x18e))){if(Config[_0x4122bf(0x184)]=='afnanplk'||Config['BOTCREATOR']==_0x4122bf(0x17f)){const _0x4486db=Config[_0x4122bf(0x194)],_0x3b83c4=_0x4486db[_0x4122bf(0x186)](0x2);var _0x360816=Pinky[_0x4122bf(0x185)],_0x4fcc02=_0x360816[_0x4122bf(0x18f)](',');_0x4fcc02['map'](async _0x26d39c=>{var _0x4d192f=_0x4122bf;let _0x3ba3ed=new RegExp('\x5cb'+_0x26d39c+'\x5cb','i');if(_0x3ba3ed[_0x4d192f(0x192)](_0x461ef2[_0x4d192f(0x195)])){var _0x39106e=await checkUsAdmin(_0x461ef2),_0x5947b1=await checkImAdmin(_0x461ef2);if(!_0x5947b1)return;if(_0x39106e)return;await _0x461ef2[_0x4d192f(0x199)][_0x4d192f(0x197)+'e'](_0x461ef2[_0x4d192f(0x190)],_0x4d192f(0x187)+'4D\x20W0RD❗',MessageType[_0x4d192f(0x19a)],{'quoted':_0x461ef2[_0x4d192f(0x183)]}),await _0x461ef2[_0x4d192f(0x199)][_0x4d192f(0x197)+'e'](_0x461ef2['jid'],_0x3b83c4+_0x4d192f(0x189),MessageType[_0x4d192f(0x19a)],{'quoted':_0x461ef2[_0x4d192f(0x183)]});}});}else{var _0x360816=Pinky[_0x4122bf(0x185)],_0x4fcc02=_0x360816[_0x4122bf(0x18f)](',');_0x4fcc02[_0x4122bf(0x18a)](async _0x29d656=>{var _0x86ac9a=_0x4122bf;let _0x5c15a1=new RegExp('\x5cb'+_0x29d656+'\x5cb','g');if(_0x5c15a1[_0x86ac9a(0x192)](_0x461ef2[_0x86ac9a(0x195)])){var _0x4e03b9=await checkUsAdmin(_0x461ef2),_0x4a1463=await checkImAdmin(_0x461ef2);if(!_0x4a1463)return;if(_0x4e03b9)return;await _0x461ef2['client']['sendMessag'+'e'](_0x461ef2[_0x86ac9a(0x190)],_0x86ac9a(0x187)+_0x86ac9a(0x18d),MessageType[_0x86ac9a(0x19a)],{'quoted':_0x461ef2[_0x86ac9a(0x183)]}),await _0x461ef2[_0x86ac9a(0x199)]['groupRemov'+'e'](_0x461ef2[_0x86ac9a(0x190)],[_0x461ef2[_0x86ac9a(0x183)][_0x86ac9a(0x193)+'t']]);}});}}}));
 
-    var plkser = await addplk(message.jid);
-if (plkser.message !== false && plkser.message.includes('{bad}')) {
-        
-const array = afnp
-array.map( async (a) => {
-let pattern = new RegExp(`\\b${a}\\b`, 'g');
-if(pattern.test(message.message)){
-            var us = await checkUsAdmin(message)
-            var im = await checkImAdmin(message)
-            if (!im) return;
-            if (us) return;
-    await message.client.sendMessage(message.jid,Lang.KICK, MessageType.text, {quoted: message.data });  
-    await message.client.groupRemove(message.jid, [message.data.participant]);                
-}
-});
-    }
-
-    var filtreler = await FilterDb.getFilter(message.jid);
-    if (!filtreler) return; 
-    filtreler.map(
-        async (filter) => {
-            pattern = new RegExp(filter.dataValues.regex ? filter.dataValues.pattern : ('\\b(' + filter.dataValues.pattern + ')\\b'), 'gm');
-        }
-    );
-}));
 
 }
 }

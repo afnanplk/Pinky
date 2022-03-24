@@ -9,7 +9,7 @@
     "stack": "container",
     "env": {
         "PINKY_SESSION": {
-            "description": "Qr.Js ile oluşturduğunuz özel session kodu. Type here yours Asena Session.",
+            "description": " Type here yours pinky Session.",
             "required": true
         },
         "SUDO": {
@@ -42,9 +42,14 @@
             "value": "false"
         },   
         "PM_BLOCK": {
-            "description": "Link Engelleme Sistemi. Link Blocking System.",
+            "description": "block when someone messages you in pm",
             "required": true,
             "value": "false"
+        },  
+        "BGM_PM": {
+            "description": "true => activate bgm reply in pm",
+            "required": true,
+            "value": "true"
         },  
         "NUMBER": {
             "description": "give your orginal phone number if you wish to add it in .number cmnd ",
@@ -56,17 +61,17 @@
             "value": "default"
         },    
         "HANDLERS": {
-            "description": "Komutlar için. For commands.",
+            "description": ". For commands.",
             "required": true,
             "value": "^[.!;]"
         },
         "NO_LOG": {
-            "description": "Hata logu görmek istemiyorsanız true yapın. Set true if you don't want to see error log.",
+            "description": " Set true if you don't want to see error log.",
             "required": true,
             "value": "true"
         },
         "SEND_READ": {
-            "description": "Görüldü atmak istiyorsanız true yazın. Write true if you want to throw seen.",
+            "description": " Write true if you want to throw seen.",
             "required": true,
             "value": "true"
         },
@@ -76,7 +81,7 @@
             "value": "PUBLIC BOT"
         },
         "HEROKU": {
-            "description": "Herokuda çalışıyorsa true yazın. If it is running in Heroku, type true.",
+            "description": " If it is running in Heroku, type true.",
             "required": true,
             "value": "true"
         },
@@ -86,11 +91,11 @@
             "value": "•━━━╼⤏PINKY BOT⤎╾━━━•"
         },      
         "HEROKU_API_KEY": {
-            "description": "Herokuda API Keyiniz. Heroku API Key.",
+            "description": " Heroku API Key.",
             "required": true
         },
         "MUTE_MESSAGE": {
-            "description": "Düzenlenebilir Mute Mesajı. Customizable Mute Message! Use => default, to change back.",
+            "description": ". Customizable Mute Message! Use => default, to change back.",
             "required": false,
             "value": "default"
         },
@@ -100,17 +105,17 @@
             "value": "false"
         },
         "UNMUTE_MESSAGE": {
-            "description": "Düzenlenebilir Unmute Mesajı. Customizable Unmute Message! Use => default, to change back.",
+            "description": " Customizable Unmute Message! Use => default, to change back.",
             "required": false,
             "value": "default"
         },
         "BLOCK_MESSAGE": {
-            "description": "Düzenlenebilir Block Mesajı. Customizable Block Message! Use => default, to change back.",
+            "description": " Customizable Block Message! Use => default, to change back.",
             "required": false,
             "value": "default"
         },
         "UNBLOCK_MESSAGE": {
-            "description": "Düzenlenebilir Unblock Mesajı. Customizable Unblock Message! Use => default, to change back.",
+            "description": "Customizable Unblock Message! Use => default, to change back.",
             "required": false,
             "value": "default"
         },
@@ -120,16 +125,16 @@
             "value": "private"
         },
         "HEROKU_APP_NAME": {
-            "description": "Herokuda uygulama adı. Heroku APP Name.",
+            "description": "Heroku APP Name.",
             "required": true
         },
         "DEBUG": {
-            "description": "Geliştiricilere özeldir.",
+            "description": "",
             "required": true,
             "value": "false"
         },
         "REMOVE_BG_API_KEY": {
-            "description": "Fotoğrafların arkaplanını kaldırır. https://remove.bg",
+            "description": "https://remove.bg",
             "required": false
         },
         "DEPLOYER": {
@@ -181,7 +186,7 @@
             "required": false          
         },
         "NO_ONLINE": {
-            "description": "Çevrimiçi görünmek istemiyorsanız true yazın. Type true if you don't want to appear online.",
+            "description": " Type true if you don't want to appear online.",
             "required": false,
             "value": "true"
         }

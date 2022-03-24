@@ -166,11 +166,6 @@
             "required": false,
             "value": "default"
         },
-        "CHANGE_BGM_TO": {
-            "description": "Dont leave this blank choose the bgm you need - enter one or two",
-            "required": true,
-            "value": "one"
-        },
         "DEMOTE_MESSAGE": {
             "description": "Customizable Demote Message! Use => default, to change back.",
             "required": false,

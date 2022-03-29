@@ -7,6 +7,7 @@ const os = require("os");
 const fs = require("fs");
 const path = require("path");
 const events = require("./events");
+const plkDB = require('./plugins/sql/plk');
 const chalk = require('chalk');
 const config = require('./config');
 const { FakeDB, takeMessage } = require("./plugins/sql/fake");

@@ -85,8 +85,8 @@ MyPnky.addCommand({on: 'text', fromMe: wk, dontAddCommandList: true, deleteComma
         var uren = encodeURI(trmsg)
         await axios.get('http://api.brainshop.ai/get?bid=161217&key=DkuVhwkGrxBLnsOi&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
             var fins = ''                           
-            if (conf.LANG !== 'EN') {
-                ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
+            if (conf.AI_LANG !== 'EN') {
+                ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.AI_LANG});
                 if ('text' in ceviri) {
                     fins = ceviri.text
                 }
@@ -119,8 +119,8 @@ MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mes
                         var uren = encodeURI(trmsg)
                         await axios.get('http://api.brainshop.ai/get?bid=161217&key=DkuVhwkGrxBLnsOi&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
                             var fins = ''                           
-                            if (conf.LANG !== 'EN') {
-                                ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
+                            if (conf.AI_LANG !== 'EN') {
+                                ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.AI_LANG});
                                 if ('text' in ceviri) {
                                     fins = ceviri.text
                                 }
@@ -147,8 +147,8 @@ MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mes
                     var uren = encodeURI(trmsg)
                     await axios.get('http://api.brainshop.ai/get?bid=161217&key=DkuVhwkGrxBLnsOi&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
                         var fins = ''                           
-                        if (conf.LANG !== 'EN') {
-                            ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
+                        if (conf.AI_LANG !== 'EN') {
+                            ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.AI_LANG});
                             if ('text' in ceviri) {
                                 fins = ceviri.text
                             }
@@ -173,8 +173,8 @@ MyPnky.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (mes
                 var uren = encodeURI(trmsg)
                 await axios.get('http://api.brainshop.ai/get?bid=161217&key=DkuVhwkGrxBLnsOi&uid=' + unique_ident + '&msg=' + uren).then(async (response) => {
                     var fins = ''                           
-                    if (conf.LANG !== 'EN') {
-                        ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
+                    if (conf.AI_LANG !== 'EN') {
+                        ceviri = await translatte(response.data.cnt, {from: 'auto', to: conf.AI_LANG});
                         if ('text' in ceviri) {
                             fins = ceviri.text
                         }
@@ -213,7 +213,7 @@ MyPnky.addCommand({ pattern: 'vtalk$', desc: vtalk_dsc,dontAddCommandList: true,
                 var son = encodeURI(ssc)
                 await axios.get('http://api.brainshop.ai/get?bid=161217&key=DkuVhwkGrxBLnsOi&uid=' + unique_ident + '&msg=' + son).then(async (response) => {
                     var trmsg = ''
-                    cevir = await translatte(response.data.cnt, {from: 'auto', to: conf.LANG});
+                    cevir = await translatte(response.data.cnt, {from: 'auto', to: conf.AI_LANG});
                     if ('text' in cevir) {
                         trmsg = cevir.text
                     }

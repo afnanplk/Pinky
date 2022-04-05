@@ -51,6 +51,11 @@
             "required": true,
             "value": "true"
         },  
+         "PINKY_PM": {
+            "description": "true => activate talking pinky in pm",
+            "required": true,
+            "value": "true"
+        },  
         "NUMBER": {
             "description": "give your orginal phone number if you wish to add it in .number cmnd ",
             "required": false

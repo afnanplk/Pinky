@@ -45,7 +45,8 @@ is not responsible for the usage purpose and method of the users.
 Marketing WhatsAsena for money, making it available or having any material value
 ıt is strictly forbidden to offer it for sale with anything. All legal investigations that may arise
 the user is responsible.
-``` <br>
+``` 
+  <br>
   
 ###Learn More & Get Verified
   <br>

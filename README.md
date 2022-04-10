@@ -45,7 +45,8 @@ is not responsible for the usage purpose and method of the users.
 Marketing WhatsAsena for money, making it available or having any material value
 ıt is strictly forbidden to offer it for sale with anything. All legal investigations that may arise
 the user is responsible.
-```
+``` <br>
+  
 ###Learn More & Get Verified
   <br>
   <a href="https://pinky32.weebly.com"><img src="https://www.pngall.com/wp-content/uploads/4/Learn-More-Button-PNG.png" width="150"></a>

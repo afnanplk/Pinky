@@ -48,7 +48,7 @@ the user is responsible.
 ``` 
   <br>
   
-![Learn More & Get Verified]
+❗Learn More & Get Verified
   <br>
   <a href="https://pinky32.weebly.com"><img src="https://www.pngall.com/wp-content/uploads/4/Learn-More-Button-PNG.png" width="150"></a>
 

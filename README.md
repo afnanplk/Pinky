@@ -53,7 +53,7 @@ the user is responsible.
 
   ### Simple Method
   
-[![get verified](https://www.pngall.com/wp-content/uploads/4/Learn-More-Button-PNG.png)](https://pinky32.weebly.com)
+[![get verified](https://www.pngall.com/wp-content/uploads/4/Learn-More-Button-PNG.png?size=50)](https://pinky32.weebly.com) <br>
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@afnanplk/PinkyMwol-QR)
  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://gist.github.com/afnanplk/f34ed6b03429ba67d46c709f841f69f4)   

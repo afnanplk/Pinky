@@ -46,6 +46,8 @@ Marketing WhatsAsena for money, making it available or having any material value
 ıt is strictly forbidden to offer it for sale with anything. All legal investigations that may arise
 the user is responsible.
 ```
+<br>
+  <a href="https://pinky32.weebly.com"><img src="https://www.pngall.com/wp-content/uploads/4/Learn-More-Button-PNG.png" width="50"></a>
 
 
 ## Setup
@@ -53,7 +55,6 @@ the user is responsible.
 
   ### Simple Method
   
-[![get verified](https://www.pngall.com/wp-content/uploads/4/Learn-More-Button-PNG.png?size=50)](https://pinky32.weebly.com) <br>
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@afnanplk/PinkyMwol-QR)
  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://gist.github.com/afnanplk/f34ed6b03429ba67d46c709f841f69f4)   

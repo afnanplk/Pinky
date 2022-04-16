@@ -31,6 +31,11 @@
             "required": true,
             "value": "false"
         },
+        "PREFIX": {
+            "description": "work with handler -true , else -false ",
+            "required": true,
+            "value": "false"
+        },
          "CALLER_BLOCK": {
             "description": "block when they call you - true , else - false",
             "required": true,
@@ -68,7 +73,7 @@
         "HANDLERS": {
             "description": ". For commands.",
             "required": true,
-            "value": "^[.!;]"
+            "value": ".!;"
         },
         "NO_LOG": {
             "description": " Set true if you don't want to see error log.",

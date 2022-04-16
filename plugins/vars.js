@@ -246,7 +246,7 @@ if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
         }
     }));
 
-    
+ */   
  var W_PUB = ''
  var W_PRI = ''
  var W_ADM = ''
@@ -263,8 +263,8 @@ if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
       W_PUB = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘᴜʙʟɪᴄ'
       W_PRI = 'ᴡᴏʀᴋ_ᴛʏᴘᴇ ɪꜱ ɴᴏᴡ ᴘʀɪᴠᴀᴛᴇ'
     }
-*/
-    MyPnky.addCommand({pattern: 'work ?(.*)', fromMe: true,dontAddCommandList: true, }, (async (message, match) => {
+
+    MyPnky.addCommand({pattern: 'work ?(.*)', fromMe: true,plkadmin: true,dontAddCommandList: true,desc: 'change work type' }, (async (message, match) => {
         if (match[1] == 'public') {
                 await heroku.patch(baseURI + '/config-vars', { 
                     body: { 
@@ -287,6 +287,9 @@ if (config.STANDPLK == 'off' || config.STANDPLK == 'OFF') {
                 });
                 await message.sendMessage(W_ADM)
         }
+        else {
+                 await message.sendMessage('use .work public/private/admin')
+        }
     }));
 
     
@@ -305,7 +308,7 @@ var AFN_STN = ''
       AFN_STN = 'സ്റ്റാൻഡ്ബൈയിൽ നിന്ന് നിങ്ങളുടെ ബോട്ട് മാറ്റുക' 
     }
 
-MyPnky.addCommand({pattern: 'standby ?(.*)', fromMe: true, desc: plk_STN }, (async (message, match) => {
+MyPnky.addCommand({pattern: 'standby ?(.*)', fromMe: true,plkadmin: true,dontAddCommandList: true, desc: plk_STN }, (async (message, match) => {
                 await heroku.patch(baseURI + '/config-vars', { 
                     body: { 
                         ['STANDBY_MODE']: 'on'

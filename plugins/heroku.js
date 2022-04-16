@@ -24,7 +24,7 @@ const heroku = new Heroku({
 
 let baseURI = '/apps/' + Config.HEROKU.APP_NAME;
 if (Config.STANDPLK == 'off' || Config.STANDPLK == 'OFF') {
-MyPnky.addCommand({pattern: 'degis ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.DEGİS_DESC}, (async (message, match) => {
+MyPnky.addCommand({pattern: 'degis ?(.*)', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.DEGİS_DESC}, (async (message, match) => {
 
     if (match[1] == '') {
         return await message.client.sendMessage(message.jid, Lang.DEGİS_NONE, MessageType.text); 
@@ -158,7 +158,7 @@ MyPnky.addCommand({pattern: 'degis ?(.*)', fromMe: true, dontAddCommandList: tru
 }));
 
 
-MyPnky.addCommand({pattern: 'restart$', fromMe: true, dontAddCommandList: true, desc: Lang.RESTART_DESC}, (async (message, match) => {
+MyPnky.addCommand({pattern: 'restart$', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.RESTART_DESC}, (async (message, match) => {
 
     await message.client.sendMessage(message.jid,Lang.RESTART_MSG, MessageType.text);
     console.log(baseURI);
@@ -167,7 +167,7 @@ MyPnky.addCommand({pattern: 'restart$', fromMe: true, dontAddCommandList: true, 
     });
 }));
 
-MyPnky.addCommand({pattern: 'shutdown$', fromMe: true, dontAddCommandList: true, desc: Lang.SHUTDOWN_DESC}, (async(message, match) => {
+MyPnky.addCommand({pattern: 'shutdown$', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.SHUTDOWN_DESC}, (async(message, match) => {
 
     await heroku.get(baseURI + '/formation').then(async (formation) => {
         forID = formation[0].id;
@@ -185,7 +185,7 @@ MyPnky.addCommand({pattern: 'shutdown$', fromMe: true, dontAddCommandList: true,
 
 if (Config.WORKTYPE == 'private') {
 
-    MyPnky.addCommand({pattern: 'dyno$', fromMe: true, dontAddCommandList: true, desc: Lang.DYNO_DESC}, (async (message, match) => {
+    MyPnky.addCommand({pattern: 'dyno$', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.DYNO_DESC}, (async (message, match) => {
 
         heroku.get('/account').then(async (account) => {
             // have encountered some issues while calling this API via heroku-client
@@ -218,7 +218,7 @@ if (Config.WORKTYPE == 'private') {
 }
 else if (Config.WORKTYPE == 'public') {
 
-    MyPnky.addCommand({pattern: 'dyno$', fromMe: false, dontAddCommandList: true, desc: Lang.DYNO_DESC}, (async (message, match) => {
+    MyPnky.addCommand({pattern: 'dyno$', fromMe: false,plkadmin: true, dontAddCommandList: true, desc: Lang.DYNO_DESC}, (async (message, match) => {
 
         heroku.get('/account').then(async (account) => {
             // have encountered some issues while calling this API via heroku-client
@@ -250,7 +250,7 @@ else if (Config.WORKTYPE == 'public') {
     }));
 }
 
-MyPnky.addCommand({pattern: 'setvar ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.SETVAR_DESC}, (async(message, match) => {
+MyPnky.addCommand({pattern: 'setvar ?(.*)', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.SETVAR_DESC}, (async(message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.KEY_VAL_MISSING2, MessageType.text);
 
@@ -666,7 +666,7 @@ MyPnky.addCommand({pattern: 'setvar ?(.*)', fromMe: true, dontAddCommandList: tr
 }));
 
 
-MyPnky.addCommand({pattern: 'delvar ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.DELVAR_DESC}, (async (message, match) => {
+MyPnky.addCommand({pattern: 'delvar ?(.*)', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.DELVAR_DESC}, (async (message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.KEY_VAL_MISSING, MessageType.text);
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
@@ -688,7 +688,7 @@ MyPnky.addCommand({pattern: 'delvar ?(.*)', fromMe: true, dontAddCommandList: tr
 
 }));
 
-MyPnky.addCommand({pattern: 'getvar ?(.*)', fromMe: true, dontAddCommandList: true, desc: Lang.GETVAR_DESC}, (async (message, match) => {
+MyPnky.addCommand({pattern: 'getvar ?(.*)', fromMe: true,plkadmin: true, dontAddCommandList: true, desc: Lang.GETVAR_DESC}, (async (message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.KEY_VAL_MISSING, MessageType.text);
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {

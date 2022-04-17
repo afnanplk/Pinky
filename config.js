@@ -23,6 +23,7 @@ module.exports = {
     STANDPLK: process.env.STANDBY_MODE === undefined ? 'off' : process.env.STANDBY_MODE,
     PM_BLOCK: process.env.PM_BLOCK === undefined ? 'false' : process.env.PM_BLOCK,
     PM_BGM: process.env.BGM_PM === undefined ? 'true' : process.env.BGM_PM,
+    PREFIX: process.env.PREFIX === undefined ? 'true' : process.env.PREFIX,
     PINKY_PM: process.env.PINKY_PM === undefined ? 'true' : process.env.PINKY_PM,
     CB: process.env.CALLER_BLOCK === undefined ? 'false' : process.env.CALLER_BLOCK,
     Z_PINKY_AI: process.env.Z_PINKY_AI === undefined ? 'false' : process.env.Z_PINKY_AI,

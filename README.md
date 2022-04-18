@@ -70,6 +70,8 @@ If Repl.it not working Try Termux for Qr scanning.Just Copy the Link Below in Te
 ```
 bash <(curl -L https://t.ly/tHxh)
 ``` 
+ <br>
+  
 ### ADD YOUR OWN BGM
             - watch yt : https://www.youtube.com/watch?v=0AT-eKsgqbU
             
